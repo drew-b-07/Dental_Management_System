@@ -1,0 +1,162 @@
+:root {
+    --primary-color: #82a4d6; 
+    --secondary-color: #7f9fcb; 
+    --accent-color: #6493c4; 
+    --dark-accent-color: #13407a; 
+    --background-color: #b3c6e0; 
+    --text-color: #333; 
+    --highlight-color: #e4f1ff; 
+    --profile-button-bg: #1d54a6; 
+    --profile-icon-size: 40px; 
+    --font-family: 'Montserrat', sans-serif; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Apply background color and font family to the page */
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    /* Header background styling and padding */
+    background-color: var(--primary-color);
+    padding: 1em 0;
+}
+
+header nav {
+    /* Layout for header navigation, centered and spaced items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-left {
+    /* Navigation items aligned with spacing */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav h1 {
+    /* Main title in the header, white color */
+    color: #fff;
+    font-size: 1.5em;
+}
+
+header nav ul {
+    /* Flexbox layout for navigation list */
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    /* Spacing between list items */
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    /* Link styling for header navigation */
+    color: #fff;
+    text-decoration: none; 
+    font-weight: bold;
+}
+
+header nav ul li a.active {
+    /* Styling for active navigation link */
+    text-decoration: none; 
+}
+
+.profile-icon-button {
+    /* Style for profile icon button */
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.profile-icon {
+    /* Size of the profile icon */
+    width: var(--profile-icon-size);
+    height: var(--profile-icon-size);
+}
+
+/* Intro Section */
+.intro {
+    /* Intro section background and center alignment */
+    text-align: center;
+    padding: 2em;
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.intro h2 {
+    /* Intro section title styling */
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+}
+
+.intro p {
+    /* Intro section paragraph styling */
+    margin-bottom: 1.5em;
+}
+
+.intro .images {
+    /* Flexbox layout for images in the intro section */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.intro .images img {
+    /* Image styling within intro section */
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Services Section */
+.services {
+    /* Layout for the services section, centers items with spacing */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 2em;
+}
+
+.service {
+    /* Styling for individual service cards */
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 1.5em;
+    border-radius: 10px;
+    width: 200px;
+}
+
+.service img {
+    /* Image within each service card */
+    width: 150px;
+    margin-bottom: 1em;
+}
+
+.service h3 {
+    /* Service card title styling */
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+}
+
+.service p {
+    /* Service card description styling */
+    color: var(--highlight-color);
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
