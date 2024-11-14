@@ -1,0 +1,228 @@
+:root {
+    --primary-color: #82a4d6;
+    --secondary-color: #7f9fcb;
+    --background-color: #b3c6e0;
+    --text-color: #333;
+    --accent-color: #649CB2;
+    --highlight-color: #ffffff; 
+    --font-family: 'Montserrat', sans-serif;
+    --profile-icon-size: 30px; /* Size of profile icon */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Apply font and background color to the body */
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Header and Navigation Styles */
+header {
+    /* Background color and padding for the header */
+    background-color: var(--primary-color);
+    padding: 1em 0;
+}
+
+header nav {
+    /* Flexbox layout to align nav content and center items */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-left {
+    /* Align items and add spacing */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav h1 {
+    /* Styling for the main header text */
+    color: #fff;
+    font-size: 1.5em;
+}
+
+header nav ul {
+    /* Flexbox layout for navigation links and removing list style */
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    /* Add spacing between navigation links */
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    /* Link styling for navigation links */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a.active {
+    /* Active state styling for the links */
+    color: #fff; 
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.profile-icon-button {
+    /* Styling for profile icon button */
+    display: inline-block;
+    cursor: pointer;
+}
+
+.profile-icon {
+    /* Set size for the profile icon */
+    width: var(--profile-icon-size);
+    height: var(--profile-icon-size);
+}
+
+/* Section Titles */
+.section-title {
+    /* Styling for section title headings */
+    text-align: center;
+    font-size: 2em;
+    margin: 1.5em 0;
+}
+
+.service-content, .contact-content, .about-content {
+    /* Padding and center text for content sections */
+    padding: 2em;
+    text-align: center;
+}
+
+/* About Content Section */
+.about-content {
+    /* Center the about content with max-width and padding */
+    padding: 2em;
+    max-width: 800px;
+    margin: 2em auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+    /* Styling for about section heading */
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.about-content p {
+    /* Styling for paragraphs in about section */
+    color: var(--text-color);
+    font-size: 1em;
+    margin-bottom: 1em;
+}
+
+/* Clinic Information */
+.clinic-info {
+    /* Margin for spacing above clinic info */
+    margin-top: 2em;
+}
+
+.clinic-info h3 {
+    /* Styling for clinic section subheading */
+    font-size: 1.5em;
+    color: var(--accent-color);
+    margin-top: 1em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.clinic-info p {
+    /* Styling for paragraphs within clinic info */
+    margin: 0.5em 0;
+    color: var(--text-color);
+}
+
+.clinic-info p strong {
+    /* Highlighting key text in clinic info */
+    color: var(--primary-color);
+}
+
+/* Facebook Link Styling */
+.clinic-info a {
+    /* Styling for Facebook link button */
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5em 1em;
+    background-color: var(--accent-color);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.clinic-info a:hover {
+    /* Hover effect for Facebook link */
+    background-color: var(--secondary-color);
+}
+
+/* Services Section */
+.service-list {
+    /* Center services list and add spacing */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.service-item {
+    /* Individual service box styling */
+    background-color: var(--secondary-color);
+    padding: 1.5em;
+    border-radius: 10px;
+    width: 200px;
+    color: white;
+}
+
+/* Contact Form */
+.contact-form {
+    /* Form layout and center alignment */
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.contact-form label {
+    /* Label styling in the contact form */
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.contact-form input, .contact-form textarea {
+    /* Input and textarea styling */
+    padding: 0.8em;
+    border: 1px solid var(--primary-color);
+    border-radius: 5px;
+}
+
+.contact-form button {
+    /* Button styling in contact form */
+    padding: 0.8em;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    /* Hover effect for form button */
+    background-color: var(--accent-color);
+}
