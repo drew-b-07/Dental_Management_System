@@ -4,54 +4,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="/DENTALLOGIN/css/style.css">
-    <link rel="icon" href="/DENTALLOGIN/src/img/dental-logo.png">
     <title>Modern Login Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/DENTALLOGIN/css/style.css">
 </head>
 
 <body>
-    <header>
-        
-    </header>
-    <main>
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>Create Account</h1>
-
-                <span>or use your email for registration</span>
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
-                <input type="email" placeholder="Email:">
-                <input type="password" placeholder="Password:">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
+    <div class="container">
+        <!-- Toggle Section -->
         <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details here</p>
-                    <button class="hidden" id="login">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register Here</p>
-                    <button class="hidden" id="register">Sign Up</button>
-                </div>
+            <h1 id="toggle-header">Hello, Friend!</h1>
+            <button onclick="showSignIn()">Login</button>
+            <button onclick="showSignUp()">Create Account</button>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div class="form-container" id="signUpForm" aria-hidden="true">
+            <form>
+                <h1>Create Your Account</h1>
+                <label for="name-signup">Full Name</label>
+                <input id="name-signup" type="text" placeholder="Full Name" required>
+                <label for="email-signup">Email Address</label>
+                <input id="email-signup" type="email" placeholder="Email Address" required>
+                <label for="username-signup">Username</label>
+                <input id="username-signup" type="text" placeholder="Username" required>
+                <label for="password-signup">Create Password</label>
+                <input id="password-signup" type="password" placeholder="Create Password" required>
+                <label for="confirm-password-signup">Confirm Password</label>
+                <input id="confirm-password-signup" type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="link-container">
+                <p>Already have an account? <a href="#" onclick="showSignIn()">Login here</a></p>
             </div>
         </div>
-    </div>
-</main>
+        
+        <!-- Sign In Form -->
+        <div class="form-container" id="signInForm" aria-hidden="false">
+            <form>
+                <h1>Login to Your Account</h1>
+                <label for="email-signin">Email Address</label>
+                <input id="email-signin" type="email" placeholder="Email Address" required>
+                <label for="password-signin">Password</label>
+                <input id="password-signin" type="password" placeholder="Password" required>
+                <button type="submit">Sign In</button>
+                <div class="link-container">
+                    <a href="#" onclick="showForgotPassword()">Forgot Password</a>
+                    <div class="link-divider"></div>
+                    <a href="#" onclick="showSignUp()">Sign Up</a>
+                </div>
+            </form>
+        </div>
+        
+        <!-- Forgot Password Form -->
+        <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
+            <form>
+                <h1>Forgot Password</h1>
+                <label for="email-forgot">Enter your email</label>
+                <input id="email-forgot" type="email" placeholder="Enter your email" required>
+                <button type="submit">Enter</button>
+            </form>
+        </div>
 
     <script src="/DENTALLOGIN/script.js"></script>
 </body>
