@@ -1,5 +1,7 @@
 <?php 
 require_once 'authentication/admin-class.php';
+require_once __DIR__."/../../config/settings-configuration.php";
+
 
 $admin = new ADMIN();
 if(!$admin->isUserLoggedIn())

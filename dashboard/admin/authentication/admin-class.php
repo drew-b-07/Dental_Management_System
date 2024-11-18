@@ -119,8 +119,6 @@ class ADMIN
         if ($otp == $_SESSION['OTP']) {
             unset($_SESSION['OTP']);
 
-           
-
             $subject = "VERIFICATION SUCCESS";
             $message = "
             <!DOCTYPE html>
@@ -179,7 +177,7 @@ class ADMIN
             </html>";
 
             $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
-            echo "<script>alert('Verification successful! Thank you for verifying your email.'); window.location.href = '../../../../';</script>";
+            echo "<script>alert('Verification successful! Thank you for verifying your email.'); window.location.href = '../../../';</script>";
 
             unset($_SESSION['not_verify_username']);
             unset($_SESSION['not_verify_email']);
@@ -355,7 +353,7 @@ class ADMIN
             ":email" => $email
         ));
 
-        $resetLink = "http://localhost/ITELEC2-Siervo-Mangiliman-main/reset-password.php?user_id=$user_id&token=" . $token;
+        $resetLink = "http://localhost/Finals-Dental-Clinic/reset-password.php?id=$user_id&tokencode=$token";
         
         $subject = "Password Reset Request";
         $message = "<html><body><p>Password reset link: <a href='$resetLink'>Reset Password</a></p></body></html>";

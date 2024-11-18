@@ -1,10 +1,10 @@
 <?php
 
 require_once __DIR__ ."/database/dbconnection.php";
-include_once __DIR__ . "/config/settings-configuration.php";
+require_once __DIR__ . "/config/settings-configuration.php";
 
-if(!isset($_GET['token'])){
-    echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
+if(!isset($_GET['tokencode'])){
+    echo "<script>alert('No token provided.'); window.location.href = 'home.php';</script>";
     exit;
 }
 
@@ -19,11 +19,13 @@ if($stmt->rowCount() == 0) {
 
 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if($_GET['tokencode'] != $admin['tokencode']) {
-    echo "<script>alert('Invalid Tokencode'); window.location.href = 'forgot-password.php'";
-    exit();
-}
-$token = $_GET['token'];
+// if($_GET['tokencode'] !== $admin['tokencode']) {
+//     // echo "<script>alert('Invalid Tokencode'); window.location.href = 'forgot-password.php'";
+//     // exit();
+//     echo "HA?";
+// }
+
+$token = $_GET['tokencode'];
 
 ?>
 

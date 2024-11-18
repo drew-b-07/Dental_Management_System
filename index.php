@@ -2,7 +2,7 @@
 include_once 'config/settings-configuration.php';
 
 if(isset($_SESSION["adminSession"])) {
-    echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/index.php';</script>";
+    echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/home.php';</script>";
     exit;
 }
 ?>

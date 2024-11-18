@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+require_once __DIR__."/../../config/settings-configuration.php";
 
 if(!isset($_SESSION["adminSession"])) {
     echo "<script>alert('admin is not log in.'); window.location.href = '../../index.php';</script>";
