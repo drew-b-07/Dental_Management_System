@@ -1,0 +1,149 @@
+:root {
+    --primary-color: #82a4d6;
+    --secondary-color: #7f9fcb;
+    --accent-color: #6493c4;
+    --dark-accent-color: #13407a;
+    --background-color: #b3c6e0;
+    --text-color: #333;
+    --highlight-color: #e4f1ff;
+    --profile-button-bg: #1d54a6;
+    --profile-icon-size: 40px;
+    --font-family: 'Montserrat', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    padding: 1em 0;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header nav h1 {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+header nav ul {
+    display: flex;
+    list-style-type: none;
+}
+
+header nav ul li {
+    margin: 0 15px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none; 
+    font-weight: bold;
+}
+
+header nav ul li a.active {
+    text-decoration: none; 
+}
+
+
+.profile-icon-button {
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none; 
+}
+
+.profile-icon {
+    width: var(--profile-icon-size);
+    height: var(--profile-icon-size);
+}
+
+
+.intro {
+    text-align: center;
+    padding: 2em;
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.intro h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    text-decoration: none; 
+}
+
+.intro p {
+    margin-bottom: 1.5em;
+    text-decoration: none; 
+}
+
+.intro .images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.intro .images img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    text-decoration: none; 
+}
+
+
+.services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 2em;
+}
+
+.service {
+    text-align: center;
+    background-color: var(--secondary-color);
+    padding: 1.5em;
+    border-radius: 10px;
+    width: 200px;
+    text-decoration: none; 
+}
+
+.service img {
+    width: 150px;
+    margin-bottom: 1em;
+    text-decoration: none; 
+}
+
+.service h3 {
+    color: #fff;
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    text-decoration: none; 
+}
+
+.service p {
+    color: var(--highlight-color);
+    font-size: 0.9em;
+    line-height: 1.4em;
+    text-decoration: none; 
+}
