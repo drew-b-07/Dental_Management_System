@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ ."/database/dbconnection.php";
+
 session_start();
 
 if (empty($_SESSION['csrf_token'])) {
@@ -11,6 +13,23 @@ if(!isset($_GET['token'])){
     exit;
 }
 
+$db = new Database();
+$pdo = $db->dbConnection();
+$stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
+$stmt->execute([":id" => $_GET['id']]);
+if($stmt->rowCount() == 0) {
+    // Gawa ka error pop up.
+    // Redirect sa Forgot Pass.
+    exit();
+}
+
+$admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if($_GET['tokencode'] != $admin['tokencode']) {
+    // Gawa ka error message.
+    // Redirect sa Forgot Pass.
+    exit();
+}
 $token = $_GET['token'];
 
 // Optionally, verify the token's existence and validity before showing the form
