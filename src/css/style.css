@@ -5,7 +5,7 @@ body {
     min-height: 100vh;
     font-family: 'Jost' , sans-serif;
     text-align: center;
-    background-color: rgb(125, 177, 177);
+    background-color: #79b0c6;
 }
 
 .main{
@@ -68,18 +68,6 @@ button:hover{
     background: #777575;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
 .container {
     background: #ffffff;
     border-radius: 10px;
@@ -117,4 +105,44 @@ body {
 
 .container button:hover {
     background: #45a049;
+}
+
+.container input[type="email"] {
+    width: 100%; 
+    padding: 12px; 
+    margin: 10px 0; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+    box-sizing: border-box; 
+}
+
+.container input[type="email"]:focus {
+    border-color: #4caf50; 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
+}
+.container button {
+    width: 100%; 
+    padding: 12px; 
+    margin-top: 15px; 
+    background: #4caf50; 
+    color: white; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 16px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: background 0.3s, transform 0.2s; 
+    box-sizing: border-box; 
+}
+.container button:hover {
+    background: #45a049; 
+    transform: scale(1.02);
+}
+
+.container button:active {
+    background: #3d8c42; 
+    transform: scale(0.98); 
 }

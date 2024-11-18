@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// Generate CSRF token if not set
-if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+if(isset($_SESSION["adminSession"])) {
+    echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/index.php';</script>";
+    exit;
 }
 ?>
 
@@ -20,7 +20,7 @@ if (empty($_SESSION['csrf_token'])) {
         <form method="POST" action="dashboard/admin/authentication/admin-class.php">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <label for="email">Enter your registered email:</label>
-            <input type="email" name="email" required>
+            <input class="email" type="email" name="email" required>
             <button type="submit" name="btn-forgot-password">Send Reset Link</button>
         </form>
 

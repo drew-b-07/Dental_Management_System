@@ -191,7 +191,7 @@ class ADMIN
             echo "<script>alert('No OTP Found'); window.location.href = '../../../verify-otp.php';</script>";
             exit;
         } else {
-            echo "<script>alert('It appears that the OTP you entered is invalid'); window.location.href = '../../../../verify-otp.php';</script>";
+            echo "<script>alert('It appears that the OTP you entered is invalid'); window.location.href = '../../../verify-otp.php';</script>";
             exit;
         }
     }
@@ -257,7 +257,7 @@ class ADMIN
 
                         $_SESSION['adminSession'] = $user_id;
 
-                        echo "<script>alert('Welcome!'); window.location.href = '../';</script>";
+                        echo "<script>alert('Welcome!'); window.location.href = '../home.php';</script>";
                         exit;
                     } else {
                         echo "<script>alert('Password is incorrect'); window.location.href = '../../../';</script>";

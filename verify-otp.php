@@ -1,5 +1,10 @@
 <?php
 include_once 'config/settings-configuration.php';
+
+if (!isset($_SESSION['is_registered']) || $_SESSION['is_registered'] !== true) {
+    echo "<script>alert('No account registered yet.'); window.location.href = './index.php';</script>";
+    exit();
+}
 ?>
 
 <!DOCTYPE html>

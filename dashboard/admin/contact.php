@@ -1,10 +1,18 @@
+<?php
+session_start();
+
+if(!isset($_SESSION["adminSession"])) {
+    echo "<script>alert('admin is not log in.'); window.location.href = '../../index.php';</script>";
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Dental Care</title>
-    <link rel="stylesheet" href="src/css/allpages.css">
+    <link rel="stylesheet" href="../../src/css/allpages.css">
 </head>
 <body>
     <header>
@@ -13,13 +21,14 @@
                 <h1>Dental Care</h1>
             </div>
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="service.html">Service</a></li>
+                <li><a href="./home.php">Home</a></li>
+                <li><a href="./service.php">Service</a></li>
                 <li><a href="#">Contact</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="profile.html">
+                <li><a href="./about.php">About Us</a></li>
+                <li><a href="#" onclick="logout()">Logout</a></li>
+                <li><a href="./profile.php">
                         <div class="profile-icon-button">
-                            <img src="src/img/profile.jpg" class="profile-icon">
+                            <img src="../../src/img/profile.jpg" class="profile-icon">
                         </div>
                     </a>
                 </li>
@@ -43,5 +52,7 @@
 
         <button type="submit">Send Message</button> 
     </section>
+    <script src="../../src/js/popup-logout.js"></script>
+
 </body>
 </html>

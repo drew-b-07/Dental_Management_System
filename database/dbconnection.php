@@ -31,7 +31,7 @@ class Database
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            // Automatically activate users upon successful connection
+            
             $this->activateUsers();
 
         } catch(PDOException $exception) {
@@ -41,7 +41,6 @@ class Database
         return $this->conn;
     }
 
-    // New function to activate users
     private function activateUsers()
     {
         $query = "UPDATE user SET status = 'active' WHERE status = 'not active'";
