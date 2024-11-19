@@ -12,7 +12,8 @@ if(isset($_SESSION["adminSession"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dental Care | Login and Registration</title>
+    <link rel="icon" type="image/png" href="src/img/logo1.png">
     <link rel="stylesheet" href="./src/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 </head>
