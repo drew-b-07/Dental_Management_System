@@ -18,11 +18,10 @@ if(isset($_SESSION["adminSession"])) {
 </head>
 <body>
     <div class="container">
-        <h2>Forgot Password</h2>
         <form method="POST" action="dashboard/admin/authentication/admin-class.php">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
-            <label for="email">Enter your registered email:</label>
-            <input class="email" type="email" name="email" required>
+            <h2>Forgot Password</h2>
+            <input class="email" type="email" name="email" required placeholder="Enter Registered Email">
             <button type="submit" name="btn-forgot-password">Send Reset Link</button>
         </form>
 

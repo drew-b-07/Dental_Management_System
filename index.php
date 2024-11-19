@@ -19,27 +19,35 @@ if(isset($_SESSION["adminSession"])) {
 </head>
 <body>
 
-<div class="main">
+<body>
+    <!-- Logo Container -->
+    <div class="logo-container">
+        <img class="landing-logo" src="src/img/logo1.png" alt="logo">
+    </div>
 
-    <h1>SIGN IN</h1>
-    <form action="dashboard/admin/authentication/admin-class.php" method="POST">
-        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
-        <input type="email" name="email" placeholder="Enter Email" required><br>
-        <input type="password" name="password" placeholder="Enter Password" required><br>
-        <button type="submit" name="btn-signin">SIGN IN</button>
-        <p><a href="forgot-password.php">Forgot Password?</a></p>
-    </form>
+    <!-- Main Container for Sign In and Sign Up -->
+    <div class="auth-container">
+        <div class="container-sign-in">
+            <h1>SIGN IN</h1>
+            <form action="dashboard/admin/authentication/admin-class.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
+                <input type="email" name="email" placeholder="Enter Email" required><br>
+                <input type="password" name="password" placeholder="Enter Password" required><br>
+                <button type="submit" name="btn-signin">SIGN IN</button>
+                <p><a href="forgot-password.php">Forgot Password?</a></p>
+            </form>
+        </div>
 
-    <h1>REGISTRATION</h1>
-    <form action="dashboard/admin/authentication/admin-class.php" method="POST">
-        <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
-        <input type="text" name="username" placeholder="Enter Username" required><br>
-        <input type="email" name="email" placeholder="Enter Email" required><br>
-        <input type="password" name="password" placeholder="Enter Password" required><br>
-        <button type="submit" name="btn-signup">SIGN UP</button>
-    </form>
-
-</div>
-
+        <div class="container-sign-up">
+            <h1>REGISTRATION</h1>
+            <form action="dashboard/admin/authentication/admin-class.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
+                <input type="text" name="username" placeholder="Enter Username" required><br>
+                <input type="email" name="email" placeholder="Enter Email" required><br>
+                <input type="password" name="password" placeholder="Enter Password" required><br>
+                <button type="submit" name="btn-signup">SIGN UP</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
