@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient's Profile</title>
     <link rel="stylesheet" href="../../src/css/profile.css">
+    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
 </head>
 <body>
     <div class="profile-container">
@@ -47,7 +48,7 @@
                 <input type="text" name="contact" required>
             </div>
             <button type="submit" class="submit-button">Submit</button>
-            <button type="button" onclick="window.location.href='index.html'" class="back-button">Back</button>
+            <button type="button" onclick="window.location.href='home.php'" class="back-button">Back</button>
         </form>
     </div>
 </body>

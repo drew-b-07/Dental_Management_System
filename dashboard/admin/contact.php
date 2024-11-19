@@ -12,8 +12,9 @@ if(!isset($_SESSION["adminSession"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Dental Care</title>
+    <title>Dental Care | Contact</title>
     <link rel="stylesheet" href="../../src/css/allpages.css">
+    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
 </head>
 <body>
     <header>

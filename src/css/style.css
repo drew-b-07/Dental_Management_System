@@ -123,6 +123,24 @@ button:hover{
     border-color: #4caf50; 
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); 
 }
+
+input[name="new_password"] {
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    padding: 12px; 
+    font-size: 16px; 
+    outline: none; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+    width: 100%; 
+    margin-bottom: 15px; 
+    box-sizing: border-box;
+}
+
+input[name="new_password"]:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
 .container button {
     width: 100%; 
     padding: 12px; 

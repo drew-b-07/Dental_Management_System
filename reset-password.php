@@ -34,6 +34,7 @@ $token = $_GET['tokencode'];
 <head>
     <meta charset="UTF-8">
     <title>Reset Password</title>
+    <link rel="icon" type="image/png" href="src/img/logo1.png">
     <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
@@ -42,7 +43,7 @@ $token = $_GET['tokencode'];
         <form method="POST" action="dashboard/admin/authentication/admin-class.php">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
-            <label for="new_password">Enter your new password:</label>
+            <label for="new_password">Enter your new password</label><br>
             <input type="password" name="new_password" required>
             <button type="submit" name="btn-reset-password">Reset Password</button>
         </form>
