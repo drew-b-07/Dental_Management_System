@@ -5,7 +5,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #0c5642;
+    background-color: #649cb2;
     font-family: 'Jost', sans-serif;
 }
 
@@ -72,9 +72,9 @@ button:hover {
 }
 
 .container-sign-in, .container-sign-up {
-    background-color: #8bf31c;
+    background-color: #ccd9e6;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgb(0, 255, 76);
+    box-shadow: 0 4px 6px rgb(4, 89, 226);
     padding: 40px;
     width: 250px;
     text-align: center;
