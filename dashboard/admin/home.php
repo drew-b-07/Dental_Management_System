@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-
 if(!isset($_SESSION["adminSession"])) {
     echo "<script>alert('admin is not log in.'); window.location.href = '../../index.php';</script>";
     exit;
@@ -24,13 +23,13 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="service.php">Service</a></li>
-                <li><a href="contact.php">Contact</a></li>
+                <li><a href="service.php">Services</a></li>
+                <li><a href="appointment.php">Appointment</a></li> <!-- Changed Contact to Appointment -->
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
                 <li><a href="profile.php">
                     <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" alt=" "class="profile-icon">
+                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
                     </div>
                 </a></li>
             </ul>
@@ -48,6 +47,11 @@ if(!isset($_SESSION["adminSession"])) {
             <img src="../../src/img/page5.jpg" alt=" ">
         </div>
     </section>
+
+    <!-- New Appointment Button -->
+    <div class="appointment-section">
+        <button onclick="window.location.href='appointment.php'" class="appointment-button">Make an Appointment</button>
+    </div>
 
     <section class="services" id="services">
         <div class="service">
