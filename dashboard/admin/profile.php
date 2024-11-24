@@ -43,11 +43,7 @@
                 <label>Age:</label>
                 <input type="number" name="age" required>
             </div>
-            <div class="form-group">
-                <label>Contact:</label>
-                <input type="text" name="contact" required>
-            </div>
-            <button type="submit" class="submit-button">Submit</button>
+            <button type="submit" class="submit-button">Edit Profile</button>
             <button type="button" onclick="window.location.href='home.php'" class="back-button">Back</button>
         </form>
     </div>

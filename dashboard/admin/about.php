@@ -23,7 +23,6 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="./home.php">Home</a></li>
-                <li><a href="./service.php">Services</a></li>
                 <li><a href="./appointment.php">Appointment</a></li>
                 <li><a href="#" >About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
