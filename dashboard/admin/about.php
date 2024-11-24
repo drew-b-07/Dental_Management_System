@@ -2,7 +2,7 @@
 require_once __DIR__."/../../config/settings-configuration.php";
 
 if(!isset($_SESSION["adminSession"])) {
-    echo "<script>alert('admin is not log in.'); window.location.href = '../../index.php';</script>";
+    echo "<script>alert('admin is not logged in.'); window.location.href = '../../index.php';</script>";
     exit;
 }
 ?>
@@ -23,8 +23,7 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="./home.php">Home</a></li>
-                <li><a href="./service.php">Service</a></li>
-                <li><a href="./contact.php">Contact</a></li>
+                <li><a href="./appointment.php">Appointment</a></li>
                 <li><a href="#" >About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
                 <li><a href="./profile.php">
@@ -38,29 +37,36 @@ if(!isset($_SESSION["adminSession"])) {
 
     <section class="about-content">
         <h2>About Us</h2>
-        <p>We are a team of dedicated dental professionals committed to providing top-quality care.</p>
-        <p>With years of experience and a focus on patient satisfaction, our goal is to help you achieve a healthy, beautiful smile.</p>
-
+        <p>Welcome to Dental Care, a cutting-edge Dental Care Management System designed to streamline operations for dental practices, enhance patient care, and optimize workflow efficiency.</p>
+        <p>Our mission is to empower dental professionals with intuitive tools that simplify practice management, improve patient engagement, and deliver exceptional care with ease.</p>
 
         <div class="clinic-info">
             <h3>Our Clinic</h3>
             <p><strong>Clinic Name:</strong> Dental Care</p>
-            <p><strong>Location:</strong> 123 Dental Street, Suite 45, lalam tete</p>
+            <p><strong>Location:</strong> 123 Smile Avenue, Makati City, 1200, Metro Manila, Philippines</p>
             <p><strong>Phone Number:</strong> 09234534581</p>
             
             <h3>Our Team</h3>
-            <p><strong>Head Dentist:</strong> Dr. Sarah Johnson, DDS</p>
-            <p><strong>Dental Assistant:</strong> Emily Clark</p>
+            <div class="team-members">
+                <div class="team-member">
+                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Head Dentist:</strong> Dr. Johnson, DDS</p>
+                </div>
+                <div class="team-member">
+                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                </div>
+            </div>
             
-            <h3>Follow Us</h3>
+            <h3>Location</h3>
             <p>
-                <a href="DentalCare" target="_blank">
-                    Like us on Facebook
+                <a href="https://www.google.com.ph/maps/search/Metro+Manila+dentist/@14.5514664,120.993267,14z?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+                    Google Map
                 </a>
             </p>
         </div>
     </section>
-    <script src="../../src/js/popup-logout.js"></script>
 
+    <script src="../../src/js/popup-logout.js"></script>
 </body>
 </html>

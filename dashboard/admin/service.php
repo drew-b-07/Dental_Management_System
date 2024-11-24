@@ -11,7 +11,7 @@ if(!isset($_SESSION["adminSession"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dental Care | Service</title>
+    <title>Dental Care | Services</title>
     <link rel="stylesheet" href="../../src/css/allpages.css">
     <link rel="icon" type="image/png" href="../../src/img/logo1.png">
 </head>
@@ -23,8 +23,8 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="./home.php">Home</a></li>
-                <li><a href="#">Service</a></li>
-                <li><a href="./contact.php">Contact</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="./appointment.php">Appointment</a></li>
                 <li><a href="./about.php">About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
                 <li><a href="./profile.php">

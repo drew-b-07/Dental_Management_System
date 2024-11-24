@@ -114,9 +114,19 @@ header nav ul li a.active {
 
 .services {
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     gap: 30px;
-    padding: 2em;
+    padding: 20px;
+}
+
+.services h2 {
+    margin-bottom: 10px; 
+
+}
+
+.services p {
+  
+    margin-top: 0; 
 }
 
 .service {
@@ -127,6 +137,7 @@ header nav ul li a.active {
     width: 200px;
     text-decoration: none; 
 }
+
 
 .service img {
     width: 150px;
@@ -146,4 +157,24 @@ header nav ul li a.active {
     font-size: 0.9em;
     line-height: 1.4em;
     text-decoration: none; 
+}
+
+.appointment-section {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.appointment-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.appointment-button:hover {
+    background-color: #0056b3;
 }
