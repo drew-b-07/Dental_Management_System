@@ -160,8 +160,11 @@ header nav ul li a.active {
 }
 
 .appointment-section {
-    text-align: center;
-    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 98vw;
 }
 
 .appointment-button {

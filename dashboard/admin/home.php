@@ -23,7 +23,7 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="appointment.php">Appointment</a></li> <!-- Changed Contact to Appointment -->
+                <li><a href="appointment.php">Appointment</a></li>
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
                 <li><a href="profile.php">
