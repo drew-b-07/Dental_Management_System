@@ -23,7 +23,6 @@ if(!isset($_SESSION["adminSession"])) {
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
-                <li><a href="service.php">Services</a></li>
                 <li><a href="appointment.php">Appointment</a></li> <!-- Changed Contact to Appointment -->
                 <li><a href="about.php">About Us</a></li>
                 <li><a href="#" onclick="logout()">Logout</a></li>
@@ -52,6 +51,14 @@ if(!isset($_SESSION["adminSession"])) {
     <div class="appointment-section">
         <button onclick="window.location.href='appointment.php'" class="appointment-button">Make an Appointment</button>
     </div>
+     
+    <section class="services"> 
+    <h2>Our Services</h2><br>
+    </section>
+
+    <section class="services"> 
+    <p>Focus on services that patients commonly seek or those that set your clinic apart, such as:</p>
+    </section>
 
     <section class="services" id="services">
         <div class="service">
