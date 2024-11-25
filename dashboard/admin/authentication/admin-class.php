@@ -255,7 +255,7 @@ class ADMIN
 
                         $_SESSION['adminSession'] = $user_id;
 
-                        echo "<script>alert('Welcome!'); window.location.href = '../home.php';</script>";
+                        echo "<script>alert('Welcome Admin!'); window.location.href = '../../../home.php';</script>";
                         exit;
                     } else {
                         echo "<script>alert('Password is incorrect'); window.location.href = '../../../';</script>";

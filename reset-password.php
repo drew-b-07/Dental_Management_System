@@ -40,7 +40,7 @@ $token = $_GET['tokencode'];
 <body>
     <div class="container">
         <h2>Reset Password</h2>
-        <form method="POST" action="dashboard/admin/authentication/admin-class.php">
+        <form method="POST" action="dashboard_user/user/authentication_user/user-class.php">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <input type="hidden" name="token" value="<?php echo htmlspecialchars($token); ?>">
             <label for="new_password">Enter your new password</label><br>

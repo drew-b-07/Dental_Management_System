@@ -1,10 +1,11 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["adminSession"])) {
-    echo "<script>alert('admin is not logged in.'); window.location.href = '../../index.php';</script>";
-    exit;
-}
+// if(!isset($_SESSION["adminSession"])) {
+//     echo "<script>alert('admin is not logged in.'); window.location.href = '../../index.php';</script>";
+//     exit;
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

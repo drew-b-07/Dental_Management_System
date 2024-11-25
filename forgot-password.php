@@ -2,10 +2,10 @@
 
 require_once __DIR__."/config/settings-configuration.php";
 
-if(isset($_SESSION["adminSession"])) {
-    echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/home.php';</script>";
-    exit;
-}
+// if(isset($_SESSION["adminSession"])) {
+//     echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/home.php';</script>";
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ if(isset($_SESSION["adminSession"])) {
 </head>
 <body>
     <div class="container">
-        <form method="POST" action="dashboard/admin/authentication/admin-class.php">
+        <form method="POST" action="dashboard_user/user/authentication_user/user-class.php">
             <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             <h2>Forgot Password</h2>
             <input class="email" type="email" name="email" required placeholder="Enter Registered Email">
