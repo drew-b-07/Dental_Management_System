@@ -4,6 +4,8 @@ require_once __DIR__.'/../../../config/settings-configuration.php';
 require_once __DIR__.'/../../../src/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 class USER{
     private $conn;
@@ -32,10 +34,100 @@ class USER{
         $mail->addAddress($email);
         $mail->Username = $smtp_email;
         $mail->Password = $smtp_password;
-        $mail->setFrom($smtp_email, "Joanna");
+        $mail->setFrom($smtp_email, "Dental Care Clinic");
         $mail->Subject = $subject;
         $mail->msgHTML($message);
         $mail->Send();
+    }
+
+    public function userOTP($otp, $email)
+    {
+        if($email == NULL){
+            echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
+            exit;
+        } else{
+            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
+            $stmt->execute(array (":email" => $email));
+            $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if($stmt->rowCount() > 0){
+                echo "<script>alert('Email already taken. Please try another one'); window.location.href = '../../../';</script>";
+            exit;
+            }else{
+                $_SESSION['OTP'] = $otp;
+
+                $subject = "OTP VERIFICATION";
+                $message = "
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset='UTF-8'>
+                    <title>OTP Verification</title>
+                    <style>
+                        body {
+                            font-family: Arial, sans-serif;
+                            background-color:#f5f5f5;
+                            margin: 0;
+                            padding: 0;
+                        }
+
+                        .container {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            padding: 30px;
+                            background-color: #ffffff;
+                            border-radius: 4px;
+                            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                        }
+
+                        h1{
+                            color:#333333;
+                            font-size: 24px;
+                            margin-bottom: 20px;
+                        }
+
+                        p {
+                            color: #666666;
+                            font-size: 16px;
+                            margin-bottom: 10px;
+                        }
+
+                        .button {
+                            display: inline-block;
+                            padding: 12px 24px;
+                            background-color: #0088cc;
+                            color: #ffffff;
+                            text-decoration: none;
+                            border-radius: 4px;
+                            font-size: 16px;
+                            margin-top: 20px;
+                        }
+
+                        .logo {
+                            display: block;
+                            text-align:  center;
+                            margin-bottom: 30px;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class='container'>
+                        <div class='logo'>
+                            <img src='cid:logo' alt='Logo' width='150'>
+                        </div>
+                        <h1>OTP Verification</h1>
+                        <p>Hello, $email</p>
+                        <p>Your OTP is: $otp</p>
+                        <p>If you didn't request an OTP, please ignore this email.</p>
+                        <p>Thank you!</p>
+                    </div>
+                </body>
+                </html>";
+
+                $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
+                echo "<script>alert('We sent the OTP to $email'); window.location.href = '../../../verify-otp.php';</script>";
+            }
+        }
     }
 
     public function verifyUser($username, $email, $password, $tokencode, $otp, $csrf_token)
@@ -150,7 +242,7 @@ class USER{
             ':status' => 'active'
             ]);
 
-            echo "<script>alert('Sign up successful! You can now log in.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('Sign up successful! Check your $email inbox.'); window.location.href = '../../../verify-otp.php';</script>";
             exit;
 
 
@@ -254,13 +346,15 @@ class USER{
 //Handling variables
     if (isset($_POST['btn-user-signup'])) 
     {
-        $username = trim($_POST['username']);
+        $_SESSION['not_verify_username'] = trim($_POST['username']);
+        $_SESSION['not_verify_email'] = trim($_POST['email']);
+        $_SESSION['not_verify_password'] = trim($_POST['password']);
+    
         $email = trim($_POST['email']);
-        $password = trim($_POST['password']);
-        $csrf_token = trim($_POST['csrf_token']);
+        $otp = rand(100000, 999999);
     
         $user = new USER();
-        $user->userSignup($username, $email, $password, $csrf_token);
+        $user->userOTP($otp, $email);
     }
     
     if (isset($_POST['btn-user-signin'])) 
