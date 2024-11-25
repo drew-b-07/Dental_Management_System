@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modern Login Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="/DENTALLOGIN/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
     <div class="container">
         <!-- Toggle Section -->
         <div class="toggle-container">
-            <img src="/DENTALLOGIN/src/img/dental-logo.png" alt="Dental Care Logo" id="logo" class="logo">
+            <img src="./src/img/dental-logo.png" alt="Dental Care Logo" id="logo" class="logo">
             <h1 id="toggle-header">Hello, Friend!</h1>
             <button onclick="showSignIn()">Login</button>
             <button onclick="showSignUp()">Create Account</button>
@@ -84,7 +84,7 @@
         </div>
     </div>
 
-    <script src="/DENTALLOGIN/script.js"></script>
+    <script src="./src/js/script.js"></script>
 </body>
 
 </html>
