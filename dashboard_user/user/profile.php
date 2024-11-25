@@ -9,7 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient's Profile</title>
     <link rel="stylesheet" href="../../src/css/profile.css">
+<<<<<<< HEAD:dashboard_user/user/profile.php
     <link rel="icon" type="image/png" href="../../src/img/logo1.png">
+=======
+>>>>>>> 41394a98579098a15e8ae4104846212a96f1cf33:dashboard/admin/profile.php
 </head>
 <body>
     <div class="profile-container">
