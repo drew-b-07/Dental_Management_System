@@ -1,18 +1,15 @@
-/* Define root variables */
 :root {
-    --primary-color: #0450ba; /* Primary color for the toggle container */
-    --secondary-color: #6b7cff; /* Button background color */
-    --hover-color: #5a68db; /* Hover color for buttons */
-    --background-color: #E2E2E2; /* Background color of the page */
-    --form-background: #fff; /* Background color of the form container */
-    --button-text-color: white; /* Text color for buttons */
-    --text-color: #606060; /* General text color */
-    --font-family: 'Montserrat', sans-serif; /* Default font family */
-    --form-input-border: #ddd; /* Border color for inputs */
-    --logo-size: 200px; /* Logo width */
-}
+    --primary-color: #0450ba;     
+    --secondary-color: #6b7cff;     
+    --hover-color: #5a68db;     
+    --background-color: #E2E2E2;     
+    --form-background: #fff;     
+    --button-text-color: white;     
+    --text-color: #606060;     
+    --font-family: 'Montserrat', sans-serif;     
+    --form-input-border: #ddd;     
+    --logo-size: 200px; }
 
-/* Reset styles */
 * {
     margin: 0;
     padding: 0;
@@ -20,7 +17,6 @@
     font-family: var(--font-family);
 }
 
-/* Body styling */
 body {
     background-color: var(--background-color);
     display: flex;
@@ -29,7 +25,6 @@ body {
     height: 100vh;
 }
 
-/* Main container styling */
 .container {
     background-color: var(--form-background);
     border-radius: 20px;
@@ -40,7 +35,6 @@ body {
     display: flex;
 }
 
-/* Form container styling */
 .form-container {
     padding: 30px;
     width: 100%;
@@ -68,7 +62,6 @@ body {
     background-color: var(--hover-color);
 }
 
-/* Form and button styling */
 form h1 {
     font-size: 20px;
     margin-bottom: 15px;
@@ -82,7 +75,6 @@ form input {
     border: 1px solid var(--form-input-border);
 }
 
-/* Link container styling */
 .link-container {
     display: flex;
     justify-content: center;
@@ -110,7 +102,6 @@ form input {
     margin: 0 8px;
 }
 
-/* Toggle container styling */
 .toggle-container {
     width: 50%;
     background-color: var(--primary-color);
@@ -122,8 +113,7 @@ form input {
     gap: 10px;
     padding: 30px;
     box-sizing: border-box;
-    padding-top: 80px; /* Added padding above the text for logo space */
-}
+    padding-top: 80px; }
 
 .toggle-container h1 {
     font-size: 24px;
@@ -131,12 +121,9 @@ form input {
     margin-bottom: 15px;
 }
 
-/* Logo Styling */
 .logo {
-    width: var(--logo-size); /* Using logo size variable */
-    height: auto;
-    margin-bottom: 20px; /* Adds space between the logo and text */
-}
+    width: var(--logo-size);     height: auto;
+    margin-bottom: 20px; }
 
 .toggle-container button {
     padding: 8px 16px;
@@ -151,12 +138,10 @@ form input {
     font-size: 14px;
 }
 
-/* Active form visibility */
 .show {
     display: block;
 }
 
-/* Styling the anchor links */
 a {
     color: #4A90E2;
     text-decoration: none;
@@ -178,14 +163,12 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 2; /* Ensure the icon is on top of the input field */
-}
+    z-index: 2; }
 
 .password-container input {
     width: 100%;
     padding: 8px 10px;
-    padding-right: 40px; /* Make space for the icon */
-    margin: 8px 0;
+    padding-right: 40px;     margin: 8px 0;
     border-radius: 6px;
     border: 1px solid var(--form-input-border);
 }
