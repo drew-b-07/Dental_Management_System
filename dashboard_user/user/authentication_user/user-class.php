@@ -294,7 +294,7 @@ class USER{
     public function userSignOut()
     {
         unset($_SESSION['userSession']);
-        echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../index.php';</script>";
+        echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../';</script>";
         exit;
     }
 

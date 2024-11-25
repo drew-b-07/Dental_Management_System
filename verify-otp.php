@@ -1,5 +1,11 @@
 <?php
 include_once 'config/settings-configuration.php';
+
+
+if(isset($_SESSION["userSession"])) {
+    echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
