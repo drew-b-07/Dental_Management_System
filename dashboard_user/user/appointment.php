@@ -5,6 +5,11 @@ require_once __DIR__."/../../config/settings-configuration.php";
 //     echo "<script>alert('admin is not logged in.'); window.location.href = '../../index.php';</script>";
 //     exit;
 // }
+
+if(!isset($_SESSION["userSession"])) {
+    echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
