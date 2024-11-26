@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 18, 2024 at 03:33 AM
+-- Host: 127.0.0.1
+-- Generation Time: Nov 26, 2024 at 02:08 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,16 @@ SET time_zone = "+00:00";
 --
 -- Database: `otp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -55,18 +65,6 @@ CREATE TABLE `logs` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `logs`
---
-
-INSERT INTO `logs` (`id`, `user_id`, `activity`, `created_at`) VALUES
-(51, 42, 'Has Successfully Signed In', '2024-11-14 14:51:43'),
-(52, 42, 'Has Successfully Signed In', '2024-11-14 14:52:10'),
-(53, 42, 'Has Successfully Signed In', '2024-11-17 03:21:40'),
-(54, 42, 'Has Successfully Signed In', '2024-11-17 03:22:16'),
-(55, 43, 'Has Successfully Signed In', '2024-11-17 09:28:59'),
-(56, 44, 'Has Successfully Signed In', '2024-11-18 02:22:18');
-
 -- --------------------------------------------------------
 
 --
@@ -90,13 +88,17 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `status`, `tokencode`, `created_at`, `reset_token`, `token_expiry`) VALUES
-(42, 'zab_kyle', 'joshua010104@gmail.com', '202cb962ac59075b964b07152d234b70', 'active', NULL, '2024-11-14 14:51:38', NULL, NULL),
-(43, 'kobe', '2022311035@dhvsu.edu.ph', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-17 09:28:48', 'd6e9fea966a6ea6b250df30075e32eb66463efec42931bbdaa8d487fc5edc7a1', '2024-11-17 10:31:34'),
-(44, 'drew', 'bulanadiryry@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-18 02:19:01', NULL, NULL);
+(54, 'drew123', 'bulanadiryry@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-25 02:53:54', NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `logs`
@@ -116,16 +118,22 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Constraints for dumped tables
