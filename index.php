@@ -24,27 +24,27 @@
             <form>
                 <h1>Create Your Account</h1>
                 <label for="name-signup">Full Name</label>
-                <input id="name-signup" type="text" placeholder="Full Name" required>
+                <input id="name-signup" type="text" name="user_fullname" placeholder="Full Name" required>
                 
                 <label for="email-signup">Email Address</label>
-                <input id="email-signup" type="email" placeholder="Email Address" required>
+                <input id="email-signup" type="email" name="user_email" placeholder="Email Address" required>
                 
                 <label for="username-signup">Username</label>
-                <input id="username-signup" type="text" placeholder="Username" required>
+                <input id="username-signup" type="text" name="user_name" placeholder="Username" required>
                 
                 <label for="password-signup">Create Password</label>
                 <div class="password-container">
-                    <input id="password-signup" type="password" placeholder="Create Password" required>
+                    <input id="password-signup" type="password" name="user_createpass" placeholder="Create Password" required>
                     <i class="fas fa-eye" id="toggle-password-signup" onclick="togglePassword('password-signup')"></i>
                 </div>
 
                 <label for="confirm-password-signup">Confirm Password</label>
                 <div class="password-container">
-                    <input id="confirm-password-signup" type="password" placeholder="Confirm Password" required>
+                    <input id="confirm-password-signup" type="password" name="user_confirmpass" placeholder="Confirm Password" required>
                     <i class="fas fa-eye" id="toggle-password-confirm" onclick="togglePassword('confirm-password-signup')"></i>
                 </div>
 
-                <button type="submit">Sign Up</button>
+                <button type="submit" name="btn-user-signup">Sign Up</button>
             </form>
             <div class="link-container">
                 <p>Already have an account? <a href="#" onclick="showSignIn()">Login here</a></p>
@@ -56,15 +56,15 @@
             <form>
                 <h1>Login to Your Account</h1>
                 <label for="email-signin">Email Address</label>
-                <input id="email-signin" type="email" placeholder="Email Address" required>
+                <input id="email-signin" type="email" name="user_enter_email" placeholder="Email Address" required>
                 
                 <label for="password-signin">Password</label>
                 <div class="password-container">
-                    <input id="password-signin" type="password" placeholder="Password" required>
+                    <input id="password-signin" type="password" name="user_enter_pass" placeholder="Password" required>
                     <i class="fas fa-eye" id="toggle-password-signin" onclick="togglePassword('password-signin')"></i>
                 </div>
 
-                <button type="submit">Sign In</button>
+                <button type="submit" name="btn-user-signin">Sign In</button>
                 <div class="link-container">
                     <a href="#" onclick="showForgotPassword()">Forgot Password</a>
                     <div class="link-divider"></div>
