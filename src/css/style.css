@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -18,8 +17,8 @@ body {
     background-color: #fff;
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    width: 600px;
-    max-width: 90%;
+    width: 40vw;
+    height: 70vh;
     overflow: hidden;
     display: flex;
 }
