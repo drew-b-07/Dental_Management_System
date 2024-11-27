@@ -143,6 +143,10 @@ form input {
     background-color: var(--hover-color);
 }
 
+.toggle-container button:hover{
+    background-color: var(--hover-color);
+}
+
 .show {
     display: block;
 }

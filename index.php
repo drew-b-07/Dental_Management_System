@@ -13,7 +13,7 @@
     <div class="container">
         <div class="toggle-container">
             <img src="./src/img/dental-logo.png" alt="Dental Care Logo" id="logo" class="logo">
-            <h1 id="toggle-header">Hello, Friend!</h1>
+            <h1 id="toggle-header"></h1>
             <a href="admin.php">
                 <button onclick="showAdminSignIn()" type="button">
                     User Admin

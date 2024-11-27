@@ -20,7 +20,7 @@
       <div class="second half">
         <div class="login">
           <div class="top">
-            <h1><i>ADMIN</i></h1>
+            <h1>ADMIN</h1>
           </div>
           <form action="#" method="post">
             <input type="email" name="email" id="email" placeholder="Email" required>
