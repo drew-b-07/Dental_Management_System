@@ -187,7 +187,7 @@ if(isset ($_POST['btn-admin-signin'])){
     $adminSignin->adminSignin($email, $password, $csrf_token);
 }
 
-if(isset($_GET['admin_signout']))
+if(isset($_GET['btn-admin-signout']))
 {
     $adminSignout = new ADMIN();
     $adminSignout->adminSignout();
