@@ -1,11 +1,11 @@
-/* Reset */
+
 body, h1, h2, p, ul, li {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Layout */
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -18,7 +18,7 @@ body {
     width: 100%;
 }
 
-/* Sidebar */
+
 .sidebar {
     width: 250px;
     background-color: #007BFF;
@@ -29,7 +29,7 @@ body {
 
 .sidebar h2 {
     font-size: 1.5em;
-    margin-bottom: 30px; /* Increased margin for more space */
+    margin-bottom: 30px; 
     text-align: center;
 }
 
@@ -39,17 +39,17 @@ body {
 }
 
 .sidebar ul li {
-    margin: 15px 0; /* Increased margin for each list item */
+    margin: 15px 0; 
 }
 
 .sidebar ul li a {
     text-decoration: none;
     color: #fff;
-    padding: 12px 18px; /* Adjusted padding for more space inside each link */
+    padding: 12px 18px; 
     display: block;
     border-radius: 5px;
     transition: background-color 0.3s ease, transform 0.2s;
-    margin-left: 10px;  /* Added margin to the left */
+    margin-left: 10px;  
 }
 
 .sidebar ul li a:hover, .sidebar ul li a.active {
@@ -57,7 +57,7 @@ body {
     transform: translateX(5px);
 }
 
-/* Main Content */
+
 .content {
     flex: 1;
     padding: 30px;
@@ -66,11 +66,11 @@ body {
 }
 
 .section {
-    display: none; /* Hide all sections by default */
+    display: none; 
 }
 
 .section.active {
-    display: block; /* Show only the active section */
+    display: block; 
 }
 
 h1 {
@@ -84,10 +84,10 @@ p {
     color: #555;
     line-height: 1.6;
 }
-/* Calendar Wrapper */
+
 .calendar {
     display: grid;
-    grid-template-columns: repeat(7, 1fr); /* Seven columns for days of the week */
+    grid-template-columns: repeat(7, 1fr); 
     grid-gap: 5px;
     padding: 10px;
     border: 1px solid #ddd;
@@ -96,7 +96,7 @@ p {
     margin: 20px auto;
     background-color: #fff;
 }
-/* General Styling */
+
 #calendar {
     max-width: 100%;
     margin: 0 auto;
@@ -107,39 +107,39 @@ p {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Title Styling */
+
 h1 {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-/* Adjust Calendar Responsiveness */
+
 .fc {
-    font-size: 1rem; /* Base font size */
+    font-size: 1rem; 
 }
 
 @media (max-width: 768px) {
     .fc {
-        font-size: 0.85rem; /* Adjust font size for tablets */
+        font-size: 0.85rem; 
     }
 
     .fc-toolbar {
-        flex-wrap: wrap; /* Stack navigation buttons */
+        flex-wrap: wrap; 
         justify-content: center;
     }
 }
 
 @media (max-width: 480px) {
     .fc {
-        font-size: 0.75rem; /* Adjust font size for phones */
+        font-size: 0.75rem; 
     }
 
     .fc-daygrid-day-number {
-        font-size: 0.8rem; /* Smaller numbers for small screens */
+        font-size: 0.8rem; 
     }
 
     #calendar {
-        padding: 5px; /* Reduce padding for smaller devices */
+        padding: 5px; 
     }
 }
