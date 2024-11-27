@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Login Page</title>
+    <title>Dental Care || Login and Registration</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./src/css/style.css">
 </head>
@@ -54,7 +54,7 @@
         <!-- Sign In Form -->
         <div class="form-container" id="signInForm" aria-hidden="false">
             <form>
-                <h1>Login to Your Account</h1>
+            <h1>Login to Your Account</h1>
                 <label for="email-signin">Email Address</label>
                 <input id="email-signin" type="email" name="user_enter_email" placeholder="Email Address" required>
                 
