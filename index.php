@@ -44,7 +44,7 @@
                     <i class="fas fa-eye" id="toggle-password-confirm" onclick="togglePassword('confirm-password-signup')"></i>
                 </div>
 
-                <button type="submit" name="btn-user-signup">Sign Up</button>
+                <button type="submit" name="btn-user-signup">SIGN UP</button>
             </form>
             <div class="link-container">
                 <p>Already have an account? <a href="#" onclick="showSignIn()">Login here</a></p>
@@ -64,7 +64,7 @@
                     <i class="fas fa-eye" id="toggle-password-signin" onclick="togglePassword('password-signin')"></i>
                 </div>
 
-                <button type="submit" name="btn-user-signin">Sign In</button>
+                <button type="submit" name="btn-user-signin">SIGN IN</button>
                 <div class="link-container">
                     <a href="#" onclick="showForgotPassword()">Forgot Password</a>
                     <div class="link-divider"></div>
@@ -77,9 +77,8 @@
         <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
             <form>
                 <h1>Forgot Password</h1>
-                <label for="email-forgot">Enter your email</label>
                 <input id="email-forgot" type="email" placeholder="Enter your email" required>
-                <button type="submit">Enter</button>
+                <button type="submit">ENTER</button>
             </form>
         </div>
     </div>
