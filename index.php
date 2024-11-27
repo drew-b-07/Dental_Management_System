@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <div class="toggle-container">
+            <img src="./src/img/dental-logo.png" alt="Dental Care Logo" id="logo" class="logo">
             <h1 id="toggle-header">Hello, Friend!</h1>
             <button onclick="showSignIn()">Login</button>
             <button onclick="showSignUp()">Create Account</button>
@@ -30,7 +31,7 @@
                 <input id="password-signup" type="password" name="user_createpassword" placeholder="Create Password" required>
                 <label for="confirm-password-signup">Confirm Password</label>
                 <input id="confirm-password-signup" type="password" name="user_confirmpassword" placeholder="Confirm Password" required>
-                <button type="submit" name="btn-user-signup">Sign Up</button>
+                <button type="submit" name="btn-user-signup">SIGN UP</button>
             </form>
             <div class="link-container">
                 <p>Already have an account? <a href="#" onclick="showSignIn()">Login here</a></p>
@@ -44,14 +45,11 @@
                 <input id="email-signin" name="user_email" type="email" placeholder="Email Address" required>
                 <label for="password-signin">Password</label>
                 <input id="password-signin" type="password" name="user_password" placeholder="Password" required>
-                <button type="submit" name="btn-user-signin">Sign In</button>
+                <button type="submit" name="btn-user-signin">SIGN IN</button>
                 <div class="link-container">
                     <a href="#" onclick="showForgotPassword()">Forgot Password</a>
-                    <div class="link-divider"></div>
-                    <a href="#" onclick="showSignUp()">Sign Up</a>
+                </form>
                 </div>
-            </form>
-        </div>
         
         <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
             <form>
