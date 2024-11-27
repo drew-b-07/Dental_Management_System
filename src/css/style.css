@@ -126,7 +126,7 @@ form input {
     width: var(--logo-size);     height: auto;
     margin-bottom: 20px; }
 
-.toggle-container button {
+.toggle-container button, .toggle-container a {
     padding: 8px 16px;
     background-color: transparent;
     color: var(--button-text-color);
@@ -137,6 +137,10 @@ form input {
     max-width: 250px;
     text-align: center;
     font-size: 14px;
+}
+
+.toggle-container a:hover{
+    background-color: var(--hover-color);
 }
 
 .show {
