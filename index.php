@@ -11,15 +11,14 @@
 
 <body>
     <div class="container">
-        <!-- Toggle Section -->
         <div class="toggle-container">
             <img src="./src/img/dental-logo.png" alt="Dental Care Logo" id="logo" class="logo">
             <h1 id="toggle-header">Hello, Friend!</h1>
-            <button onclick="showSignIn()">Login</button>
+            <button onclick="showAdminLogin()">User Admin</button>
+            <button onclick="showSignIn()">User Login</button>
             <button onclick="showSignUp()">Create Account</button>
         </div>
 
-        <!-- Sign Up Form -->
         <div class="form-container" id="signUpForm" aria-hidden="true">
             <form>
                 <h1>Create Your Account</h1>
@@ -51,7 +50,6 @@
             </div>
         </div>
 
-        <!-- Sign In Form -->
         <div class="form-container" id="signInForm" aria-hidden="false">
             <form>
             <h1>Login to Your Account</h1>
@@ -73,7 +71,7 @@
             </form>
         </div>
 
-        <!-- Forgot Password Form -->
+
         <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
             <form>
                 <h1>Forgot Password</h1>
