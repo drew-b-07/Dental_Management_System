@@ -32,7 +32,8 @@ class Database
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
             
-            $this->activateUsers();
+            $this->activateUsers(':email');
+            $this->activateAdmin(':username');
 
         } catch(PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
@@ -41,11 +42,18 @@ class Database
         return $this->conn;
     }
 
-    private function activateUsers()
+    private function activateUsers($email)
     {
-        $query = "UPDATE user SET status = 'active' WHERE status = 'not active'";
+        $query = "UPDATE user SET status = 'active' WHERE email = :email AND status = 'not active'";
         $stmt = $this->conn->prepare($query);
-        $stmt->execute();
+        $stmt->execute(array(":email" => $email));
+    }
+
+    private function activateAdmin($username)
+    {
+        $query = "UPDATE admin SET status = 'active' WHERE username = :username AND status = 'not active'";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute(array(":username" => $username));
     }
 }
 ?>
