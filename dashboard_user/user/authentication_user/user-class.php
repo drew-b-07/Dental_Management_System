@@ -130,7 +130,7 @@ class USER{
         }
     }
 
-    public function verifyUser($username, $email, $password, $tokencode, $otp, $csrf_token)
+    public function verifyUser($fullname, $email, $username, $password, $otp, $csrf_token)
     {
         if ($otp == $_SESSION['OTP']) {
             unset($_SESSION['OTP']);
@@ -199,7 +199,7 @@ class USER{
             unset($_SESSION['not_verify_email']);
             unset($_SESSION['not_verify_password']);
 
-            $this->userSignUp($username, $email, $password, $csrf_token);
+            $this->userSignUp($fullname, $email, $username, $password, $csrf_token);
             
         } else if ($otp == NULL) {
             echo "<script>alert('No OTP Found'); window.location.href = '../../../verify-otp.php';</script>";
@@ -210,7 +210,7 @@ class USER{
         }
     }
 
-    public function userSignUp($username, $email, $password, $csrf_token)
+    public function userSignUp($fullname, $email, $username, $password, $csrf_token)
     {
         try
         {
@@ -229,6 +229,15 @@ class USER{
             {
                 echo "<script>alert('Email is already registered.'); window.location.href = '../../../index.php';</script>";
                 exit;
+            }else{
+                $otp = rand(10000, 999999);
+                $_SESSION['user_registration'] = [
+                    'fullname' => $fullname,
+                    'email' => $email,
+                    'username' => $username,
+                    'password' => $password,
+                    'otp' => $otp
+                ];
             }
 
             $hashed_password = md5($password);

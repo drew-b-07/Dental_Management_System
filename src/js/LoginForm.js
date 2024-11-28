@@ -1,21 +1,18 @@
-// JavaScript to toggle forms
-// Function to toggle password visibility
 function togglePassword(passwordId) {
     const passwordInput = document.getElementById(passwordId);
-    const icon = passwordInput.nextElementSibling; // Get the eye icon
+    const icon = passwordInput.nextElementSibling;
 
     if (passwordInput.type === 'password') {
-        passwordInput.type = 'text'; // Show password
-        icon.classList.remove('fa-eye'); // Change to open eye icon
-        icon.classList.add('fa-eye-slash'); // Add closed eye icon
+        passwordInput.type = 'text'; 
+        icon.classList.remove('fa-eye'); 
+        icon.classList.add('fa-eye-slash'); 
     } else {
-        passwordInput.type = 'password'; // Hide password
-        icon.classList.remove('fa-eye-slash'); // Change to closed eye icon
-        icon.classList.add('fa-eye'); // Add open eye icon
+        passwordInput.type = 'password'; 
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye');
     }
 }
 
-// Existing form toggling functions (remain the same)
 function hideAllForms() {
     const forms = ['signUpForm', 'signInForm', 'forgotPasswordForm'];
     forms.forEach(id => {
@@ -30,7 +27,7 @@ function showSignUp() {
     const form = document.getElementById('signUpForm');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
-    document.getElementById('toggle-header').textContent = "Hello, Friend!";
+    document.getElementById('toggle-header').textContent = "REGISTRATION";
 }
 
 function showSignIn() {
@@ -38,7 +35,7 @@ function showSignIn() {
     const form = document.getElementById('signInForm');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
-    document.getElementById('toggle-header').textContent = "Welcome Back!";
+    document.getElementById('toggle-header').textContent = "SIGN IN";
 }
 
 function showForgotPassword() {

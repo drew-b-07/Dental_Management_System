@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html{
+  font-size: 65.4%;
+}
+
+#wrapper {
+  background-color: #649CB2;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #4F7CAA;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header > img {
+  width: 10vw;
+}
+
+main {
+  min-height: 89vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.first.half > img {
+  width: 20vw;
+  padding: 1rem;
+}
+
+.login {
+  background-color: #FFFFFF;
+  height: 50vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.top {
+  padding: 1.5rem;
+  background-color: #8ABBCC;
+  font-size: 15px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.login > form {
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.login > form > input {
+  padding: 1rem;
+  border: none;
+}
+
+.login > form > input[type="email"], 
+.login > form > input[type="password"] {
+  font-size: 1.5rem;
+  background-color: #D9D9D9;
+  border-radius: 10px;
+}
+
+.login > form > input[type="submit"] {
+  width: 40%;
+  font-size: 1.5rem;
+  border-radius: 1000px;
+  background-color: rgba(124, 164, 194, 0.7);
+}
+
+h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
