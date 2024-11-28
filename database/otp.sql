@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 26, 2024 at 02:08 AM
+-- Host: 127.0.0.1:3306
+-- Generation Time: Nov 28, 2024 at 03:11 AM
 -- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,8 +28,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admin` (
-  `id` int(11) NOT NULL
+  `id` int(1) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `status` enum('active','inactive') NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`, `status`, `created_at`) VALUES
+(1, 'dentalcare@gmail.com', '*592C57D60B26602C18237E04F9614DA510C1F45A', '', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -65,6 +76,15 @@ CREATE TABLE `logs` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `logs`
+--
+
+INSERT INTO `logs` (`id`, `user_id`, `activity`, `created_at`) VALUES
+(73, 52, 'Has Successfully Signed In', '2024-11-18 10:13:41'),
+(74, 53, 'Has Successfully Signed In', '2024-11-18 10:16:57'),
+(75, 53, 'Has Successfully Signed In', '2024-11-18 10:17:56');
+
 -- --------------------------------------------------------
 
 --
@@ -88,7 +108,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `email`, `password`, `status`, `tokencode`, `created_at`, `reset_token`, `token_expiry`) VALUES
-(54, 'drew123', 'bulanadiryry@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-25 02:53:54', NULL, NULL);
+(52, 'drew', 'bulanadiryry@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-18 10:13:22', NULL, NULL),
+(53, 'kobe', 'rabphandrew@gmail.com', '8d830eeed4ea85418370ef78d6a38026', 'active', NULL, '2024-11-18 10:16:31', NULL, NULL),
+(54, 'matet', 'matetgarcia93@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'active', NULL, '2024-11-25 08:02:09', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -121,13 +143,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(14) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `user`
