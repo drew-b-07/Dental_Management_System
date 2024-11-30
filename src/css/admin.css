@@ -24,6 +24,20 @@ header {
   align-items: center;
 }
 
+header button{
+  border: none;
+  font-size: 1.8rem;
+  font-weight: bold;
+  border-radius: 3rem;
+  color: var(--white);
+  background-color: var(--button-color);
+}
+
+header button:hover{
+  background-color: var(--button-hover-color);
+  cursor: pointer;
+}
+
 header > img {
   height: 15vh;
 }

@@ -9,8 +9,8 @@
 </head>
 <body>
   <div id="wrapper">
-    <button>Back to Main</button>
     <header>
+      <button> ⇦ BACK TO MAIN</button>
       <img src="./src/img/logo.png" alt="logo">
     </header>
 
