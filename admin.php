@@ -9,6 +9,7 @@
 </head>
 <body>
   <div id="wrapper">
+    <button>Back to Main</button>
     <header>
       <img src="./src/img/logo.png" alt="logo">
     </header>
@@ -23,9 +24,9 @@
             <h1>ADMIN</h1>
           </div>
           <form action="#" method="post">
-            <input type="email" name="email" id="email" placeholder="Email" required>
+            <input type="text" name="username" id="email" placeholder="Username" required>
             <input type="password" name="password" id="password" placeholder="Password" required>
-            <input type="submit" name="login_admin" value="Login">
+            <button type="submit" name="login_admin">LOGIN</button>
           </form>
         </div>
       </div>

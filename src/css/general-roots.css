@@ -1,0 +1,22 @@
+:root {
+    --primary-color: #82a4d6;
+    --secondary-color: #7f9fcb;
+    --accent-color: #6493c4;
+    --dark-accent-color: #13407a;
+    --admin-background-color: #649CB2;
+    --text-color: #333;
+    --highlight-color: #ffffff;
+    --profile-button-bg: #1d54a6;
+    --profile-icon-size: 30px;
+    --font-family: 'Jost', sans-serif;
+    --button-hover-color: rgb(0, 174, 255);
+    --button-color: #13407a;
+    --heading-size: 24px;
+    --label-size: 14px;
+    --button-padding: 10px;
+    --white: #ffffff;
+    --form-background: #fff;
+    --form-input-border: #ddd;
+    --logo-size: 200px;
+    --h1-font-size: 24px;
+}

@@ -18,7 +18,7 @@ if(isset($_SESSION["userSession"])) {
     <meta charset="UTF-8">
     <title>Forgot Password</title>
     <link rel="icon" type="image/png" href="src/img/logo1.png">
-    <link rel="stylesheet" href="src/css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 <body>
     <div class="container">
