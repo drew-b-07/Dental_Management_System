@@ -20,8 +20,9 @@ html{
 header {
   background-color: #4F7CAA;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 1rem;
 }
 
 header button{
@@ -31,6 +32,7 @@ header button{
   border-radius: 3rem;
   color: var(--white);
   background-color: var(--button-color);
+  margin-left: 1rem;
 }
 
 header button:hover{
@@ -40,6 +42,7 @@ header button:hover{
 
 header > img {
   height: 15vh;
+  margin: 0 auto 0 60em;
 }
 
 main {

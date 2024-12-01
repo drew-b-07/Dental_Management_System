@@ -10,7 +10,7 @@
 <body>
   <div id="wrapper">
     <header>
-      <button> ⇦ BACK TO MAIN</button>
+      <button type="submit" onclick="location.href='index.php'"> ⇦ BACK TO MAIN</button>
       <img src="./src/img/logo.png" alt="logo">
     </header>
 
