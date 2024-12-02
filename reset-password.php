@@ -14,24 +14,24 @@ require_once __DIR__ . "/config/settings-configuration.php";
 //     exit;
 // }
 
-// $db = new Database();
-// $pdo = $db->dbConnection();
-// $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
-// $stmt->execute([":id" => $_GET['id']]);
+//     $db = new Database();
+//     $pdo = $db->dbConnection();
+//     $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
+//     $stmt->execute([":id" => $_GET['id']]);
+
 // if($stmt->rowCount() == 0) {
 //     echo "<script>alert('Invalid Link.'); window.location.href = 'index.php';</script>";
 //     exit();
 // }
 
-// $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+//     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // if($_GET['tokencode'] !== $admin['tokencode']) {
-//     // echo "<script>alert('Invalid Tokencode'); window.location.href = 'forgot-password.php'";
-//     // exit();
-//     echo "HA?";
+//     echo "<script>alert('Invalid Tokencode'); window.location.href = 'forgot-password.php'";
+//     exit();
 // }
 
-// $token = $_GET['tokencode'];
+//     $token = $_GET['tokencode'];
 
 ?>
 

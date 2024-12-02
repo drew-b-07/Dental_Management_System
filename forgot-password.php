@@ -2,12 +2,8 @@
 
 require_once __DIR__."/config/settings-configuration.php";
 
-if(isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
-    exit;
-}
-// if(isset($_SESSION["adminSession"])) {
-//     echo "<script>alert('admin is log in.'); window.location.href = './dashboard/admin/home.php';</script>";
+// if(isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
 //     exit;
 // }
 ?>
@@ -28,9 +24,6 @@ if(isset($_SESSION["userSession"])) {
             <input class="email" type="email" name="email" required placeholder="Enter Registered Email">
             <button type="submit" name="btn-forgot-password">Send Reset Link</button>
         </form>
-
-        
-
     </div>
 </body>
 </html>
