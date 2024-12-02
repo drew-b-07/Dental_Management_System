@@ -36,6 +36,17 @@ class ADMIN
             $stmt = $this->conn->prepare($query);
             $stmt->execute(array(":username" => $username));
 
+            if ($stmt->rowCount() == 1){
+                $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+                $_SESSION['adminSession'] = $admin['id'];
+
+                echo "<script>alert('Welcome $admin'); window.location.href = '../calendar.php' ;</script>";
+                exit;
+            } else {
+                echo "<script>alert('Invalid password. Try again.'); window.location.href = '../../../admin.php' ;</script>";
+                exit;
+            }
+
             }catch(PDOException $ex){
             echo $ex->getMessage();
         }
@@ -179,12 +190,12 @@ if(isset($_POST['btn-reset-password'])){
 }
 
 if(isset ($_POST['btn-admin-signin'])){
-    $email = trim($_POST['email']);
+    $username = trim($_POST['username']);
     $password = trim($_POST['password']);
     $csrf_token = trim($_POST['csrf_token']);
 
     $adminSignin = new ADMIN();
-    $adminSignin->adminSignin($email, $password, $csrf_token);
+    $adminSignin->adminSignin($username, $password, $csrf_token);
 }
 
 if(isset($_GET['btn-admin-signout']))

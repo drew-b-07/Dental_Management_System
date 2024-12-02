@@ -26,7 +26,7 @@
           <form action="#" method="post">
             <input type="text" name="username" id="email" placeholder="Username" required>
             <input type="password" name="password" id="password" placeholder="Password" required>
-            <button type="submit" name="login_admin">LOGIN</button>
+            <button type="submit" name="btn-admin-signin">LOGIN</button>
           </form>
         </div>
       </div>
