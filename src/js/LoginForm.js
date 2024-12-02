@@ -46,10 +46,8 @@ function showForgotPassword() {
     document.getElementById('toggle-header').textContent = "Forgot Password?";
 }
 
-// Initialize with the sign-in form visible
 showSignIn();
 
-// Form validation
 document.querySelector('#signUpForm form').addEventListener('submit', function (e) {
     e.preventDefault();
     const email = e.target.querySelector('input[type="email"]').value;

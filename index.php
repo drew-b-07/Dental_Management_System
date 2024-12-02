@@ -1,3 +1,12 @@
+<?php
+require_once __DIR__ ."/config/settings-configuration.php";
+
+if(isset($_SESSION["userSession"])) {
+    echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,6 +35,7 @@
         <div class="form-container" id="signUpForm" aria-hidden="true">
             <form action="dashboard/dashboard_user/authentication_user/user-class.php" method="POST">
                 <h1>Create Your Account</h1>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
                 <input id="name-signup" type="text" name="user_fullname" placeholder="Full Name" required>
                 <input id="email-signup" type="email" name="user_email" placeholder="Email Address" required>
                 <input id="username-signup" type="text" name="user_name" placeholder="Username" required>
@@ -50,6 +60,7 @@
         <div class="form-container" id="signInForm" aria-hidden="false">
             <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
                 <h1>Login to Your Account</h1>
+                <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
                 <input id="email-signin" type="email" name="user_enter_email" placeholder="Email Address" required>
 
                 <div class="password-container">

@@ -40,10 +40,30 @@ document.addEventListener('DOMContentLoaded', function () {
         ],
         contentHeight: 'auto', 
         aspectRatio: 1.35,    
-        editable: true,        // Allow drag-and-drop of events
-        dayMaxEvents: true,    // Limit the number of events per day
+        editable: true,        
+        dayMaxEvents: true,   
     });
 
     calendar.render();
 });
 
+function logout() {
+    if (confirm("Are you sure you want to logout?")) {
+        fetch("../../dashboard_admin/admin/authentication/admin-class.php?btn-admin-signout", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                window.location.href = "../../admin.php";
+            } else {
+                alert("Error logging out. Please try again.");
+            }
+        })
+        .catch(error => {
+            alert("Error logging out. Please try again.");
+        });
+    }
+}
