@@ -1,9 +1,9 @@
 <?php require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
-    exit;
-}
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -43,12 +43,14 @@ if(!isset($_SESSION["userSession"])) {
                 <label>Address:</label>
                 <input type="text" name="address" required>
             </div>
-            <div class="form-group">
+            <div class="form-group age-group" >
                 <label>Age:</label>
                 <input type="number" name="age" required>
             </div>
-            <button type="submit" class="submit-button">Edit Profile</button>
-            <button type="button" onclick="window.location.href='home.php'" class="back-button">Back</button>
+            <div class="button-container">
+                <button type="button" onclick="window.location.href='home.php'" class="back-button">BACK</button>
+                <button type="submit" class="submit-button">EDIT PROFILE</button>
+            </div>
         </form>
     </div>
 </body>
