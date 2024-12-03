@@ -13,9 +13,9 @@ if(isset($_SESSION["adminSession"])){
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="icon.png" type="image/x-icon">
-  <title>Admin | Dental Care</title>
+  <link rel="icon" href="src/img/icon.png" type="image/x-icon">
   <link rel="stylesheet" href="./src/css/admin.css">
+  <title>Admin | Dental Care</title>
 </head>
 <body>
   <div id="wrapper">

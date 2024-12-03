@@ -14,6 +14,7 @@ if(isset($_SESSION["userSession"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care || Login and Registration</title>
+    <link rel="icon" href="src/img/icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./src/css/register.css">
 </head>
