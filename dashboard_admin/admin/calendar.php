@@ -62,7 +62,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
 
                 <h1>Settings</h1>
                 <form action="../../dashboard_admin/admin/authentication/admin-class.php" method="GET">
-                <button onclick="logout()">LOG OUT</button>
+                <button onclick="logout()" name="admin-signout">LOG OUT</button>
                 </form>
             </section>
         </main>

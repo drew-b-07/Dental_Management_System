@@ -73,7 +73,8 @@ class ADMIN
        }
 
        unset($_SESSION['adminSession']);
-
+       echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../admin.php';</script>";
+       exit;
     } 
 
     function send_email($email, $message, $subject, $smtp_email, $smtp_password){
@@ -215,7 +216,7 @@ if(isset ($_POST['btn-admin-signin'])){
     $admin->adminSignin($username, $password, $csrf_token);
 }
 
-if(isset($_GET['btn-admin-signout']))
+if(isset($_GET['admin-signout']))
 {
     $admin = new ADMIN();
     $admin->adminSignout();

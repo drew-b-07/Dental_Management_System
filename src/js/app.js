@@ -48,22 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function logout() {
-    if (confirm("Are you sure you want to logout?")) {
-        fetch("../../dashboard_admin/admin/authentication/admin-class.php?btn-admin-signout", {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = "../../admin.php";
-            } else {
-                alert("Error logging out. Please try again.");
-            }
-        })
-        .catch(error => {
-            alert("Error logging out. Please try again.");
-        });
+    if(confirm("Are you sure you want to logout?")) {
+        location.href = "../../dashboard_admin/admin/authentication_user/admin-class.php?btn-admin-signout";
     }
 }

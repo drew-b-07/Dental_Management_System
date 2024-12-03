@@ -253,7 +253,7 @@ class USER{
             ':email' => $email,
             ':username' => $username,
             ':password' => $hashed_password,
-            ':status' => 'active'
+            ':status' => 'not_active'
             ]);
 
             echo "<script>alert('Sign up successful! Check your $email inbox.'); window.location.href = '../../../verify-otp.php';</script>";
@@ -280,23 +280,27 @@ class USER{
             // Hash the input password
             $hashed_password = md5($password);
 
-            // Check if the user exists and the status is active
+            // Check if the user exists and the status is not_active first before signing in
             $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password AND status = :status");
             $stmt->execute([
                 ':username' => $username,
                 ':password' => $hashed_password,
-                ':status' => 'active'
+                ':status' => 'not_active'
             ]);
 
-            if ($stmt->rowCount() == 1) {
-                $user = $stmt->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['userSession'] = $user['id'];
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                echo "<script>alert('Welcome User: {$user['username']}!'); window.location.href = '../home.php';</script>";
+            if ($user) {
+                $query = "UPDATE user SET status = 'active' WHERE id = :id";
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute(array(":id" => $user['id']));
+            
+                $_SESSION['userSession'] = $user['id'];
+                echo "<script>alert('Welcome {$user['username']}!'); window.location.href = '../home.php' ;</script>";
                 exit;
-             } else {
-                 echo "<script>alert('Invalid email or password. Please try again.'); window.location.href = '../../../index.php';</script>";
-                 exit;
+            } else {
+                echo "<script>alert('Invalid username or password. Please try again.'); window.location.href = '../../../index.php' ;</script>";
+                exit;
             }
 
         } catch (PDOException $e) {
@@ -307,6 +311,18 @@ class USER{
 
     public function userSignOut()
     {
+
+        if(isset($_SESSION['userSession'])){
+            try{
+                $query = "UPDATE user SET status = 'not_active' WHERE id = :id";
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute(array(":id" => $_SESSION['userSession']));
+
+            } catch(PDOException $ex) {
+                echo $ex->getMessage();
+            }
+       }
+
         unset($_SESSION['userSession']);
         echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../';</script>";
         exit;
