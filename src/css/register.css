@@ -8,7 +8,8 @@
     --text-color: #606060;     
     --font-family: 'Montserrat', sans-serif;     
     --form-input-border: #ddd;     
-    --logo-size: 200px; }
+    --logo-size: 200px; 
+}
 
 * {
     margin: 0;
@@ -130,7 +131,8 @@ form input {
 .logo {
     width: var(--logo-size);     
     height: auto;
-    margin-bottom: 20px; }
+    margin-bottom: 20px; 
+}
 
 .toggle-container button{
     padding: 8px 16px;
@@ -189,7 +191,8 @@ a:hover {
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    z-index: 2; }
+    z-index: 2; 
+}
 
 .password-container input {
     width: 100%;
