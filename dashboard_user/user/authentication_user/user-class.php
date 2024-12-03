@@ -36,11 +36,15 @@ class USER{
         $mail->Password = $smtp_password;
         $mail->setFrom($smtp_email, "Dental Care Clinic");
         $mail->Subject = $subject;
+
+        $logopath = __DIR__.'/../../../src/img/icon.png';
+        $mail->addEmbeddedImage($logopath,'logo');
+
         $mail->msgHTML($message);
         $mail->Send();
     }
 
-    public function userOTP($otp, $email)
+    public function userOTP($otp, $email, $fullname)
     {
         if($email == NULL){
             echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
@@ -113,10 +117,10 @@ class USER{
                 <body>
                     <div class='container'>
                         <div class='logo'>
-                            <img src='cid:logo' alt='Logo' width='150'>
+                            <img src='cid:logo' alt='Logo' width='300'>
                         </div>
                         <h1>OTP Verification</h1>
-                        <p>Hello, $email</p>
+                        <p>Hello, $fullname</p>
                         <p>Your OTP is: $otp</p>
                         <p>If you didn't request an OTP, please ignore this email.</p>
                         <p>Thank you!</p>
@@ -181,10 +185,10 @@ class USER{
             <body>
                 <div class='container'>
                     <div class='logo'>
-                        <img src='cid:logo' alt='Logo' width='150'>
+                        <img src='cid:logo' alt='Logo' width='300'>
                     </div>
                     <h1>Welcome</h1>
-                    <p>Hello, <strong>$username</strong></p>
+                    <p>Hello, <strong>$fullname</strong></p>
                     <p>Welcome to Dental Care!</p>
                     <p>If you did not sign up for an account, you can safely ignore this email.</p>
                     <p>Thank you!</p>
@@ -243,10 +247,11 @@ class USER{
             $hashed_password = md5($password);
 
             // Insert the new user into the database
-            $stmt = $this->runQuery("INSERT INTO user (username, email, password, status) VALUES (:username, :email, :password, :status)");
+            $stmt = $this->runQuery("INSERT INTO user (fullname, email, username, password, status) VALUES (:fullname, :email, :username, :password, :status)");
             $stmt->execute([
-            ':username' => $username,
+            ':fullname' => $fullname,
             ':email' => $email,
+            ':username' => $username,
             ':password' => $hashed_password,
             ':status' => 'active'
             ]);
@@ -262,7 +267,7 @@ class USER{
         }
     }
 
-    public function userSignIn($email, $password, $csrf_token)
+    public function userSignIn($username, $password, $csrf_token)
     {
         try {
             // Verify CSRF Token
@@ -276,9 +281,9 @@ class USER{
             $hashed_password = md5($password);
 
             // Check if the user exists and the status is active
-            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email AND password = :password AND status = :status");
+            $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password AND status = :status");
             $stmt->execute([
-                ':email' => $email,
+                ':username' => $username,
                 ':password' => $hashed_password,
                 ':status' => 'active'
             ]);
@@ -289,13 +294,13 @@ class USER{
 
                 echo "<script>alert('Welcome User: {$user['username']}!'); window.location.href = '../home.php';</script>";
                 exit;
-            } else {
-                echo "<script>alert('Invalid email or password. Please try again.'); window.location.href = '../../../index.php';</script>";
-                exit;
+             } else {
+                 echo "<script>alert('Invalid email or password. Please try again.'); window.location.href = '../../../index.php';</script>";
+                 exit;
             }
 
         } catch (PDOException $e) {
-            echo "<script>alert('An error occurred during sign in. Please try again.'); window.location.href = '../../../login.php';</script>";
+            echo "<script>alert('An error occurred during sign in. Please try again.'); window.location.href = '../../../index.php';</script>";
             exit;
         }
     }
@@ -356,24 +361,26 @@ class USER{
     if (isset($_POST['btn-user-signup'])) 
     {
         $_SESSION['not_verify_username'] = trim($_POST['username']);
+        $_SESSION['not_verify_fullname'] = trim($_POST['fullname']);
         $_SESSION['not_verify_email'] = trim($_POST['email']);
         $_SESSION['not_verify_password'] = trim($_POST['password']);
-    
+        
+        $fullname = trim($_POST['fullname']);
         $email = trim($_POST['email']);
         $otp = rand(100000, 999999);
     
         $user = new USER();
-        $user->userOTP($otp, $email);
+        $user->userOTP($otp, $email, $fullname);
     }
     
     if (isset($_POST['btn-user-signin'])) 
     {
-        $email = trim($_POST['email']);
+        $username = trim($_POST['username']);
         $password = trim($_POST['password']);
         $csrf_token = trim($_POST['csrf_token']);
     
         $user = new USER();
-        $user->userSignin($email, $password, $csrf_token);
+        $user->userSignin($username, $password, $csrf_token);
     }
     
     if (isset($_GET['user_signout'])) 
@@ -385,6 +392,7 @@ class USER{
     if (isset($_POST['btn-verify-user']))
     {
         $username =  $_SESSION['not_verify_username'];
+        $fullname = $_SESSION['not_verify_fullname'];
         $email = $_SESSION['not_verify_email'];
         $password = $_SESSION['not_verify_password'];
         $csrf_token = trim($_POST['csrf_token']);
@@ -393,6 +401,6 @@ class USER{
        $otp = trim($_POST['otp']);
     
        $userVerify = new USER();
-       $userVerify->verifyUser($username, $email, $password, $tokencode, $otp, $csrf_token);
+       $userVerify->verifyUser($fullname, $email, $username, $password, $otp, $csrf_token);
     }
 ?>

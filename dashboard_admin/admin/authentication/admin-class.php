@@ -63,7 +63,7 @@ class ADMIN
 
        if(isset($_SESSION['adminSession'])){
             try{
-                $query = "UPDATE admin SET status = 'inactive' WHERE id = :id";
+                $query = "UPDATE admin SET status = 'not active' WHERE id = :id";
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute(array(":id" => $_SESSION['adminSession']));
 

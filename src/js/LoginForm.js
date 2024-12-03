@@ -48,34 +48,32 @@ function showForgotPassword() {
 
 showSignIn();
 
-document.querySelector('#signUpForm form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value;
-    const password = e.target.querySelector('input[type="password"]').value;
-    const confirmPassword = e.target.querySelector('input[placeholder="Confirm Password"]').value;
+// document.querySelector('#signUpForm form').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     const email = e.target.querySelector('input[type="email"]').value;
+//     const password = e.target.querySelector('input[type="password"]').value;
+//     const confirmPassword = e.target.querySelector('input[placeholder="Confirm Password"]').value;
 
-    if (!email.includes('@')) {
-        alert('Please enter a valid email.');
-    } else if (password.length < 6) {
-        alert('Password must be at least 6 characters long.');
-    } else if (password !== confirmPassword) {
-        alert('Passwords do not match.');
-    } else {
-        alert('Account created successfully!');
-    }
-});
+//     if (!email.includes('@')) {
+//         alert('Please enter a valid email.');
+//     } else if (password.length < 6) {
+//         alert('Password must be at least 6 characters long.');
+//     } else {
+//         alert('Passwords do not match.');
+//     }
+// });
 
-document.querySelector('#signInForm form').addEventListener('submit', function (e) {
-    e.preventDefault();
-    const email = e.target.querySelector('input[type="email"]').value;
-    const password = e.target.querySelector('input[type="password"]').value;
+// document.querySelector('#signInForm form').addEventListener('submit', function (e) {
+//     e.preventDefault();
+//     const email = e.target.querySelector('input[type="email"]').value;
+//     const password = e.target.querySelector('input[type="password"]').value;
 
-    if (email === "test@example.com" && password === "password123") {
-        showFeedback('Login successful!', false);
-    } else {
-        showFeedback('Invalid email or password.', true);
-    }
-});
+//     if (email === "test@example.com" && password === "password123") {
+//         showFeedback('Login successful!', false);
+//     } else {
+//         showFeedback('Invalid email or password.', true);
+//     }
+// });
 
 function showFeedback(message, isError = false) {
     const feedback = document.createElement('p');
