@@ -60,10 +60,20 @@ class ADMIN
 
     public function adminSignout()
     {
+
+       if(isset($_SESSION['adminSession'])){
+            try{
+                $query = "UPDATE admin SET status = 'inactive' WHERE id = :id";
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute(array(":id" => $_SESSION['adminSession']));
+
+            } catch(PDOException $ex) {
+                echo $ex->getMessage();
+            }
+       }
+
        unset($_SESSION['adminSession']);
 
-       echo "<script>alert('Admin Signed Out Successfully'); window.location.href = '../../../';</script>";
-       exit;
     } 
 
     function send_email($email, $message, $subject, $smtp_email, $smtp_password){
