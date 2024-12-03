@@ -328,6 +328,46 @@ class USER{
         exit;
     }
 
+    public function forgotPassword($email, $csrf_token) {
+        if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
+            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../index.php';</script>";
+            exit;
+        }
+        unset($_SESSION['csrf_token']);
+        
+        // Check if the email exists
+        $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
+        $stmt->execute(array(":email" => $email));
+        $userRow = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+        if ($stmt->rowCount() == 1 && isset($userRow['id'])) { // Check that user exists
+            $user_id = $userRow['id'];
+    
+            // Generate a secure token
+            $token = bin2hex(random_bytes(32));
+            $tokenExpiry = date("Y-m-d H:i:s", strtotime('+30 seconds'));
+    
+            // Update the user's token in the database
+            $updateStmt = $this->runQuery("UPDATE user SET reset_token = :reset_token, token_expiry = :token_expiry WHERE email = :email");
+            $updateStmt->execute(array(
+                ":reset_token" => $token,
+                ":token_expiry" => $tokenExpiry,
+                ":email" => $email
+            ));
+    
+            $resetLink = "http://localhost/Finals-Dental-Clinic/reset-password.php?id=$user_id&tokencode=$token";
+            
+            $subject = "Password Reset Request";
+            $message = "<html><body><p>Password reset link: <a href='$resetLink'>Reset Password</a></p></body></html>";
+    
+            $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
+    
+            echo "<script>alert('A password reset link has been sent to your email.'); window.location.href = '../../../index.php';</script>";
+        } else {
+            echo "<script>alert('No account found with that email address.'); window.location.href = '../../../index.php';</script>";
+        }
+    }
+
     public function resetPassword($email, $new_password, $csrf_token)
     {
         try {
@@ -374,6 +414,23 @@ class USER{
 }
 
 //Handling variables
+    if(isset($_POST['btn-forgot-password'])){
+        $csrf_token = trim($_POST['csrf_token']);
+        $email = trim($_POST['email']);
+
+        $user = new USER();
+        $user->forgotPassword($email, $csrf_token);
+    }
+
+    if(isset($_POST['btn-reset-password'])){
+        $csrf_token = trim($_POST['csrf_token']);
+        $token = trim($_POST['token']);
+        $new_password = trim($_POST['new_password']);
+    
+        $user = new USER();
+        $user->resetPassword($email, $new_password, $csrf_token);
+    }
+
     if (isset($_POST['btn-user-signup'])) 
     {
         $_SESSION['not_verify_username'] = trim($_POST['username']);

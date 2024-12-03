@@ -14,7 +14,7 @@ if(isset($_SESSION["userSession"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care || Login and Registration</title>
-    <link rel="icon" href="src/img/icon.png" type="image/png">
+    <link rel="icon" href="src/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="./src/css/register.css">
 </head>
@@ -24,11 +24,7 @@ if(isset($_SESSION["userSession"])) {
         <div class="toggle-container">
             <img src="./src/img/icon.png" alt="Dental Care Logo" id="logo" class="logo">
             <h1 id="toggle-header"></h1>
-            <a href="admin.php">
-                <button onclick="showAdminSignIn()" type="button">
-                    User Admin
-                </button>
-            </a>
+            <a href="admin.php">Admin Login</a>
             <button onclick="showSignIn()">User Login</button>
             <button onclick="showSignUp()">Create Account</button>
         </div>
@@ -80,10 +76,11 @@ if(isset($_SESSION["userSession"])) {
 
 
         <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
-            <form>
+            <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <h1>Forgot Password</h1>
-                <input id="email-forgot" type="email" placeholder="Enter your email" required>
-                <button type="submit">ENTER</button>
+                <input id="email-forgot" type="email" name="email" required placeholder="Enter your email">
+                <button type="submit" name="btn-forgot-password">ENTER</button>
             </form>
         </div>
     </div>

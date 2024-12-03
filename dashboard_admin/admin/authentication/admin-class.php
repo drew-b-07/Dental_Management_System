@@ -151,9 +151,7 @@ class ADMIN
         echo "<script>alert('No account found with that email address.'); window.location.href = '../../../forgot-password.php';</script>";
     }
 }
-
-    
-    
+ 
 
 public function resetPassword($token, $new_password, $csrf_token){
     

@@ -29,7 +29,8 @@ body {
     background-color: var(--form-background);
     border-radius: 20px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    width: 600px;
+    width: 45vw;
+    height: 62vh;
     max-width: 90%;
     overflow: hidden;
     display: flex;
@@ -43,7 +44,7 @@ body {
 }
 
 .form-container button {
-    width: 120px;
+    width: 130px;
     padding: 10px;
     margin: 15px auto 0 auto;
     display: block;
@@ -51,7 +52,7 @@ body {
     border-radius: 15px;
     background-color: var(--secondary-color);
     color: var(--button-text-color);
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     cursor: pointer;
@@ -63,13 +64,14 @@ body {
 }
 
 form h1 {
-    font-size: 20px;
+    font-size: 2.2rem;
     margin-bottom: 15px;
 }
 
 form input {
     background-color: #D9D9D9;
     width: 100%;
+    font-size: 22px;
     padding: 8px;
     margin: 8px 0;
     border-radius: 6px;
@@ -89,11 +91,13 @@ form input {
 .link-container a {
     text-decoration: none;
     font-weight: 600;
+    font-size: 23.5px;
     color: var(--text-color);
 }
 
 .link-container p {
     margin: 0;
+    font-size: 23px;
 }
 
 .link-divider {
@@ -104,7 +108,7 @@ form input {
 }
 
 .toggle-container {
-    width: 50%;
+    width: 70%;
     background-color: var(--primary-color);
     color: var(--button-text-color);
     display: flex;
@@ -114,19 +118,21 @@ form input {
     gap: 10px;
     padding: 30px;
     box-sizing: border-box;
-    padding-top: 80px; }
+    padding-top: 80px; 
+}
 
 .toggle-container h1 {
-    font-size: 24px;
+    font-size: 35px;
     text-align: center;
     margin-bottom: 15px;
 }
 
 .logo {
-    width: var(--logo-size);     height: auto;
+    width: var(--logo-size);     
+    height: auto;
     margin-bottom: 20px; }
 
-.toggle-container button, .toggle-container a {
+.toggle-container button{
     padding: 8px 16px;
     background-color: transparent;
     color: var(--button-text-color);
@@ -134,13 +140,25 @@ form input {
     border-radius: 8px;
     cursor: pointer;
     width: 100%;
-    max-width: 250px;
     text-align: center;
-    font-size: 14px;
+    font-size: 22.5px;
+}
+
+.toggle-container a{
+    padding: 8px 16px;
+    background-color: transparent;
+    color: var(--button-text-color);
+    border: 5px solid var(--button-text-color);
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+    font-size: 22.5px;
 }
 
 .toggle-container a:hover{
     background-color: var(--hover-color);
+    text-decoration: none;
 }
 
 .toggle-container button:hover{
@@ -154,7 +172,6 @@ form input {
 a {
     color: #4A90E2;
     text-decoration: none;
-    font-weight: bold;
 }
 
 a:hover {
