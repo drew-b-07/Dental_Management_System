@@ -8,7 +8,7 @@
     --text-color: #606060;     
     --font-family: 'Montserrat', sans-serif;     
     --form-input-border: #ddd;     
-    --logo-size: 200px; 
+    --logo-size: 235px; 
 }
 
 * {
@@ -109,7 +109,7 @@ form input {
 }
 
 .toggle-container {
-    width: 70%;
+    width: 76%;
     background-color: var(--primary-color);
     color: var(--button-text-color);
     display: flex;
@@ -197,7 +197,8 @@ a:hover {
 .password-container input {
     width: 100%;
     padding: 8px 10px;
-    padding-right: 40px;     margin: 8px 0;
+    padding-right: 40px;     
+    margin: 8px 0;
     border-radius: 6px;
     border: 1px solid var(--form-input-border);
 }

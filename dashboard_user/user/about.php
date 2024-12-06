@@ -18,7 +18,7 @@ if(!isset($_SESSION["userSession"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care | About Us</title>
     <link rel="stylesheet" href="../../src/css/allpages.css">
-    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
+    <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
     <header>

@@ -1,10 +1,11 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
-    exit;
-}
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+//     exit;
+// }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +14,7 @@ if(!isset($_SESSION["userSession"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care | Home</title>
     <link rel="stylesheet" href="../../src/css/mainPage.css">
-    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
+    <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
     <header>

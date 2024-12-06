@@ -1,9 +1,9 @@
 <?php require_once __DIR__."/../../config/settings-configuration.php";
 
-// if(!isset($_SESSION["userSession"])) {
-//     echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
-//     exit;
-// }
+ if(!isset($_SESSION["userSession"])) {
+     echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+     exit;
+ }
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient's Profile</title>
     <link rel="stylesheet" href="../../src/css/profile.css">
-    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
+    <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
     <div class="profile-container">

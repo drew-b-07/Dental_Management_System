@@ -6,10 +6,10 @@ require_once __DIR__."/../../config/settings-configuration.php";
 //     exit;
 // }
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
-    exit;
-}
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+//     exit;
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ if(!isset($_SESSION["userSession"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care | Appointment</title>
     <link rel="stylesheet" href="../../src/css/allpages.css">
-    <link rel="icon" type="image/png" href="../../src/img/logo1.png">
+    <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
     <header>

@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ ."/config/settings-configuration.php";
 
-if(isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
-    exit;
-}
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
+//     exit;
+// }
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +30,7 @@ if(isset($_SESSION["userSession"])) {
         </div>
 
         <div class="form-container" id="signUpForm" aria-hidden="true">
-            <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
+            <form action="dashboard_user/user/authentication_user/user-class.php" id="signUpForm" method="POST">
                 <h1>Create Your Account</h1>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
                 <input id="name-signup" type="text" name="fullname" placeholder="Full Name" required>
@@ -38,13 +38,13 @@ if(isset($_SESSION["userSession"])) {
                 <input id="username-signup" type="text" name="username" placeholder="Username" required>
 
                 <div class="password-container">
-                    <input id="password-signup" type="password" name="password" placeholder="Create Password" required>
-                    <i class="fas fa-eye" id="toggle-password-signup" onclick="togglePassword('password-signup')"></i>
+                    <input id="password-signup" type="password" name="password" placeholder="Password" required>
+                    <i class="fas fa-eye" onclick="togglePassword('password-signup')"></i>
                 </div>
 
                 <div class="password-container">
-                    <input id="confirm-password-signup" type="password" name="password" placeholder="Confirm Password" required>
-                    <i class="fas fa-eye" id="toggle-password-confirm" onclick="togglePassword('confirm-password-signup')"></i>
+                    <input id="confirm-password-signup" type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <i class="fas fa-eye" onclick="togglePassword('confirm-password-signup')"></i>
                 </div>
 
                 <button type="submit" name="btn-user-signup">SIGN UP</button>
@@ -62,7 +62,7 @@ if(isset($_SESSION["userSession"])) {
 
                 <div class="password-container">
                     <input id="password-signin" type="password" name="password" placeholder="Password" required>
-                    <i class="fas fa-eye" id="toggle-password-signin" onclick="togglePassword('password-signin')"></i>
+                    <i class="fas fa-eye" onclick="togglePassword('password-signin')"></i>
                 </div>
 
                 <button type="submit" name="btn-user-signin">SIGN IN</button>

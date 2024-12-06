@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
- if(!isset($_SESSION["adminSession"])) {
-     echo "<script>alert('admin is not log in.'); window.location.href = '../../admin.php';</script>";
-     exit;
-}
+//  if(!isset($_SESSION["adminSession"])) {
+//      echo "<script>alert('admin is not log in.'); window.location.href = '../../admin.php';</script>";
+//      exit;
+// }
 ?>
 
 
@@ -15,6 +15,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../../src/css/calendar.css">
+    <link rel="icon" type="image/png" href="../../src/img/icon.png">
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.5/main.min.css" rel="stylesheet">
 </head>
 <body>

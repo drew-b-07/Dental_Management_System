@@ -44,7 +44,7 @@ class USER{
         $mail->Send();
     }
 
-    public function userOTP($otp, $email, $fullname)
+    public function userOTP($otp, $email, $fullname, $username, $password, $confirmPassword)
     {
         if($email == NULL){
             echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
@@ -53,11 +53,23 @@ class USER{
             $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
             $stmt->execute(array (":email" => $email));
             $stmt->fetch(PDO::FETCH_ASSOC);
-
             if($stmt->rowCount() > 0){
                 echo "<script>alert('Email already taken. Please try another one'); window.location.href = '../../../';</script>";
-            exit;
-            }else{
+                exit;
+            } else {
+                $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
+                $stmt->execute(array ("username"=> $username));
+                $stmt->fetch(PDO::FETCH_ASSOC);
+                if($stmt->rowCount() > 0){
+                    echo "<script>alert('Username is already used.'); window.location.href = '../../../';</script>";
+                    exit;
+                } else if (strlen($password) < 6) {
+                    echo "<script>alert('Password must be at least 6 characters long.'); window.location.href = '../../../index.php';</script>";
+                    exit;
+                } else if ($password !== $confirmPassword){
+                    echo "<script>alert('Password does not match.'); window.location.href = '../../../index.php';</script>";
+                    exit;
+                }   
                 $_SESSION['OTP'] = $otp;
 
                 $subject = "OTP VERIFICATION";
@@ -218,61 +230,78 @@ class USER{
     {
         try
         {
+            // CSRF token validation
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) 
             {
-                echo "<script>alert('INVALID CSRF Token.'); window.location.href = '../../../index.php';</script>";
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
-
-            //Ichecheck nito kung yung email is registered na
-            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
-            $stmt->execute([':email' => $email]);
-            
-            if ($stmt->rowCount() > 0) 
-            {
-                echo "<script>alert('Email is already registered.'); window.location.href = '../../../index.php';</script>";
-                exit;
-            }else{
-                $otp = rand(10000, 999999);
-                $_SESSION['user_registration'] = [
-                    'fullname' => $fullname,
-                    'email' => $email,
-                    'username' => $username,
-                    'password' => $password,
-                    'otp' => $otp
-                ];
-            }
-
+    
+            // // Password validations
+            // if (strlen($password) < 6) {
+            //     echo "<script>alert('Password must be at least 6 characters long.'); window.location.href = '../../../index.php';</script>";
+            //     exit;
+            // }
+            // if ($password !== $confirm_password) {
+            //     echo "<script>alert('Passwords do not match.'); window.location.href = '../../../index.php';</script>";
+            //     exit;
+            // }
+    
+            // // Check if email is already registered
+            // $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
+            // $stmt->execute([':email' => $email]);
+            // if ($stmt->rowCount() > 0) 
+            // {
+            //     echo "<script>alert('Email is already registered.'); window.location.href = '../../../index.php';</script>";
+            //     exit;
+            // }
+    
+            // // Check if username is already registered
+            // $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
+            // $stmt->execute([':username' => $username]);
+            // if ($stmt->rowCount() > 0) 
+            // {
+            //     echo "<script>alert('Username is already registered.'); window.location.href = '../../../index.php';</script>";
+            //     exit;
+            // }
+    
+            // Generate OTP and prepare session data
+            $otp = rand(10000, 999999);
+            $_SESSION['user_registration'] = [
+                'fullname' => $fullname,
+                'email' => $email,
+                'username' => $username,
+                'password' => $password,
+                'otp' => $otp
+            ];
+    
+            // Hash the password
             $hashed_password = md5($password);
-
+    
             // Insert the new user into the database
             $stmt = $this->runQuery("INSERT INTO user (fullname, email, username, password, status) VALUES (:fullname, :email, :username, :password, :status)");
             $stmt->execute([
-            ':fullname' => $fullname,
-            ':email' => $email,
-            ':username' => $username,
-            ':password' => $hashed_password,
-            ':status' => 'not_active'
+                ':fullname' => $fullname,
+                ':email' => $email,
+                ':username' => $username,
+                ':password' => $hashed_password,
+                ':status' => 'not_active'
             ]);
-
-            echo "<script>alert('Sign up successful! Check your $email inbox.'); window.location.href = '../../../verify-otp.php';</script>";
-            exit;
-
-
-        } catch (PDOException $e)
-        {
+    
+        } catch (PDOException $e) {
             echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
             exit;
         }
     }
+    
 
     public function userSignIn($username, $password, $csrf_token)
     {
         try {
             // Verify CSRF Token
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../login.php';</script>";
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
@@ -368,7 +397,7 @@ class USER{
         }
     }
 
-    public function resetPassword($email, $new_password, $csrf_token)
+    public function resetPassword($token, $new_password, $csrf_token)
     {
         try {
             // Security Purposes via CSRF Token
@@ -377,15 +406,16 @@ class USER{
                 exit;
             }
             unset($_SESSION['csrf_token']);
+            
 
             // It will change the password, gawin mong indicator yung last doon sa hash
             $hashed_password = md5($new_password);
-
+            
             // Change the password via resetpassword.php
-            $stmt = $this->runQuery("UPDATE user SET password = :password WHERE email = :email");
+            $stmt = $this->runQuery("UPDATE user SET password = :password, reset_token = NULL, token_expiry = NULL WHERE reset_token = :reset_token");
             $stmt->execute([
                 ':password' => $hashed_password,
-                ':email' => $email
+                ':reset_token' => $token
             ]);
 
             echo "<script>alert('Password reset successful! You can now log in.'); window.location.href = '../../../index.php';</script>";
@@ -428,7 +458,7 @@ class USER{
         $new_password = trim($_POST['new_password']);
     
         $user = new USER();
-        $user->resetPassword($email, $new_password, $csrf_token);
+        $user->resetPassword($token, $new_password, $csrf_token);
     }
 
     if (isset($_POST['btn-user-signup'])) 
@@ -439,11 +469,14 @@ class USER{
         $_SESSION['not_verify_password'] = trim($_POST['password']);
         
         $fullname = trim($_POST['fullname']);
+        $username =  trim($_POST['username']);
+        $confirm_password = trim($_POST['confirm_password']);
+        $password =trim($_POST['password']);
         $email = trim($_POST['email']);
         $otp = rand(100000, 999999);
     
         $user = new USER();
-        $user->userOTP($otp, $email, $fullname);
+        $user->userOTP($otp, $email, $fullname, $username, $password, $confirm_password);
     }
     
     if (isset($_POST['btn-user-signin'])) 
