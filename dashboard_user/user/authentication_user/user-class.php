@@ -58,7 +58,7 @@ class USER{
                 exit;
             } else {
                 $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
-                $stmt->execute(array ("username"=> $username));
+                $stmt->execute(array (":username"=> $username));
                 $stmt->fetch(PDO::FETCH_ASSOC);
                 if($stmt->rowCount() > 0){
                     echo "<script>alert('Username is already used.'); window.location.href = '../../../';</script>";
@@ -237,34 +237,6 @@ class USER{
                 exit;
             }
             unset($_SESSION['csrf_token']);
-    
-            // // Password validations
-            // if (strlen($password) < 6) {
-            //     echo "<script>alert('Password must be at least 6 characters long.'); window.location.href = '../../../index.php';</script>";
-            //     exit;
-            // }
-            // if ($password !== $confirm_password) {
-            //     echo "<script>alert('Passwords do not match.'); window.location.href = '../../../index.php';</script>";
-            //     exit;
-            // }
-    
-            // // Check if email is already registered
-            // $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
-            // $stmt->execute([':email' => $email]);
-            // if ($stmt->rowCount() > 0) 
-            // {
-            //     echo "<script>alert('Email is already registered.'); window.location.href = '../../../index.php';</script>";
-            //     exit;
-            // }
-    
-            // // Check if username is already registered
-            // $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
-            // $stmt->execute([':username' => $username]);
-            // if ($stmt->rowCount() > 0) 
-            // {
-            //     echo "<script>alert('Username is already registered.'); window.location.href = '../../../index.php';</script>";
-            //     exit;
-            // }
     
             // Generate OTP and prepare session data
             $otp = rand(10000, 999999);

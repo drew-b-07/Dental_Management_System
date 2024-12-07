@@ -2,13 +2,9 @@
 require_once __DIR__."/../../config/settings-configuration.php";
 
 if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not log in.'); window.location.href = '../../';</script>";
+    echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
     exit;
 }
-// if(!isset($_SESSION["adminSession"])) {
-//     echo "<script>alert('admin is not logged in.'); window.location.href = '../../index.php';</script>";
-//     exit;
-// }
 
 ?>
 <!DOCTYPE html>
@@ -65,7 +61,7 @@ if(!isset($_SESSION["userSession"])) {
             
             <h3>Location</h3>
             <p>
-                <a href="https://www.google.com.ph/maps/search/Metro+Manila+dentist/@14.5514664,120.993267,14z?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+                <a href="https:www.google.com.ph/maps/search/Metro+Manila+dentist/@14.5514664,120.993267,14z?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
                     Google Map
                 </a>
             </p>

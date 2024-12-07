@@ -1,10 +1,12 @@
 <?php
 include_once 'config/settings-configuration.php';
-
-//  if(!isset($_SESSION["userSession"])) {
-//      echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
-//      exit;
-//  }
+    // if (!isset($_SESSION['OTP'])) {
+    //     echo "Session OTP is not set. Check your sign-up process.";
+    //     exit;
+    // } else if ($_SESSION['OTP'] !== true) {
+    //     echo "Session OTP is not valid. Check its value: " . var_export($_SESSION['OTP'], true);
+    //     exit;
+    // }
 ?>
 
 <!DOCTYPE html>
