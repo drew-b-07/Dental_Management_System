@@ -1,14 +1,24 @@
 <?php
 include_once 'config/settings-configuration.php';
-    // if (!isset($_SESSION['OTP'])) {
-    //     echo "Session OTP is not set. Check your sign-up process.";
-    //     exit;
-    // } else if ($_SESSION['OTP'] !== true) {
-    //     echo "Session OTP is not valid. Check its value: " . var_export($_SESSION['OTP'], true);
-    //     exit;
-    // }
-?>
 
+     $db = new Database();
+     $pdo = $db->dbConnection();
+     $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
+     $stmt->execute([':id' => $_GET['id']]);
+
+     if ($stmt->rowCount() == 0 || $stmt->fetch()['verify_status'] == 'verified') {
+        echo "<script>alert('Invalid action. Please sign up first or the OTP is already verified.'); window.location.href = 'index.php';</script>";
+        exit;
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM user WHERE verify_status = 'not_verified'");
+        $stmt->execute([':verify_status' => $_GET['verify_status']]);
+        if($stmt->rowCount() == 1) {
+            header("Location: verify-otp.php");
+            exit;
+        }
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -50,7 +50,7 @@ class USER{
             echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
             exit;
         } else{
-            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
+            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email AND verify_status = 'verified'");
             $stmt->execute(array (":email" => $email));
             $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0){
@@ -69,9 +69,29 @@ class USER{
                 } else if ($password !== $confirmPassword){
                     echo "<script>alert('Password does not match.'); window.location.href = '../../../index.php';</script>";
                     exit;
-                }   
-                $_SESSION['OTP'] = $otp;
+                }
+            }
 
+            // Hash the password
+            $hashed_password = md5($password);
+    
+            try{
+            // Insert the new user into the database
+            $stmt = $this->runQuery("INSERT INTO user (fullname, email, username, password, user_status, verify_status ) VALUES (:fullname, :email, :username, :password, :user_status, :verify_status)");
+            $stmt->execute([
+                ':fullname' => $fullname,
+                ':email' => $email,
+                ':username' => $username,
+                ':password' => $hashed_password,
+                ':user_status' => 'not_active',
+                ':verify_status' => 'not_verified'
+            ]);
+            } catch(PDOException $e){
+                echo "<script>alert('An error occurred during signup. Please try again.'); window.location.href = '../../../index.php';</script>";
+                exit;
+            }
+
+                $_SESSION['OTP'] = $otp;
                 $subject = "OTP VERIFICATION";
                 $message = "
                 <!DOCTYPE html>
@@ -142,7 +162,6 @@ class USER{
 
                 $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
                 echo "<script>alert('We sent the OTP to $email'); window.location.href = '../../../verify-otp.php';</script>";
-            }
         }
     }
 
@@ -150,6 +169,9 @@ class USER{
     {
         if ($otp == $_SESSION['OTP']) {
             unset($_SESSION['OTP']);
+
+            $stmt = $this->runQuery("UPDATE user SET verify_status = 'verified' WHERE email = :email");
+            $stmt->execute([':email' => $email]);
 
             $subject = "VERIFICATION SUCCESS";
             $message = "
@@ -218,10 +240,10 @@ class USER{
             $this->userSignUp($fullname, $email, $username, $password, $csrf_token);
             
         } else if ($otp == NULL) {
-            echo "<script>alert('No OTP Found'); window.location.href = '../../../verify-otp.php';</script>";
-            exit;
+            echo "<script>alert('No OTP Found.'); window.location.href = '../../../verify-otp.php';</script>";
+            exit;     
         } else {
-            echo "<script>alert('It appears that the OTP you entered is invalid'); window.location.href = '../../../verify-otp.php';</script>";
+            echo "<script>alert('It appears that the OTP you entered is invalid.'); window.location.href = '../../../verify-otp.php';</script>";
             exit;
         }
     }
@@ -237,29 +259,16 @@ class USER{
                 exit;
             }
             unset($_SESSION['csrf_token']);
-    
+
             // Generate OTP and prepare session data
             $otp = rand(10000, 999999);
             $_SESSION['user_registration'] = [
-                'fullname' => $fullname,
-                'email' => $email,
-                'username' => $username,
-                'password' => $password,
-                'otp' => $otp
+            'fullname' => $fullname,
+            'email' => $email,
+            'username' => $username,
+            'password' => $password,
+            'otp' => $otp
             ];
-    
-            // Hash the password
-            $hashed_password = md5($password);
-    
-            // Insert the new user into the database
-            $stmt = $this->runQuery("INSERT INTO user (fullname, email, username, password, status) VALUES (:fullname, :email, :username, :password, :status)");
-            $stmt->execute([
-                ':fullname' => $fullname,
-                ':email' => $email,
-                ':username' => $username,
-                ':password' => $hashed_password,
-                ':status' => 'not_active'
-            ]);
     
         } catch (PDOException $e) {
             echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
@@ -282,17 +291,17 @@ class USER{
             $hashed_password = md5($password);
 
             // Check if the user exists and the status is not_active first before signing in
-            $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password AND status = :status");
+            $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password AND user_status = :user_status");
             $stmt->execute([
                 ':username' => $username,
                 ':password' => $hashed_password,
-                ':status' => 'not_active'
+                ':user_status' => 'not_active'
             ]);
 
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
             if ($user) {
-                $query = "UPDATE user SET status = 'active' WHERE id = :id";
+                $query = "UPDATE user SET user_status = 'active' WHERE id = :id";
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute(array(":id" => $user['id']));
             
@@ -315,7 +324,7 @@ class USER{
 
         if(isset($_SESSION['userSession'])){
             try{
-                $query = "UPDATE user SET status = 'not_active' WHERE id = :id";
+                $query = "UPDATE user SET user_status = 'not_active' WHERE id = :id";
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute(array(":id" => $_SESSION['userSession']));
 
