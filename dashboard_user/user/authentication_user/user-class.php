@@ -44,13 +44,41 @@ class USER{
         $mail->Send();
     }
 
+    public function userSignUp($fullname, $email, $username, $password, $csrf_token)
+    {
+        try
+        {
+            // CSRF token validation
+            if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) 
+            {
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
+                exit;
+            }
+            unset($_SESSION['csrf_token']);
+
+            // Generate OTP and prepare session data
+            $otp = rand(10000, 999999);
+            $_SESSION['user_registration'] = [
+            'fullname' => $fullname,
+            'email' => $email,
+            'username' => $username,
+            'password' => $password,
+            'otp' => $otp
+            ];
+    
+        } catch (PDOException $e) {
+            echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
+            exit;
+        }
+    }
+
     public function userOTP($otp, $email, $fullname, $username, $password, $confirmPassword)
     {
         if($email == NULL){
             echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
             exit;
-        } else{
-            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email AND verify_status = 'verified'");
+        } else {
+            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
             $stmt->execute(array (":email" => $email));
             $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0){
@@ -162,11 +190,28 @@ class USER{
 
                 $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
                 echo "<script>alert('We sent the OTP to $email'); window.location.href = '../../../verify-otp.php';</script>";
+
+                $_SESSION['OTP'] = $otp;
+                $_SESSION['not_verify_fullname'] = $fullname;
+                $_SESSION['not_verify_email'] = $email;
+                $_SESSION['not_verify_username'] = $username;
+                $_SESSION['not_verify_password'] = $password;
         }
     }
 
     public function verifyUser($fullname, $email, $username, $password, $otp, $csrf_token)
     {
+
+        if (!isset($_SESSION['OTP']) || !isset($_SESSION['not_verify_email'])) {
+            echo "<script>alert('Invalid Action: Missing session data.'); window.location.href = '../../../index.php';</script>";
+            exit;
+        }
+
+        if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
+            echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../verify-otp.php';</script>";
+            exit;
+        }
+
         if ($otp == $_SESSION['OTP']) {
             unset($_SESSION['OTP']);
 
@@ -247,35 +292,6 @@ class USER{
             exit;
         }
     }
-
-    public function userSignUp($fullname, $email, $username, $password, $csrf_token)
-    {
-        try
-        {
-            // CSRF token validation
-            if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) 
-            {
-                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
-                exit;
-            }
-            unset($_SESSION['csrf_token']);
-
-            // Generate OTP and prepare session data
-            $otp = rand(10000, 999999);
-            $_SESSION['user_registration'] = [
-            'fullname' => $fullname,
-            'email' => $email,
-            'username' => $username,
-            'password' => $password,
-            'otp' => $otp
-            ];
-    
-        } catch (PDOException $e) {
-            echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
-            exit;
-        }
-    }
-    
 
     public function userSignIn($username, $password, $csrf_token)
     {

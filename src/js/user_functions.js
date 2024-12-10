@@ -1,3 +1,11 @@
+//user log out function
+function logout() {
+    if(confirm("Are you sure you want to logout?")) {
+        location.href = "../../dashboard_user/user/authentication_user/user-class.php?user_signout";
+    }
+}
+
+//login registration form
 function togglePassword(passwordId) {
     const passwordInput = document.getElementById(passwordId);
     const icon = passwordInput.nextElementSibling;
@@ -46,7 +54,7 @@ function showForgotPassword() {
     document.getElementById('toggle-header').textContent = "Forgot Password?";
 }
 
-showSignIn();
+showSignUp();
 
 // document.querySelector('#signUpForm form').addEventListener('submit', function (e) {
 //     e.preventDefault();
@@ -75,12 +83,12 @@ showSignIn();
 //      }
 //  });
 
-function showFeedback(message, isError = false) {
-    const feedback = document.createElement('p');
-    feedback.textContent = message;
-    feedback.style.color = isError ? 'red' : 'green';
-    feedback.style.textAlign = 'center';
+// function showFeedback(message, isError = false) {
+//     const feedback = document.createElement('p');
+//     feedback.textContent = message;
+//     feedback.style.color = isError ? 'red' : 'green';
+//     feedback.style.textAlign = 'center';
 
-    document.querySelector('.form-container.show form').appendChild(feedback);
-    setTimeout(() => feedback.remove(), 3000);
-}
+//     document.querySelector('.form-container.show form').appendChild(feedback);
+//     setTimeout(() => feedback.remove(), 3000);
+// }

@@ -1,0 +1,334 @@
+/* Main Colors for Mixing */
+:root {
+    --primary-bg: #649CB2;
+    --secondary-bg: #4F7CAA;
+    --accent-color: #6493c4;
+    --dark-accent-color: #13407a;
+
+    /* LABEL ONLY */
+    --label-textcolor: #000;
+    --label-size: 20px;
+
+    /* PROFILE */
+    --profile-bg: #9abedd;
+    --profile-icon-size: 30px;
+
+    /* MAIN FONT */
+    --font-family: 'Jost', sans-serif;
+
+    /* BUTTON STYLE */
+    --button-hover-color: rgb(0, 174, 255);
+    --button-color: #13407a;
+    --button-textcolor: #ffffff;
+    --button-textsize: 18px;
+    --button-fontweight: 800;
+
+    /* HEADING STYLE */
+    --heading-size: 35px;
+    --heading-textcolor: #222;
+
+    /* FORM STYLE */
+    --form-background: #fff;
+    --form-input-border: #ddd;
+
+    /* INPUT STYLES AND SIZES */
+    --input-bgcolor: #fff;
+    --input-width: 18vw; /* Adjusted to make the inputs shorter */
+    --input-padding: 10px; /* Add padding for spacing */
+    --placeholder-font-size: 14px; /* Adjusted placeholder font size */
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    background-color: var(--primary-bg);
+    color: var(--label-textcolor);
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--secondary-bg);
+    padding: 20px;
+    color: #fff;
+}
+
+.sidebar h2 {
+    text-align: center;
+    font-size: var(--heading-size);
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: var(--label-size);
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.sidebar ul li a.active, .sidebar ul li a:hover {
+    background-color: var(--accent-color);
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+h1 {
+    font-size: var(--heading-size);
+    color: var(--heading-textcolor);
+    margin-bottom: 20px;
+}
+
+button {
+    background-color: var(--button-color);
+    color: var(--button-textcolor);
+    font-size: var(--button-textsize);
+    font-weight: var(--button-fontweight);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--button-hover-color);
+}
+
+form {
+    background-color: var(--form-background);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 500px; /* Ensure the form is not too wide */
+    margin: 0 auto; /* Center align the form */
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: var(--input-width);
+    background-color: var(--input-bgcolor);
+    border: 1px solid var(--form-input-border);
+    padding: var(--input-padding); /* Apply padding */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* Placeholder Styles */
+input::placeholder,
+textarea::placeholder {
+    font-size: var(--placeholder-font-size); /* Set placeholder font size */
+    color: #999; /* Placeholder text color */
+}
+
+.calendar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-container {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+}
+
+.card {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.card p {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* General Input Field Styles */
+input[type="text"],
+input[type="number"],
+input[type="email"],
+select {
+    width: var(--input-width); /* Use defined CSS variable for responsiveness */
+    background-color: var(--input-bgcolor);
+    border: 1px solid var(--form-input-border);
+    padding: var(--input-padding);
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Input Field Hover Effects */
+input[type="text"]:hover,
+input[type="number"]:hover,
+input[type="email"]:hover,
+select:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0, 174, 255, 0.2);
+}
+
+/* Input Field Focus Effects */
+input[type="text"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 2px 5px rgba(0, 174, 255, 0.5);
+    outline: none;
+}
+
+/* Responsive & Aesthetic Adjustments */
+#patient-form input,
+#patient-form select {
+    font-family: var(--font-family);
+    border: 1px solid var(--form-input-border);
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Button Styling inside Forms */
+form button {
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #005580; /* Darker blue for hover */
+}
+
+
+/* General Reset for Patient Form Horizontal Fields */
+#patient-form {
+    display: flex;
+    flex-wrap: wrap; /* Allow fields to wrap when there's not enough horizontal space */
+    gap: 10px; /* Adds spacing between fields */
+    background-color: var(--form-background);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    justify-content: flex-start; /* Align fields to the left */
+}
+
+/* Style all form fields to fit horizontally */
+#patient-form input[type="text"],
+#patient-form input[type="number"],
+#patient-form select {
+    flex: 1 1 200px; /* Each field will take equal space but won't shrink too much */
+    background-color: var(--input-bgcolor);
+    border: 1px solid var(--form-input-border);
+    padding: var(--input-padding);
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Style Submit Button */
+#patient-form button[type="submit"] {
+    flex: 1 1 auto; /* Let the submit button size itself naturally */
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--button-textcolor);
+    font-size: var(--button-textsize);
+    font-weight: var(--button-fontweight);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#patient-form button[type="submit"]:hover {
+    background-color: #005580; /* Darker blue hover effect */
+}
+
+
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Modal Content Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Close Button */
+  .close-btn {
+    color: #aaa;
+    float: right;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    color: black;
+  }
+  
+  /* OK Button */
+  #modal-ok-btn {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }

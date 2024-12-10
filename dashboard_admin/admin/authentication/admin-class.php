@@ -46,7 +46,7 @@ class ADMIN
                     $stmt->execute(array(":id" => $admin['id']));
                 
                     $_SESSION['adminSession'] = $admin['id'];
-                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = '../calendar.php' ;</script>";
+                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = '../index.php' ;</script>";
                     exit;
                 } else {
                     echo "<script>alert('Invalid password. Try again.'); window.location.href = '../../../admin.php' ;</script>";

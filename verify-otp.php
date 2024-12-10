@@ -1,24 +1,29 @@
 <?php
 include_once 'config/settings-configuration.php';
 
-     $db = new Database();
-     $pdo = $db->dbConnection();
-     $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
-     $stmt->execute([':id' => $_GET['id']]);
-
-     if ($stmt->rowCount() == 0 || $stmt->fetch()['verify_status'] == 'verified') {
-        echo "<script>alert('Invalid action. Please sign up first or the OTP is already verified.'); window.location.href = 'index.php';</script>";
-        exit;
-    } else {
-        $stmt = $pdo->prepare("SELECT * FROM user WHERE verify_status = 'not_verified'");
-        $stmt->execute([':verify_status' => $_GET['verify_status']]);
-        if($stmt->rowCount() == 1) {
-            header("Location: verify-otp.php");
-            exit;
-        }
+    if (empty($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
     }
 
+    $csrf_token = $_SESSION['csrf_token'];
+
+    try {
+        $db = new Database();
+        $pdo = $db->dbConnection();
+        $stmt = $pdo->prepare('SELECT * FROM user WHERE verify_status IS NULL');
+        $stmt->execute();
+
+         if ($stmt->rowCount() === 0) {
+            echo "<script>alert('Invalid action.'); window.location.href = 'index.php';</script>";
+            exit;
+        }
+
+    } catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+        exit;
+    }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

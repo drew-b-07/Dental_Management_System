@@ -55,6 +55,6 @@ if(!isset($_SESSION["userSession"])) {
     </form>
     </section>
 
-    <script src="../../src/js/popup-logout.js"></script>
+    <script src="../../src/js/user_functions.js"></script>
 </body>
 </html>

@@ -85,7 +85,7 @@ if(isset($_SESSION["userSession"])) {
         </div>
     </div>
 
-    <script src="./src/js/LoginForm.js"></script>
+    <script src="./src/js/user_functions.js"></script>
 </body>
 
 </html>
