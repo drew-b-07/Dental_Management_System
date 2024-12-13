@@ -1,9 +1,9 @@
 <?php require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-    exit;
-}
+//  if(!isset($_SESSION["userSession"])) {
+//      echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+//      exit;
+//  }
 
 ?>
 
@@ -12,18 +12,31 @@ if(!isset($_SESSION["userSession"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient's Profile</title>
+    <title>Dental Care | Profile</title>
     <link rel="stylesheet" href="../../src/css/profile.css">
     <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
-    <div class="profile-container">
-        <h2>Patient's Profile</h2>
+    <duv class="profile-container">
+        <h2>PROFILE</h2>
         <form>
             <div class="form-group">
+                <label for="fullname">Full Name: </label>
+            </div>
+            
+            <div class="form-group">
+                <label for="username">Username: </label>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Address: </label>
+            </div>
+
+            
+            <!-- <div class="form-group">
                 <label>Last Name:</label>
                 <input type="text" name="last_name" required>
-            </div>
+             </div>
             <div class="form-group">
                 <label>Schedule:</label>
                 <input type="date" name="schedule" required>
@@ -47,9 +60,8 @@ if(!isset($_SESSION["userSession"])) {
             <div class="form-group age-group" >
                 <label>Age:</label>
                 <input type="number" name="age" required>
-            </div>
+            </div>  -->
             <div class="button-container">
-                <button type="button" onclick="window.location.href='home.php'" class="back-button">BACK</button>
                 <button type="submit" class="submit-button">EDIT PROFILE</button>
             </div>
         </form>

@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ ."/config/settings-configuration.php";
 
-if(isset($_SESSION["adminSession"])){
-  echo "<script>alert('admin is log in.'); window.location.href = './dashboard_admin/admin/calendar.php';</script>";
-  exit;
-}
+// if(isset($_SESSION["adminSession"])){
+//   echo "<script>alert('admin is log in.'); window.location.href = './dashboard_admin/admin/calendar.php';</script>";
+//   exit;
+// }
 ?>
 
 <!DOCTYPE html>

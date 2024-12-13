@@ -59,12 +59,14 @@ class USER{
             // Generate OTP and prepare session data
             $otp = rand(10000, 999999);
             $_SESSION['user_registration'] = [
-            'fullname' => $fullname,
-            'email' => $email,
-            'username' => $username,
-            'password' => $password,
-            'otp' => $otp
+                'fullname' => $fullname,
+                'email' => $email,
+                'username' => $username,
+                'password' => $password,
+                'otp' => $otp
             ];
+
+            $_SESSION['userSession'] = true;
     
         } catch (PDOException $e) {
             echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
@@ -112,7 +114,7 @@ class USER{
                 ':username' => $username,
                 ':password' => $hashed_password,
                 ':user_status' => 'not_active',
-                ':verify_status' => 'not_verified'
+                ':verify_status' => 'verifying'
             ]);
             } catch(PDOException $e){
                 echo "<script>alert('An error occurred during signup. Please try again.'); window.location.href = '../../../index.php';</script>";
@@ -303,6 +305,7 @@ class USER{
             }
             unset($_SESSION['csrf_token']);
 
+
             // Hash the input password
             $hashed_password = md5($password);
 
@@ -424,6 +427,10 @@ class USER{
         }
     }
 
+    public function bookAppointment(){
+        
+    }
+
     public function isUserLoggedIn()
     {
         return isset($_SESSION['userSession']);
@@ -505,5 +512,11 @@ class USER{
     
        $userVerify = new USER();
        $userVerify->verifyUser($fullname, $email, $username, $password, $otp, $csrf_token);
+    }
+
+    if (isset($_POST['btn-book-appointment']))
+    {
+        $user = new USER();
+        $user->bookAppointment();
     }
 ?>

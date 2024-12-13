@@ -1,42 +1,4 @@
-/* Main Colors for Mixing */
-:root {
-    --primary-bg: #649CB2;
-    --secondary-bg: #4F7CAA;
-    --accent-color: #6493c4;
-    --dark-accent-color: #13407a;
-
-    /* LABEL ONLY */
-    --label-textcolor: #000;
-    --label-size: 20px;
-
-    /* PROFILE */
-    --profile-bg: #9abedd;
-    --profile-icon-size: 30px;
-
-    /* MAIN FONT */
-    --font-family: 'Jost', sans-serif;
-
-    /* BUTTON STYLE */
-    --button-hover-color: rgb(0, 174, 255);
-    --button-color: #13407a;
-    --button-textcolor: #ffffff;
-    --button-textsize: 18px;
-    --button-fontweight: 800;
-
-    /* HEADING STYLE */
-    --heading-size: 35px;
-    --heading-textcolor: #222;
-
-    /* FORM STYLE */
-    --form-background: #fff;
-    --form-input-border: #ddd;
-
-    /* INPUT STYLES AND SIZES */
-    --input-bgcolor: #fff;
-    --input-width: 18vw; /* Adjusted to make the inputs shorter */
-    --input-padding: 10px; /* Add padding for spacing */
-    --placeholder-font-size: 14px; /* Adjusted placeholder font size */
-}
+@import url(general-roots.css);
 
 body {
     font-family: var(--font-family);
@@ -150,8 +112,12 @@ textarea::placeholder {
     color: #999; /* Placeholder text color */
 }
 
+tbody{
+    text-align: center;
+}
+
 .calendar {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -332,3 +298,63 @@ form button:hover {
     border-radius: 5px;
     cursor: pointer;
   }
+  
+  /* Dashboard Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+}
+
+.card p {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0;
+    color: #007bff;
+}
+
+.appointments-overview,
+.recent-activities {
+    margin-top: 20px;
+}
+
+.appointments-overview h2,
+.recent-activities h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: #5e87bd;
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.reset_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

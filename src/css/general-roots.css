@@ -1,41 +1,39 @@
+/* Main Colors for Mixing */
 :root {
-
-    /*Main Colors for Mixing*/
     --primary-bg: #649CB2;
     --secondary-bg: #4F7CAA;
     --accent-color: #6493c4;
     --dark-accent-color: #13407a;
 
-    /*LABEL ONLY*/
+    /* LABEL ONLY */
     --label-textcolor: #000;
-    --label-size: 20px;
+    --label-size: 24px;
 
-    /*PROFILE*/
+    /* PROFILE */
     --profile-bg: #9abedd;
     --profile-icon-size: 30px;
 
-    /*MAIN FONT*/
+    /* MAIN FONT */
     --font-family: 'Jost', sans-serif;
 
-    /*BUTTON STYLE*/
+    /* BUTTON STYLE */
     --button-hover-color: rgb(0, 174, 255);
     --button-color: #13407a;
     --button-textcolor: #ffffff;
     --button-textsize: 18px;
     --button-fontweight: 800;
 
-    /*HEADING STYLE*/
+    /* HEADING STYLE */
     --heading-size: 35px;
     --heading-textcolor: #222;
 
-    /*FORM STYLE*/
+    /* FORM STYLE */
     --form-background: #fff;
     --form-input-border: #ddd;
 
-    /*INPUT STYLES AND SIZES*/
+    /* INPUT STYLES AND SIZES */
     --input-bgcolor: #fff;
-    --input-width: 23.5vw;
-
-    /*LOGO*/
-    --logo-size: 200px;
+    --input-width: 23.5vw; /* Adjusted to make the inputs shorter */
+    --input-padding: 10px; /* Add padding for spacing */
+    --placeholder-font-size: 14px; /* Adjusted placeholder font size */
 }

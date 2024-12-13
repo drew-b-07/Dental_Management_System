@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-    exit;
-}
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+//     exit;
+// }
 
 ?>
 <!DOCTYPE html>

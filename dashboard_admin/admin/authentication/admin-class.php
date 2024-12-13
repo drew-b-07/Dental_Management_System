@@ -94,7 +94,7 @@ class ADMIN
         $mail->Send();
     }
 
-    public function isUserLoggedIn()
+    public function isAdminLoggedIn()
     {
         if(isset($_SESSION['adminSession'])){
             return true;
@@ -115,18 +115,62 @@ class ADMIN
 
 public function resetPassword($token, $new_password, $csrf_token){
     
-    if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-        echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../reset-password.php?token=$token'; </script>";
+        if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
+            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../reset-password.php?token=$token'; </script>";
+            exit;
+        }
+        unset($_SESSION['csrf_token']);
+
+        $stmt = $this->runQuery("UPDATE admin SET password = :password");
+        $stmt->execute([':password' => $new_password]);
+        
+        echo "<script>alert('Password reset successfully.'); window.location.href = 'index.php' ;</script>";
         exit;
     }
-    unset($_SESSION['csrf_token']);
 
-    $stmt = $this->runQuery("UPDATE admin SET password = :password");
-    $stmt->execute([':password' => $new_password]);
-    
-    echo "<script>alert('Password reset successfully.'); window.location.href = 'index.php' ;</script>";
-    exit;
-}
+    public function addUpdateAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact){
+        try{
+            $stmt = $this->runQuery("INSERT INTO add_appointments 
+            (patient_name, patient_age, patient_bday, patient_gender, patient_email, patient_address, patient_condition, patient_contact) 
+            VALUES (:patient_name, :patient_age, :patient_bday, :patient_gender, :patient_email, :patient_address, :patient_condition, :patient_contact)");
+            if($stmt->execute([
+            ':patient_name' => $pName,
+            ':patient_age' => $pAge,
+            ':patient_bday' => $pBday,
+            ':patient_gender' => $pGender,
+            ':patient_email' => $pEmail,
+            ':patient_address' => $pAddress,
+            ':patient_condition' => $pCondition,
+            ':patient_contact' => $pContact
+            ]));
+
+
+            $_SESSION['toast_message'] = 'Record Inserted Successfully!';
+            header('Location: ../index.php?section=patients'); // Reload the current page
+            exit;
+
+            // echo "<script>                 
+            // document.addEventListener('DOMContentLoaded', function() {
+            //         const toast = document.createElement('div');
+            //         toast.textContent = 'Record Inserted Successfully!';
+            //         toast.style.position = 'fixed';
+            //         toast.style.bottom = '20px';
+            //         toast.style.right = '20px';
+            //         toast.style.background = '#4caf50';
+            //         toast.style.color = '#fff';
+            //         toast.style.padding = '10px 15px';
+            //         toast.style.borderRadius = '5px';
+            //         toast.style.boxShadow = '0px 2px 6px rgba(0, 0, 0, 0.2)';
+            //         document.body.appendChild(toast);
+            //         setTimeout(() => toast.remove(), 3000);
+            // });
+            // window.location.href = '../index.php?section=patients' </script>";
+            // exit;
+                
+        } catch(PDOException $ex){
+            echo $ex->getMessage();
+        }
+    }
 }
 
 if(isset($_POST['btn-reset-password'])){
@@ -147,8 +191,22 @@ if(isset ($_POST['btn-admin-signin'])){
     $admin->adminSignin($username, $password, $csrf_token);
 }
 
-if(isset($_GET['admin-signout']))
+if(isset($_GET['admin_signout']))
 {
     $admin = new ADMIN();
     $admin->adminSignout();
+}
+
+if(isset($_POST['btn-admin-addupdate'])){
+    $pName = trim($_POST['patient_name']);
+    $pAge = trim($_POST['patient_age']);
+    $pBday = trim($_POST['patient_bday']);
+    $pGender = trim($_POST['patient_gender']);
+    $pEmail = trim($_POST['patient_email']);
+    $pAddress= trim($_POST['patient_address']);
+    $pCondition = trim($_POST['patient_condition']);
+    $pContact = trim($_POST['patient_contactno']);
+
+    $admin = new ADMIN();
+    $admin->addUpdateAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact);
 }

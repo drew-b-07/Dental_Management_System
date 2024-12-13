@@ -1,27 +1,12 @@
 <?php
 include_once 'config/settings-configuration.php';
 
-    if (empty($_SESSION['csrf_token'])) {
-        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
-    }
+if (!isset($_SESSION['OTP']) || !isset($_SESSION['not_verify_email'])) {
+    // Redirect to the registration page if required session data is missing
+    echo "<script>alert('Invalid access. Please register first.'); window.location.href = 'index.php';</script>";
+    exit;
+}
 
-    $csrf_token = $_SESSION['csrf_token'];
-
-    try {
-        $db = new Database();
-        $pdo = $db->dbConnection();
-        $stmt = $pdo->prepare('SELECT * FROM user WHERE verify_status IS NULL');
-        $stmt->execute();
-
-         if ($stmt->rowCount() === 0) {
-            echo "<script>alert('Invalid action.'); window.location.href = 'index.php';</script>";
-            exit;
-        }
-
-    } catch (PDOException $e) {
-        echo "Error: " . $e->getMessage();
-        exit;
-    }
 ?>
 
 <!DOCTYPE html>

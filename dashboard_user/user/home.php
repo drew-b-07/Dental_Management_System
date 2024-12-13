@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-if(!isset($_SESSION["userSession"])) {
-    echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-    exit;
-}
+ if(!isset($_SESSION["userSession"])) {
+     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+     exit;
+ }
 
 ?>
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ if(!isset($_SESSION["userSession"])) {
     <header>
         <nav>
             <div class="nav-left">
-                <h1>Dental Care</h1>
+                <h1>Dental Care Clinic</h1>
             </div>
             <ul>
                 <li><a href="#">Home</a></li>
