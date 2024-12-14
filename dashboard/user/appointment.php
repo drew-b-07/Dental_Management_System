@@ -49,7 +49,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="./home.php">Home</a></li>
                 <li><a href="./appointment.php" class="active">Appointment</a></li>
                 <li><a href="./about.php">About Us</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
+                <li><a href="#" onclick="Ulogout()">Logout</a></li>
                 <li><a href="./profile.php">
                     <div class="profile-icon-button">
                         <img src="../../src/img/profile.jpg" class="profile-icon">
@@ -105,6 +105,6 @@ require_once __DIR__."/../../config/settings-configuration.php";
     </form>
     </section>
 
-    <script src="../../src/js/user_functions.js"></script>
+    <script src="../../src/js/script.js"></script>
 </body>
 </html>

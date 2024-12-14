@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__.'/../../../database/dbconnection.php';
-require_once __DIR__.'/../../../config/settings-configuration.php';
-require_once __DIR__.'/../../../src/vendor/autoload.php';
+require_once __DIR__.'/../database/dbconnection.php';
+require_once __DIR__.'/../config/settings-configuration.php';
+require_once __DIR__.'/../src/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -51,7 +51,7 @@ class USER{
             // CSRF token validation
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) 
             {
-                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
@@ -69,7 +69,7 @@ class USER{
             $_SESSION['userSession'] = true;
     
         } catch (PDOException $e) {
-            echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../';</script>";
             exit;
         }
     }
@@ -77,27 +77,27 @@ class USER{
     public function userOTP($otp, $email, $fullname, $username, $password, $confirmPassword)
     {
         if($email == NULL){
-            echo "<script>alert('No email found.'); window.location.href = '../../../';</script>";
+            echo "<script>alert('No email found.'); window.location.href = '../';</script>";
             exit;
         } else {
             $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
             $stmt->execute(array (":email" => $email));
             $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0){
-                echo "<script>alert('Email already taken. Please try another one'); window.location.href = '../../../';</script>";
+                echo "<script>alert('Email already taken. Please try another one'); window.location.href = '../';</script>";
                 exit;
             } else {
                 $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
                 $stmt->execute(array (":username"=> $username));
                 $stmt->fetch(PDO::FETCH_ASSOC);
                 if($stmt->rowCount() > 0){
-                    echo "<script>alert('Username is already used.'); window.location.href = '../../../';</script>";
+                    echo "<script>alert('Username is already used.'); window.location.href = '../';</script>";
                     exit;
                 } else if (strlen($password) < 6) {
-                    echo "<script>alert('Password must be at least 6 characters long.'); window.location.href = '../../../index.php';</script>";
+                    echo "<script>alert('Password must be at least 6 characters long.'); window.location.href = '../';</script>";
                     exit;
                 } else if ($password !== $confirmPassword){
-                    echo "<script>alert('Password does not match.'); window.location.href = '../../../index.php';</script>";
+                    echo "<script>alert('Password does not match.'); window.location.href = '../';</script>";
                     exit;
                 }
             }
@@ -116,8 +116,11 @@ class USER{
                 ':user_status' => 'not_active',
                 ':verify_status' => 'verifying'
             ]);
+
+            $_SESSION['userSession'] = true;
+
             } catch(PDOException $e){
-                echo "<script>alert('An error occurred during signup. Please try again.'); window.location.href = '../../../index.php';</script>";
+                echo "<script>alert('An error occurred during signup. Please try again.'); window.location.href = '../';</script>";
                 exit;
             }
 
@@ -191,7 +194,7 @@ class USER{
                 </html>";
 
                 $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
-                echo "<script>alert('We sent the OTP to $email'); window.location.href = '../../../verify-otp.php';</script>";
+                echo "<script>alert('We sent the OTP to $email'); window.location.href = '../verify-otp.php';</script>";
 
                 $_SESSION['OTP'] = $otp;
                 $_SESSION['not_verify_fullname'] = $fullname;
@@ -205,12 +208,12 @@ class USER{
     {
 
         if (!isset($_SESSION['OTP']) || !isset($_SESSION['not_verify_email'])) {
-            echo "<script>alert('Invalid Action: Missing session data.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('Invalid Action: Missing session data.'); window.location.href = '../';</script>";
             exit;
         }
 
         if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-            echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../verify-otp.php';</script>";
+            echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../verify-otp.php';</script>";
             exit;
         }
 
@@ -278,7 +281,7 @@ class USER{
             </html>";
 
             $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
-            echo "<script>alert('Verification successful! Thank you for verifying your email.'); window.location.href = '../../../';</script>";
+            echo "<script>alert('Verification successful! Thank you for verifying your email.'); window.location.href = '../';</script>";
 
             unset($_SESSION['not_verify_username']);
             unset($_SESSION['not_verify_email']);
@@ -287,10 +290,10 @@ class USER{
             $this->userSignUp($fullname, $email, $username, $password, $csrf_token);
             
         } else if ($otp == NULL) {
-            echo "<script>alert('No OTP Found.'); window.location.href = '../../../verify-otp.php';</script>";
+            echo "<script>alert('No OTP Found.'); window.location.href = '../verify-otp.php';</script>";
             exit;     
         } else {
-            echo "<script>alert('It appears that the OTP you entered is invalid.'); window.location.href = '../../../verify-otp.php';</script>";
+            echo "<script>alert('It appears that the OTP you entered is invalid.'); window.location.href = '../verify-otp.php';</script>";
             exit;
         }
     }
@@ -300,7 +303,7 @@ class USER{
         try {
             // Verify CSRF Token
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../index.php';</script>";
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
@@ -325,41 +328,78 @@ class USER{
                 $stmt->execute(array(":id" => $user['id']));
             
                 $_SESSION['userSession'] = $user['id'];
-                echo "<script>alert('Welcome {$user['username']}!'); window.location.href = '../home.php' ;</script>";
+                echo "<script>alert('Welcome {$user['username']}!'); window.location.href = './user/home.php' ;</script>";
                 exit;
             } else {
-                echo "<script>alert('Invalid username or password. Please try again.'); window.location.href = '../../../index.php' ;</script>";
-                exit;
+                $stmt = $this->runQuery("SELECT * FROM admin WHERE username = :username AND password = :password");
+                $stmt->execute([
+                    ':username' => $username,
+                    ':password' => $password
+                ]);
+
+                $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                if ($admin) {
+                    $query = "UPDATE admin SET status = 'active' WHERE id = :id";
+                    $stmt = $this->conn->prepare($query);
+                    $stmt->execute(array(":id" => $admin['id']));
+                
+                    $_SESSION['adminSession'] = $admin['id'];
+                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = './admin/index.php' ;</script>";
+                    exit;
+                }
             }
 
+            echo "<script>alert('Invalid username or password. Please try again.'); window.location.href = '../' ;</script>";
+            exit;
+
         } catch (PDOException $e) {
-            echo "<script>alert('An error occurred during sign in. Please try again.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('An error occurred during sign in. Please try again.'); window.location.href = '../';</script>";
             exit;
         }
     }
 
     public function userSignOut()
     {
-
-        if(isset($_SESSION['userSession'])){
-            try{
+        try {
+            // Check for user session
+            if (isset($_SESSION['userSession'])) {
                 $query = "UPDATE user SET user_status = 'not_active' WHERE id = :id";
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute(array(":id" => $_SESSION['userSession']));
-
-            } catch(PDOException $ex) {
-                echo $ex->getMessage();
+                unset($_SESSION['userSession']);
             }
-       }
+    
+            echo "<script>alert('You have signed out successfully.'); window.location.href = '../';</script>";
+            exit;
 
-        unset($_SESSION['userSession']);
-        echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../';</script>";
-        exit;
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
     }
+
+    public function adminSignOut()
+    {
+        try{
+            if (isset($_SESSION['adminSession'])) {
+                $query = "UPDATE admin SET status = 'not active' WHERE id = :id";
+                $stmt = $this->conn->prepare($query);
+                $stmt->execute(array(":id" => $_SESSION['adminSession']));
+                unset($_SESSION['adminSession']);
+            }
+            
+            echo "<script>alert('You have signed out successfully.'); window.location.href = '../';</script>";
+            exit;
+
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+        }
+    }
+    
 
     public function forgotPassword($email, $csrf_token) {
         if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../' ;</script>";
             exit;
         }
         unset($_SESSION['csrf_token']);
@@ -391,9 +431,9 @@ class USER{
     
             $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
     
-            echo "<script>alert('A password reset link has been sent to your email.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('A password reset link has been sent to your email.'); window.location.href = '../';</script>";
         } else {
-            echo "<script>alert('No account found with that email address.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('No account found with that email address.'); window.location.href = '../';</script>";
         }
     }
 
@@ -402,7 +442,7 @@ class USER{
         try {
             // Security Purposes via CSRF Token
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../../../reset-password.php';</script>";
+                echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../reset-password.php';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
@@ -418,11 +458,11 @@ class USER{
                 ':reset_token' => $token
             ]);
 
-            echo "<script>alert('Password reset successful! You can now log in.'); window.location.href = '../../../index.php';</script>";
+            echo "<script>alert('Password reset successful! You can now log in.'); window.location.href = '../';</script>";
             exit;
 
         } catch (PDOException $e) {
-            echo "<script>alert('An error occurred during password reset. Please try again.'); window.location.href = '../../../reset-password.php';</script>";
+            echo "<script>alert('An error occurred during password reset. Please try again.'); window.location.href = '../reset-password.php';</script>";
             exit;
         }
     }
@@ -434,6 +474,10 @@ class USER{
     public function isUserLoggedIn()
     {
         return isset($_SESSION['userSession']);
+    }
+
+    public function isAdminLoggedIn(){
+        return isset($_SESSION['adminSession']);
     }
 
     public function redirect($url)
@@ -483,7 +527,7 @@ class USER{
         $user->userOTP($otp, $email, $fullname, $username, $password, $confirm_password);
     }
     
-    if (isset($_POST['btn-user-signin'])) 
+    if (isset($_POST['btn-signin'])) 
     {
         $username = trim($_POST['username']);
         $password = trim($_POST['password']);
@@ -497,6 +541,12 @@ class USER{
     {
         $user = new USER();
         $user->userSignout();
+    }
+
+    if (isset($_GET['admin_signout'])) 
+    {
+        $user = new USER();
+        $user->adminSignOut();
     }
 
     if (isset($_POST['btn-verify-user']))

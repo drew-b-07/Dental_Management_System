@@ -33,7 +33,7 @@
 
     /* INPUT STYLES AND SIZES */
     --input-bgcolor: #fff;
-    --input-width: 23.5vw; /* Adjusted to make the inputs shorter */
-    --input-padding: 10px; /* Add padding for spacing */
-    --placeholder-font-size: 14px; /* Adjusted placeholder font size */
+    --input-width: 23.5vw;
+    --input-padding: 10px;
+    --placeholder-font-size: 14px;
 }

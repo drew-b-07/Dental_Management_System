@@ -23,60 +23,6 @@ class ADMIN
         $database = new Database();
         $this->conn = $database->dbConnection();
     }
-    
-    public function adminSignin($username, $password, $csrf_token)
-    {
-        try {
-                if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-                    echo "<script>alert('INVALID CSRF Token.'); window.location.href = '../../../admin.php';</script>";
-                    exit;
-                }
-                unset($_SESSION['csrf_token']);
-
-                $stmt = $this->runQuery("SELECT * FROM admin WHERE username = :username AND password = :password");
-                $stmt->execute([
-                    ':username' => $username,
-                    ':password' => $password
-                ]);
-
-                $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($admin) {
-                    $query = "UPDATE admin SET status = 'active' WHERE id = :id";
-                    $stmt = $this->conn->prepare($query);
-                    $stmt->execute(array(":id" => $admin['id']));
-                
-                    $_SESSION['adminSession'] = $admin['id'];
-                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = '../index.php' ;</script>";
-                    exit;
-                } else {
-                    echo "<script>alert('Invalid password. Try again.'); window.location.href = '../../../admin.php' ;</script>";
-                    exit;
-                }
-
-            } catch(PDOException $ex){
-              echo $ex->getMessage();
-        }
-    }
-
-    public function adminSignout()
-    {
-        
-       if(isset($_SESSION['adminSession'])){
-            try{
-                $query = "UPDATE admin SET status = 'not active' WHERE id = :id";
-                $stmt = $this->conn->prepare($query);
-                $stmt->execute(array(":id" => $_SESSION['adminSession']));
-
-            } catch(PDOException $ex) {
-                echo $ex->getMessage();
-            }
-       }
-
-       unset($_SESSION['adminSession']);
-       echo "<script>alert('You have signed out successfully.'); window.location.href = '../../../admin.php';</script>";
-       exit;
-    } 
 
     function send_email($email, $message, $subject, $smtp_email, $smtp_password){
         $mail = new PHPMailer();
@@ -95,13 +41,6 @@ class ADMIN
         $mail->Send();
     }
 
-    public function isAdminLoggedIn()
-    {
-        if(isset($_SESSION['adminSession'])){
-            return true;
-        }
-    }
-
     public function redirect($url)
     {
         header("Location: $url");
@@ -117,7 +56,7 @@ class ADMIN
 public function resetPassword($token, $new_password, $csrf_token){
     
         if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../../../reset-password.php?token=$token'; </script>";
+            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../reset-password.php?token=$token'; </script>";
             exit;
         }
         unset($_SESSION['csrf_token']);
@@ -125,7 +64,7 @@ public function resetPassword($token, $new_password, $csrf_token){
         $stmt = $this->runQuery("UPDATE admin SET password = :password");
         $stmt->execute([':password' => $new_password]);
         
-        echo "<script>alert('Password reset successfully.'); window.location.href = 'index.php' ;</script>";
+        echo "<script>alert('Password reset successfully.'); window.location.href = '../' ;</script>";
         exit;
     }
 
@@ -181,21 +120,6 @@ if(isset($_POST['btn-reset-password'])){
 
     $admin = new ADMIN();
     $admin->resetPassword($token, $new_password, $csrf_token);
-}
-
-if(isset ($_POST['btn-admin-signin'])){
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-    $csrf_token = trim($_POST['csrf_token']);
-
-    $admin = new ADMIN();
-    $admin->adminSignin($username, $password, $csrf_token);
-}
-
-if(isset($_GET['admin_signout']))
-{
-    $admin = new ADMIN();
-    $admin->adminSignout();
 }
 
 if(isset($_POST['btn-admin-addupdate'])){

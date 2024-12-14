@@ -26,7 +26,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="./home.php">Home</a></li>
                 <li><a href="./appointment.php">Appointment</a></li>
                 <li><a href="#" >About Us</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
+                <li><a href="#" onclick="Ulogout()">Logout</a></li>
                 <li><a href="./profile.php">
                     <div class="profile-icon-button">
                         <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
@@ -68,6 +68,6 @@ require_once __DIR__."/../../config/settings-configuration.php";
         </div>
     </section>
 
-    <script src="../../src/js/user_functions.js"></script>
+    <script src="../../src/js/script.js"></script>
 </body>
 </html>

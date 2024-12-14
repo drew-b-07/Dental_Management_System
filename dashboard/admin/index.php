@@ -47,9 +47,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="#" class="nav-link" data-section="reports">Reports</a></li>
                 <li><a href="#" class="nav-link" data-section="settings">Settings</a></li>
                 <!-- Logout Button -->
-                <form>
                     <button onclick="logout()" type="submit">Log Out</button>
-                </form>
             </ul>
         </nav>
 
@@ -160,6 +158,6 @@ require_once __DIR__."/../../config/settings-configuration.php";
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/timegrid@6.1.5/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/interaction@6.1.5/index.global.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="../../src/js/user_functions.js"></script>
+    <script src="../../src/js/script.js"></script>
 </body>
 </html>

@@ -135,7 +135,7 @@ form input {
 }
 
 .toggle-container button{
-    padding: 8px 16px;
+    padding: 15px 16px;
     background-color: transparent;
     color: var(--button-text-color);
     border: 2px solid var(--button-text-color);
@@ -143,24 +143,7 @@ form input {
     cursor: pointer;
     width: 100%;
     text-align: center;
-    font-size: 22.5px;
-}
-
-.toggle-container a{
-    padding: 8px 16px;
-    background-color: transparent;
-    color: var(--button-text-color);
-    border: 5px solid var(--button-text-color);
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100%;
-    text-align: center;
-    font-size: 22.5px;
-}
-
-.toggle-container a:hover{
-    background-color: var(--hover-color);
-    text-decoration: none;
+    font-size: 25px;
 }
 
 .toggle-container button:hover{

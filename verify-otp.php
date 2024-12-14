@@ -1,12 +1,12 @@
 <?php
 include_once 'config/settings-configuration.php';
 
-if (!isset($_SESSION['OTP']) || !isset($_SESSION['not_verify_email'])) {
-    // Redirect to the registration page if required session data is missing
-    echo "<script>alert('Invalid access. Please register first.'); window.location.href = 'index.php';</script>";
-    exit;
+if (!isset($_SESSION['userSession'])) {
+    echo "<script>alert('Invalid action.'); window.location.href = 'index.php' ;</script>";
+    exit();
 }
 
+unset($_SESSION['userSession']);
 ?>
 
 <!DOCTYPE html>

@@ -24,13 +24,12 @@ require_once __DIR__ ."/config/settings-configuration.php";
         <div class="toggle-container">
             <img src="./src/img/icon.png" alt="Dental Care Logo" id="logo" class="logo">
             <h1 id="toggle-header"></h1>
-            <a href="admin.php">Admin Login</a>
-            <button onclick="showSignIn()">User Login</button>
+            <button onclick="showSignIn()">Login</button>
             <button onclick="showSignUp()">Create Account</button>
         </div>
 
         <div class="form-container" id="signUpForm" aria-hidden="true">
-            <form action="dashboard_user/user/authentication_user/user-class.php" id="signUpForm" method="POST">
+            <form action="dashboard/user-class.php" id="signUpForm" method="POST">
                 <h1>Create Your Account</h1>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
                 <input id="name-signup" type="text" name="fullname" placeholder="Full Name" required>
@@ -55,7 +54,7 @@ require_once __DIR__ ."/config/settings-configuration.php";
         </div>
 
         <div class="form-container" id="signInForm" aria-hidden="false">
-            <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
+            <form action="dashboard/user-class.php" method="POST">
                 <h1>Login to Your Account</h1>
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token?>">
                 <input id="email-signin" type="text" name="username" placeholder="Username" required>
@@ -65,7 +64,7 @@ require_once __DIR__ ."/config/settings-configuration.php";
                     <i class="fas fa-eye" onclick="togglePassword('password-signin')"></i>
                 </div>
 
-                <button type="submit" name="btn-user-signin">SIGN IN</button>
+                <button type="submit" name="btn-signin">SIGN IN</button>
                 <div class="link-container">
                     <a href="#" onclick="showForgotPassword()">Forgot Password</a>
                     <div class="link-divider"></div>
@@ -76,7 +75,7 @@ require_once __DIR__ ."/config/settings-configuration.php";
 
 
         <div class="form-container" id="forgotPasswordForm" aria-hidden="true">
-            <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
+            <form action="dashboard/user-class.php" method="POST">
                 <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                 <h1>Forgot Password</h1>
                 <input id="email-forgot" type="email" name="email" required placeholder="Enter your email">
@@ -85,7 +84,7 @@ require_once __DIR__ ."/config/settings-configuration.php";
         </div>
     </div>
 
-    <script src="./src/js/user_functions.js"></script>
+    <script src="./src/js/script.js"></script>
 </body>
 
 </html>
