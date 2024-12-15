@@ -75,7 +75,7 @@ button {
     font-weight: var(--button-fontweight);
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 12px 20px;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -86,33 +86,34 @@ button:hover {
 
 form {
     background-color: var(--form-background);
-    padding: 20px;
+    padding: 25px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 500px; /* Ensure the form is not too wide */
-    margin: 0 auto; /* Center align the form */
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 input[type="text"],
 input[type="password"],
-textarea {
-    width: var(--input-width);
+textarea,
+select {
+    width: 100%;
     background-color: var(--input-bgcolor);
     border: 1px solid var(--form-input-border);
-    padding: var(--input-padding); /* Apply padding */
+    padding: var(--input-padding);
     border-radius: 5px;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Placeholder Styles */
 input::placeholder,
 textarea::placeholder {
-    font-size: var(--placeholder-font-size); /* Set placeholder font size */
-    color: #999; /* Placeholder text color */
+    font-size: var(--placeholder-font-size);
+    color: #999;
 }
 
-tbody{
+tbody {
     text-align: center;
 }
 
@@ -148,7 +149,7 @@ input[type="text"],
 input[type="number"],
 input[type="email"],
 select {
-    width: var(--input-width); /* Use defined CSS variable for responsiveness */
+    width: 100%;
     background-color: var(--input-bgcolor);
     border: 1px solid var(--form-input-border);
     padding: var(--input-padding);
@@ -183,7 +184,7 @@ select:focus {
     font-family: var(--font-family);
     border: 1px solid var(--form-input-border);
     transition: all 0.3s ease;
-    padding: 10px;
+    padding: 12px;
     border-radius: 8px;
 }
 
@@ -194,34 +195,33 @@ form button {
     color: white;
     font-size: 16px;
     cursor: pointer;
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #005580; /* Darker blue for hover */
+    background-color: #005580;
 }
-
 
 /* General Reset for Patient Form Horizontal Fields */
 #patient-form {
     display: flex;
-    flex-wrap: wrap; /* Allow fields to wrap when there's not enough horizontal space */
-    gap: 10px; /* Adds spacing between fields */
+    flex-wrap: wrap;
+    gap: 15px;
     background-color: var(--form-background);
-    padding: 20px;
+    padding: 25px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 100%;
-    justify-content: flex-start; /* Align fields to the left */
+    justify-content: flex-start;
 }
 
 /* Style all form fields to fit horizontally */
 #patient-form input[type="text"],
 #patient-form input[type="number"],
 #patient-form select {
-    flex: 1 1 200px; /* Each field will take equal space but won't shrink too much */
+    flex: 1 1 250px;
     background-color: var(--input-bgcolor);
     border: 1px solid var(--form-input-border);
     padding: var(--input-padding);
@@ -232,23 +232,20 @@ form button:hover {
 
 /* Style Submit Button */
 #patient-form button[type="submit"] {
-    flex: 1 1 auto; /* Let the submit button size itself naturally */
-    background-color: var(--accent-color);
+    flex: 1 1 auto;
     border: none;
     color: var(--button-textcolor);
     font-size: var(--button-textsize);
     font-weight: var(--button-fontweight);
-    padding: 10px 20px;
+    padding: 12px 20px;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 #patient-form button[type="submit"]:hover {
-    background-color: #005580; /* Darker blue hover effect */
+    background-color: var(--button-hover-color);
 }
-
-
 
 /* The Modal (background) */
 .modal {
@@ -261,45 +258,90 @@ form button:hover {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Modal Content Box */
-  .modal-content {
-    background-color: #fefefe;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: var(--form-background);
     margin: 10% auto;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #888;
-    width: 400px;
+    width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    text-align: center;
-  }
-  
-  /* Close Button */
-  .close-btn {
+    text-align: left;
+    font-family: var(--font-family);
+}
+
+/* Close Button */
+.close-btn {
     color: #aaa;
     float: right;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: bold;
     cursor: pointer;
-  }
-  
-  .close-btn:hover {
-    color: black;
-  }
-  
-  /* OK Button */
-  #modal-ok-btn {
-    margin-top: 15px;
-    padding: 8px 15px;
+}
+
+.close-btn:hover {
+    color: var(--dark-accent-color);
+}
+
+/* Form Layout and Label Styling */
+label {
+    font-size: var(--label-size);
+    font-weight: 600;
+    margin-bottom: 8px;
+    display: block;
+    color: var(--label-textcolor);
+    font-family: var(--font-family);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="email"],
+select {
+    width: 100%;
+    padding: var(--input-padding);
+    margin: 12px 0;
+    border: 1px solid var(--form-input-border);
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: var(--input-bgcolor);
+    font-family: var(--font-family);
+}
+
+input:focus, select:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+/* Button Styling */
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-color);
+    color: var(--button-textcolor);
     border: none;
-    background-color: #4CAF50;
-    color: white;
-    border-radius: 5px;
+    border-radius: 6px;
+    font-size: var(--button-textsize);
+    font-weight: var(--button-fontweight);
     cursor: pointer;
-  }
-  
-  /* Dashboard Layout */
+    margin-top: 15px;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Error Handling */
+
+input:valid {
+    border-color: var(--button-color);
+}
+
+/* Dashboard Layout */
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -318,11 +360,11 @@ form button:hover {
 
 .card h3 {
     margin: 0 0 10px;
-    font-size: 1.2em;
+    font-size: 2rem;
 }
 
 .card p {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     margin: 0;
     color: #007bff;
@@ -352,9 +394,17 @@ ul li {
     border-radius: 5px;
 }
 
-.reset_form{
+.reset-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.reset-form input{
+    width: 25vw;
+}
+
+.reset-form button{
+    width: 20vw;
 }

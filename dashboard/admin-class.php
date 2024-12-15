@@ -68,7 +68,7 @@ public function resetPassword($token, $new_password, $csrf_token){
         exit;
     }
 
-    public function addUpdateAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact){
+    public function addAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact){
         try{
             $stmt = $this->runQuery("INSERT INTO add_appointments 
             (patient_name, patient_age, patient_bday, patient_gender, patient_email, patient_address, patient_condition, patient_contact) 
@@ -84,9 +84,10 @@ public function resetPassword($token, $new_password, $csrf_token){
             ':patient_contact' => $pContact
             ]));
 
+            echo "Received: Name=$pName, Age=$pAge, Birthday=$pBday, Gender=$pGender, Email=$pEmail, Address=$pAddress, Condition=$pCondition, Contact=$pContact\n";
 
-            $_SESSION['toast_message'] = 'Record Inserted Successfully!';
-            header('Location: ../index.php?section=patients'); // Reload the current page
+            echo 'Record Inserted Successfully!';
+            header('Location: ./admin/index.php');
             exit;
 
             // echo "<script>                 
@@ -122,7 +123,7 @@ if(isset($_POST['btn-reset-password'])){
     $admin->resetPassword($token, $new_password, $csrf_token);
 }
 
-if(isset($_POST['btn-admin-addupdate'])){
+if(isset($_POST['btn-admin-addpatient'])){
     $pName = trim($_POST['patient_name']);
     $pAge = trim($_POST['patient_age']);
     $pBday = trim($_POST['patient_bday']);
@@ -133,5 +134,5 @@ if(isset($_POST['btn-admin-addupdate'])){
     $pContact = trim($_POST['patient_contactno']);
 
     $admin = new ADMIN();
-    $admin->addUpdateAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact);
+    $admin->addAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact);
 }

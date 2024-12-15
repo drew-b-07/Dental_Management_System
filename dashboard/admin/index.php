@@ -1,26 +1,3 @@
-<?php
-require_once __DIR__."/../../config/settings-configuration.php";
-    if (isset($_SESSION['toast_message'])) {
-        echo "<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const toast = document.createElement('div');
-            toast.textContent = '" . $_SESSION['toast_message'] . "';
-            toast.style.position = 'fixed';
-            toast.style.bottom = '20px';
-            toast.style.right = '20px';
-            toast.style.background = '#4caf50';
-            toast.style.color = '#fff';
-            toast.style.padding = '10px 15px';
-            toast.style.borderRadius = '5px';
-            toast.style.boxShadow = '0px 2px 6px rgba(0, 0, 0, 0.2)';
-            document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 3000);
-        });
-        </script>";
-        unset($_SESSION['toast_message']); // Clear the session message
-    }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,10 +23,40 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="#" class="nav-link" data-section="patients">Patients</a></li>
                 <li><a href="#" class="nav-link" data-section="reports">Reports</a></li>
                 <li><a href="#" class="nav-link" data-section="settings">Settings</a></li>
-                <!-- Logout Button -->
-                    <button onclick="logout()" type="submit">Log Out</button>
             </ul>
+            <button onclick="logout()" type="button">Log Out</button>
         </nav>
+
+        <div id="edit-patient-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeEditPatientModal()">&times;</span>
+                    <h2>Edit Patient Details</h2>
+                    <form id="edit-patient-form">
+                        <input type="hidden" id="edit-patient-id">
+                        <label for="edit-patient-name">Name:</label>
+                        <input type="text" id="edit-patient-name" required>
+                        <label for="edit-patient-age">Age:</label>
+                        <input type="number" id="edit-patient-age" required>
+                        <label for="edit-patient-birthday">Birthday:</label>
+                        <input type="date" id="edit-patient-birthday" required>
+                        <label for="edit-patient-gender">Gender:</label>
+                        <select id="edit-patient-gender" required>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                        <label for="edit-patient-email">Email:</label>
+                        <input type="email" id="edit-patient-email" required>
+                        <label for="edit-patient-address">Address:</label>
+                        <input type="text" id="edit-patient-address" required>
+                        <label for="edit-patient-condition">Condition:</label>
+                        <input type="text" id="edit-patient-condition" required>
+                        <label for="edit-patient-contact">Contact:</label>
+                        <input type="text" id="edit-patient-contact" required>
+                        <button type="submit">Update</button>
+                    </form>
+            </div>
+        </div>
 
         <!-- Main Content -->
         <main class="content">
@@ -65,24 +72,14 @@ require_once __DIR__."/../../config/settings-configuration.php";
                         <h3>Upcoming Appointments</h3>
                         <p id="upcoming-appointments">0</p>
                     </div>
-                    <div class="card">
-                        <h3>Reports Generated</h3>
-                        <p id="reports-count">0</p>
-                    </div>
                 </div>
-
-                <div class="appointments-overview">
-                    <h2>Upcoming Appointments</h2>
-                    <ul id="appointments-list">
-                        <li>No upcoming appointments.</li>
-                    </ul>
+                <div>
+                    <h4>Recent Activities</h4>
+                    <ul id="recent-activities-list"></ul>
                 </div>
-
-                <div class="recent-activities">
-                    <h2>Recent Activities</h2>
-                    <ul id="recent-activities-list">
-                        <li>No recent activities recorded.</li>
-                    </ul>
+                <div>
+                    <h4>Upcoming Appointments</h4>
+                    <ul id="upcoming-appointments-list"></ul>
                 </div>
             </section>
 
@@ -95,21 +92,21 @@ require_once __DIR__."/../../config/settings-configuration.php";
             <!-- Patients Section -->
             <section id="patients" class="section">
                 <h1>Patients</h1>
-                <form id="patient-form" action="../../dashboard_admin/admin/authentication/admin-class.php?section=patients" method="POST">
+                <form id="patient-form" action="../admin-class.php" method="POST">
                     <input type="hidden" id="patient-id">
-                    <input type="text" id="patient-name" name="patient_name" placeholder="Patient Name" required>
-                    <input type="number" id="patient-age" name="patient_age" placeholder="Age" required>
-                    <input type="text" id="patient-birthday" name="patient_bday" placeholder="Birthday" required>
-                    <select id="patient-gender" name="patient_gender" required>
+                    <input type="text" id="patient-name" placeholder="Patient Name" required>
+                    <input type="number" id="patient-age" placeholder="Age" required>
+                    <input type="text" id="patient-birthday" placeholder="Birthday" required>
+                    <select id="patient-gender" required>
                         <option value="">Select Gender</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                     </select>
-                    <input type="text" id="patient-email" name="patient_email" placeholder="Email" required>
-                    <input type="text" id="patient-address" name="patient_address" placeholder="Address" required>
-                    <input type="text" id="patient-condition" name="patient_condition" placeholder="Condition" required>
-                    <input type="text" id="patient-contact" name="patient_contactno" placeholder="Contact Number" required>
-                    <button type="submit" name="btn-admin-addupdate" >Add/Update Patient</button>
+                    <input type="email" id="patient-email" placeholder="Email" required>
+                    <input type="text" id="patient-address" placeholder="Address" required>
+                    <input type="text" id="patient-condition" placeholder="Condition" required>
+                    <input type="text" id="patient-contact" placeholder="Contact Number" required>
+                    <button type="submit" name="btn-admin-addpatient">Add Patient Details</button>
                 </form>
                 <table border="1" style="width: 100%; margin-top: 10px;">
                     <thead>
@@ -121,7 +118,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                             <th>Email</th>
                             <th>Address</th>
                             <th>Condition</th>
-                            <th>Contact Number</th>
+                            <th>Contact</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -138,17 +135,14 @@ require_once __DIR__."/../../config/settings-configuration.php";
             <!-- Settings Section -->
             <section id="settings" class="section">
                 <h1>Settings</h1>
-
-            <!-- Reset Password Form -->
-                <form class="reset_form" action="" method="POST">
+                <form class="reset-form">
                     <h2>Reset Password</h2>
-                    <input type="password" id="current-password" name="current_password" placeholder="Current Password" required>
-                    <input type="password" id="new-password" name="new_password" placeholder="New Password" required>
-                    <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input type="password" id="current-password" placeholder="Current Password" required>
+                    <input type="password" id="new-password" placeholder="New Password" required>
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required>
                     <button type="submit">Reset Password</button>
                 </form>
             </section>
-
         </main>
     </div>
 

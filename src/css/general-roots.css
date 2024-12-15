@@ -7,24 +7,25 @@
 
     /* LABEL ONLY */
     --label-textcolor: #000;
-    --label-size: 24px;
-
+    --label-size: 26px; /* Increased font size */
+    
     /* PROFILE */
     --profile-bg: #9abedd;
     --profile-icon-size: 30px;
 
     /* MAIN FONT */
-    --font-family: 'Jost', sans-serif;
+    --font-family: 'Roboto', sans-serif; /* New font family */
+    --heading-font-family: 'Poppins', sans-serif; /* Optional font for headings */
 
     /* BUTTON STYLE */
     --button-hover-color: rgb(0, 174, 255);
     --button-color: #13407a;
     --button-textcolor: #ffffff;
-    --button-textsize: 18px;
+    --button-textsize: 20px; /* Increased button font size */
     --button-fontweight: 800;
 
     /* HEADING STYLE */
-    --heading-size: 35px;
+    --heading-size: 38px; /* Increased heading size */
     --heading-textcolor: #222;
 
     /* FORM STYLE */
@@ -33,7 +34,7 @@
 
     /* INPUT STYLES AND SIZES */
     --input-bgcolor: #fff;
-    --input-width: 23.5vw;
-    --input-padding: 10px;
-    --placeholder-font-size: 14px;
+    --input-width: 300px; /* Fixed width for input fields */
+    --input-padding: 12px; /* Increased padding for inputs */
+    --placeholder-font-size: 16px; /* Larger placeholder font */
 }

@@ -9,20 +9,20 @@ require_once __DIR__ . "/config/settings-configuration.php";
 //        exit;
 //    }
 
-   if(!isset($_GET['tokencode'])){
-       echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
-       exit;
-   }
+//    if(!isset($_GET['tokencode'])){
+//        echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
+//        exit;
+//    }
 
-       $db = new Database();
-       $pdo = $db->dbConnection();
-       $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
-       $stmt->execute([":id" => $_GET['id']]);
+//        $db = new Database();
+//        $pdo = $db->dbConnection();
+//        $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
+//        $stmt->execute([":id" => $_GET['id']]);
 
-   if($stmt->rowCount() == 0) {
-       echo "<script>alert('Invalid Link.'); window.location.href = 'index.php';</script>";
-       exit();
-   }
+//    if($stmt->rowCount() == 0) {
+//        echo "<script>alert('Invalid Link.'); window.location.href = 'index.php';</script>";
+//        exit();
+//    }
 
 //  $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -31,7 +31,7 @@ require_once __DIR__ . "/config/settings-configuration.php";
 //        exit();
 //    }
 
-    $token = $_GET['tokencode'];
+    // $token = $_GET['tokencode'];
 
 ?>
 
@@ -64,6 +64,6 @@ require_once __DIR__ . "/config/settings-configuration.php";
             </form>
         </div>
     </div>
-    <script src="./src/js/user_functions.js"></script>
+    <script src="./src/js/script.js"></script>
 </body>
 </html>
