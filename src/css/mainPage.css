@@ -19,13 +19,35 @@
 
 body {
     font-family: var(--font-family);
-    background-color: var(--background-color);
+    background: white;
     color: var(--text-color);
+    transition: all 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: var(--dark-accent-color);
+    top: 0;
+    width: 100%;
     padding: 1em 0;
+    position: fixed;
 }
 
 header nav {
@@ -54,67 +76,195 @@ header nav ul {
 }
 
 header nav ul li {
-    margin: 0 15px;
+    padding: 30px;
 }
 
 header nav ul li a {
-    color: #fff;
     text-decoration: none; 
     font-weight: bold;
     font-size: 1.5em;
+    color: white;
+    display: inline-block;
+    border-radius: 5rem;
+    padding: 0.8rem; 
 }
 
 header nav ul li a.active {
-    text-decoration: none; 
+    background: linear-gradient(45deg, #007286, #ffffff);
+    color: #000;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul li a.haber:hover {
+    background: linear-gradient(45deg, #007286, #ffffff); 
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transform: scale(1.20);
+    transition: all 0.3s ease-in-out;
+}
+
+header nav ul li button{
+    background-color: #007286;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #007286;
+    border-radius: 12px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header nav ul li button:hover {
+    background-color: white;
+    color: #007286;
+    border: 2px solid #007286;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul li button:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header nav ul li button:focus{
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .profile-icon-button {
     display: inline-block;
     cursor: pointer;
-    text-decoration: none; 
+    text-decoration: none;
+    transition: transform 0.3s ease;
 }
 
 .profile-icon {
     width: var(--profile-icon-size);
     height: var(--profile-icon-size);
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-icon-button:hover .profile-icon {
+    transform: scale(1.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .intro {
+    margin-top: 4%;
     text-align: center;
-    padding: 2em;
-    background-color: var(--accent-color);
     color: white;
-}
-
-.intro h2 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5em;
-    text-decoration: none; 
-}
-
-.intro p {
-    font-size: 20px;
-    margin-bottom: 1.5em;
-    text-decoration: none; 
-}
-
-.intro .images {
+    background-image: url(../img/mainbg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 92vh;
+    width: auto;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    align-items: center;
+    flex-direction: column;
 }
 
 .intro .images img {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
     text-decoration: none; 
 }
 
+.intro .images {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    height: 30vh;
+}
 
-.services {
+.intro .images img:hover{
+    box-shadow: 0 10px 6px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+    opacity: 80%;
+}
+
+.intro h2 {
+    color: #1d54a6;
+    font-size: 4rem;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    text-decoration: none; 
+    font-weight: 450;
+    font-family: "Raleway", sans-serif;
+    height: 30vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.slogan_container{
+    height: 85vh;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(90deg, rgba(94, 164, 255, 0.719) 0%, rgb(75, 255, 225) 100%);
+}
+
+.slogan_container h1{
+    color: #0c10f3;
+    font-size: 5em;
+    font-family: "Quicksand", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+    text-align: center;
+    height: 10vh;
+    width: 80vw;
+    margin-top: 5%;
+}
+
+.slogan_p{
+    margin-top: 3em;
+    width: 75vw;
+}
+
+.slogan_p p{
+    text-align: center;
+    font-size: 2em;
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 370;
+    font-style: normal;
+}
+
+.slogan_logo img{
+    margin-top: -5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    object-fit: cover;
+    height: 350px;
+    width: 500px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.slogan_logo img.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* .services {
     display: flex;
     justify-content: center;    
     gap: 20px;
@@ -139,7 +289,6 @@ header nav ul li a.active {
     text-decoration: none; 
 }
 
-
 .service img {
     width: 150px;
     margin-bottom: 1em;
@@ -158,27 +307,44 @@ header nav ul li a.active {
     font-size: 0.9em;
     line-height: 1.4em;
     text-decoration: none; 
+} */
+
+/* .services .service {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
+
+.services .service.visible {
+    opacity: 1;
+    transform: translateY(0);
+} */
 
 .appointment-section {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    width: 98vw;
 }
 
 .appointment-button {
-    background-color: #007bff;
+    margin-bottom: 2%;
+    background-color: var(--dark-accent-color);
     color: white;
     border: none;
     padding: 10px 20px;
-    font-size: 1.5rem;
-    border-radius: 10px;
+    font-size: 2rem;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
 .appointment-button:hover {
-    background-color: #0056b3;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+    transform: scale(1.20);
+    transition: all 0.3s ease-in-out;
 }
+
+.appointment-section, .intro h2, .intro .images{
+    margin-left: 60%;
+} 

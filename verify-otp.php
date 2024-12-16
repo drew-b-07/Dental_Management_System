@@ -24,7 +24,7 @@ include_once 'config/settings-configuration.php';
             <div class="top_title">
                 <h2>OTP VERIFICATION</h2>
             </div>
-            <form action="dashboard_user/user/authentication_user/user-class.php" method="POST">
+            <form action="dashboard/user-class.php" method="POST">
                 <input type="hidden" name="csrf_token" value="<?php echo $csrf_token ?>">
                 <div class="input_container">
                 <input type="number" name="otp" required placeholder="Enter OTP" ><br>

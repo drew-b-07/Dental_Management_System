@@ -46,16 +46,16 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <h1>Dental Care Clinic</h1>
             </div>
             <ul>
-                <li><a href="./home.php">Home</a></li>
-                <li><a href="./appointment.php" class="active">Appointment</a></li>
-                <li><a href="./about.php">About Us</a></li>
-                <li><a href="#" onclick="Ulogout()">Logout</a></li>
-                <li><a href="./profile.php">
+                <li><a href="./home.php" class="haber">Home</a></li>
+                <li><a href="#" class="active">Appointment</a></li>
+                <li><a href="./service.php" class="haber">Service</a></li>
+                <li><a href="./about.php" class="haber">About Us</a></li>
+                <li><button onclick="Ulogout()">Logout</button></li>
+                <a href="./profile.php">
                     <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" class="profile-icon">
+                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
                     </div>
-                    </a>
-                </li>
+                </a>
             </ul>
         </nav>
     </header>

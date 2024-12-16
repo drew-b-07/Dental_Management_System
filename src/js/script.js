@@ -2,8 +2,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     const sidebarLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
-    const patientform = document.querySelectorAll('patient-form')
-    const patienttable = document.querySelectorAll('patient-table')
+    const links = document.querySelectorAll('a');
+    const serviceElements = document.querySelectorAll('.service');
+    const img = document.querySelector(".slogan_logo img");
 
     // Function to change active section based on the clicked sidebar link
     sidebarLinks.forEach(link => {
@@ -22,10 +23,61 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    //page changing animation
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+    
+            const href = e.target.getAttribute('href') || e.target.closest('a').getAttribute('href');
+    
+            if (href) {
+                document.body.classList.add('fade-out');
+    
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 500);
+            }
+        });
+    });
 
+    const options = {
+        threshold: 0.5
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, options);
+
+    serviceElements.forEach(element => {
+        observer.observe(element); 
+    });
+
+    //animation for fade in
+    window.addEventListener('load', function() {
+        document.body.classList.add('fade-in');
+    });
+
+    //logo animation
+    const handleScroll = () => {
+        const rect = img.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (isVisible) {
+            img.classList.add("scrolled");
+        }
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    handleScroll();
 });
 
-//login registration form
+
+//login form functions
 function togglePassword(passwordId) {
     const passwordInput = document.getElementById(passwordId);
     const icon = passwordInput.nextElementSibling;

@@ -37,7 +37,7 @@ class USER{
         $mail->setFrom($smtp_email, "Dental Care Clinic");
         $mail->Subject = $subject;
 
-        $logopath = __DIR__.'/../../../src/img/icon.png';
+        $logopath = __DIR__.'/../../src/img/icon.png';
         $mail->addEmbeddedImage($logopath,'logo');
 
         $mail->msgHTML($message);
@@ -298,6 +298,25 @@ class USER{
         }
     }
 
+    public function getUserProfile($userId)
+    {
+    try {
+        $stmt = $this->runQuery("SELECT fullname, email, username FROM user WHERE id = :id");
+        $stmt->execute([':id' => $userId]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+            if ($user) {
+                return $user;
+            } else {
+                echo "<script>alert('User not found. Please log in again.'); window.location.href = '../../';</script>";
+                exit;
+            }
+        } catch (PDOException $e) {
+            echo "<script>alert('An error occurred while fetching user profile.'); window.location.href = '../../';</script>";
+            exit;
+        }
+    }
+
     public function userSignIn($username, $password, $csrf_token)
     {
         try {
@@ -535,6 +554,12 @@ class USER{
     
         $user = new USER();
         $user->userSignin($username, $password, $csrf_token);
+    }
+
+    if(isset($_GET['user_profile']))
+    {
+        $user = new USER();
+        $user->getUserProfile($userId);
     }
     
     if (isset($_GET['user_signout'])) 

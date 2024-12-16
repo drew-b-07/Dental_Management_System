@@ -84,8 +84,6 @@ public function resetPassword($token, $new_password, $csrf_token){
             ':patient_contact' => $pContact
             ]));
 
-            echo "Received: Name=$pName, Age=$pAge, Birthday=$pBday, Gender=$pGender, Email=$pEmail, Address=$pAddress, Condition=$pCondition, Contact=$pContact\n";
-
             echo 'Record Inserted Successfully!';
             header('Location: ./admin/index.php');
             exit;

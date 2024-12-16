@@ -55,7 +55,7 @@ form {
 .button-container{
     grid-column: span 2;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .form-group label {
@@ -85,7 +85,6 @@ form {
     text-align: center;
     width: 30%;
     margin-top: 20px;
-
 }
 
 .submit-button:hover, .back-button:hover {

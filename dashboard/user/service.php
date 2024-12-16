@@ -20,19 +20,19 @@ require_once __DIR__."/../../config/settings-configuration.php";
     <header>
         <nav>
             <div class="nav-left">
-                <h1>Dental Care</h1>
+                <h1>Dental Care Clinic</h1>
             </div>
             <ul>
-                <li><a href="./home.php">Home</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="./appointment.php">Appointment</a></li>
-                <li><a href="./about.php">About Us</a></li>
-                <li><a href="#" onclick="logout()">Logout</a></li>
-                <li><a href="./profile.php">
+                <li><a href="./home.php" class="haber">Home</a></li>
+                <li><a href="./appointment.php" class="haber">Appointment</a></li>
+                <li><a href="#" class="active">Service</a></li>
+                <li><a href="./about.php" class="haber">About Us</a></li>
+                <li><button onclick="Ulogout()">Logout</button></li>
+                <a href="./profile.php">
                     <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" alt=" "class="profile-icon">
+                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
                     </div>
-                </a></li>
+                </a>
             </ul>
         </nav>
     </header>
@@ -55,6 +55,6 @@ require_once __DIR__."/../../config/settings-configuration.php";
             </div>
         </div>
     </section>
-    <script src="../../src/js/user_functions.js"></script>
+    <script src="../../src/js/script.js"></script>
 </body>
 </html>

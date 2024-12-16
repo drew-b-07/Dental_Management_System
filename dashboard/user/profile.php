@@ -1,10 +1,13 @@
-<?php 
+<?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
-//  if(!isset($_SESSION["userSession"])) {
-//      echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-//      exit;
-//  }
+
+// if(!isset($_SESSION["userSession"])) {
+//     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+//     exit;
+// }
+
+// unset($_SESSION['userSession']);
 
 ?>
 
@@ -18,54 +21,30 @@ require_once __DIR__."/../../config/settings-configuration.php";
     <link rel="icon" type="image/png" href="../../src/img/icon.png">
 </head>
 <body>
-    <duv class="profile-container">
+    <div class="profile-container">
         <h2>PROFILE</h2>
-        <form>
+        <form action="../user-class.php" name="user_profile" method="POST">
             <div class="form-group">
                 <label for="fullname">Full Name: </label>
+                <input type="text" id="fullname" name="fullname" value="<?php echo htmlspecialchars($userProfile['fullname'] ?? ''); ?>" readonly>
             </div>
             
             <div class="form-group">
                 <label for="username">Username: </label>
+                <input type="text" id="username" name="username" value="<?php echo htmlspecialchars($userProfile['username'] ?? ''); ?>" readonly>
             </div>
 
             <div class="form-group">
                 <label for="email">Email Address: </label>
+                <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($userProfile['email'] ?? ''); ?>" readonly>
             </div>
 
-            
-            <!-- <div class="form-group">
-                <label>Last Name:</label>
-                <input type="text" name="last_name" required>
-             </div>
-            <div class="form-group">
-                <label>Schedule:</label>
-                <input type="date" name="schedule" required>
-            </div>
-            <div class="form-group">
-                <label>First Name:</label>
-                <input type="text" name="first_name" required>
-            </div>
-            <div class="form-group">
-                <label>Birthday:</label>
-                <input type="date" name="birthday" required>
-            </div>
-            <div class="form-group">
-                <label>Middle Initials:</label>
-                <input type="text" name="middle_initials">
-            </div>
-            <div class="form-group">
-                <label>Address:</label>
-                <input type="text" name="address" required>
-            </div>
-            <div class="form-group age-group" >
-                <label>Age:</label>
-                <input type="number" name="age" required>
-            </div>  -->
             <div class="button-container">
+                <button type="button" class="back-button" onclick="window.location.href='home.php'">BACK</button>
                 <button type="submit" class="submit-button">EDIT PROFILE</button>
             </div>
         </form>
     </div>
+    <script src="../../src/js/script.js"></script>
 </body>
 </html>
