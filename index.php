@@ -1,8 +1,16 @@
 <?php
 require_once __DIR__ ."/config/settings-configuration.php";
 
-    // if(isset($_SESSION["userSession"])) {
-    //     echo "<script>alert('user is logged in.'); window.location.href = './dashboard_user/user/home.php';</script>";
+unset($_SESSION['userSession']);
+// unset($_SESSION['adminSession']);
+
+    if(isset($_SESSION["userSession"])) {
+        echo "<script>alert('user is logged in.'); window.location.href = './dashboard/user/home.php';</script>";
+        exit;
+    }
+
+    // if(isset($_SESSION["adminSession"])) {
+    //     echo "<script>alert('admin is logged in.'); window.location.href = './dashboard/admin/index.php';</script>";
     //     exit;
     // }
 ?>

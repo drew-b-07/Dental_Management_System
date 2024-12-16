@@ -5,7 +5,7 @@ require_once __DIR__ . "/config/settings-configuration.php";
 
 
 //    if(isset($_SESSION["userSession"])) {
-//        echo "<script>alert('user is log in.'); window.location.href = './dashboard_user/user/home.php';</script>";
+//        echo "<script>alert('user is log in.'); window.location.href = './dashboard/user/home.php';</script>";
 //        exit;
 //    }
 

@@ -1,10 +1,10 @@
 <?php
 include_once 'config/settings-configuration.php';
 
-// if (!isset($_SESSION['userSession'])) {
-//     echo "<script>alert('Invalid action.'); window.location.href = 'index.php' ;</script>";
-//     exit();
-// }
+if (!isset($_SESSION['userSession'])) {
+    echo "<script>alert('Invalid action.'); window.location.href = 'index.php' ;</script>";
+    exit();
+}
 
 // unset($_SESSION['userSession']);
 ?>
