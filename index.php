@@ -29,13 +29,6 @@ unset($_SESSION['userSession']);
 
 <body>
     <div class="container">
-        <div class="toggle-container">
-            <img src="./src/img/icon.png" alt="Dental Care Logo" id="logo" class="logo">
-            <h1 id="toggle-header"></h1>
-            <button onclick="showSignIn()">Login</button>
-            <button onclick="showSignUp()">Create Account</button>
-        </div>
-
         <div class="form-container" id="signUpForm" aria-hidden="true">
             <form action="dashboard/user-class.php" id="signUpForm" method="POST">
                 <h1>Create Your Account</h1>
@@ -88,7 +81,13 @@ unset($_SESSION['userSession']);
                 <h1>Forgot Password</h1>
                 <input id="email-forgot" type="email" name="email" required placeholder="Enter your email">
                 <button type="submit" name="btn-forgot-password">ENTER</button>
+                <button onclick="showSignIn()">BACK</button>
             </form>
+        </div>
+
+        <div class="toggle-container">
+            <img src="./src/img/logo.png" alt="Dental Care Logo" id="logo" class="logo">
+            <h1 id="toggle-header"></h1>
         </div>
     </div>
 

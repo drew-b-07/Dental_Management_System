@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
 
- if(!isset($_SESSION["userSession"])) {
-     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-     exit;
- }
+//  if(!isset($_SESSION["userSession"])) {
+//      echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+//      exit;
+//  }
 
 ?>
 <!DOCTYPE html>
@@ -72,6 +72,11 @@ require_once __DIR__."/../../config/settings-configuration.php";
         <div class="slogan_logo">
             <img src="../../src/img/logo.png" alt="Logo">
         </div>
+    </section>
+
+    <section class="services">
+        <h1>VISION</h1>
+        <h1>MISSION</h1>
     </section>
 
     <script src="../../src/js/script.js"></script>

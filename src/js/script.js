@@ -107,7 +107,6 @@ function showSignUp() {
     const form = document.getElementById('signUpForm');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
-    document.getElementById('toggle-header').textContent = "REGISTRATION";
 }
 
 function showSignIn() {
@@ -115,7 +114,6 @@ function showSignIn() {
     const form = document.getElementById('signInForm');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
-    document.getElementById('toggle-header').textContent = "SIGN IN";
 }
 
 function showForgotPassword() {
@@ -123,7 +121,6 @@ function showForgotPassword() {
     const form = document.getElementById('forgotPasswordForm');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
-    document.getElementById('toggle-header').textContent = "Forgot Password?";
 }
 
 showSignIn();
