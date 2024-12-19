@@ -50,7 +50,7 @@ unset($_SESSION['userSession']);
                 <button type="submit" name="btn-user-signup">SIGN UP</button>
             </form>
             <div class="link-container">
-                <p>Already have an account? <a href="#" onclick="showSignIn()">Login here</a></p>
+                <p>Already have an account? <a href="" onclick="showSignIn()">Login here</a></p>
             </div>
         </div>
 
@@ -67,9 +67,9 @@ unset($_SESSION['userSession']);
 
                 <button type="submit" name="btn-signin">SIGN IN</button>
                 <div class="link-container">
-                    <a href="#" onclick="showForgotPassword()">Forgot Password</a>
+                    <a href="" onclick="showForgotPassword()">Forgot Password</a>
                     <div class="link-divider"></div>
-                    <a href="#" onclick="showSignUp()">Sign Up</a>
+                    <a href="" onclick="showSignUp()">Sign Up</a>
                 </div>
             </form>
         </div>
