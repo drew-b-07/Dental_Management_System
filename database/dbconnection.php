@@ -18,7 +18,7 @@ class Database
         }
         else{
             $this->host = "auth-db1825.hstgr.io";
-            $this->db_name = "u175342239_otp";
+            $this->db_name = "otp";
             $this->username = "drew";
             $this->password = "R@ichu.Nov07";
         }
