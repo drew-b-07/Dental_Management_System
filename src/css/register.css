@@ -220,12 +220,10 @@ a::after {
     transform-origin: center;
     background-color: #004777;
     transition: transform 0.3s ease-in-out;
-    cursor: pointer;
 }
 
 a:hover::after {
     transform: scaleX(1);
-    cursor: pointer;
 }
 
 /* Password container */
