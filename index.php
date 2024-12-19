@@ -50,7 +50,7 @@ unset($_SESSION['userSession']);
                 <button type="submit" name="btn-user-signup">SIGN UP</button>
             </form>
             <div class="link-container">
-                <p>Already have an account? <a onclick="showSignIn()">Login here</a></p>
+                <p> <a onclick="showSignIn()">Login here</a></p>
             </div>
         </div>
 
