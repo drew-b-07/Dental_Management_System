@@ -205,6 +205,7 @@ a{
     position: relative;
     font-weight: 600;
     font-size: 25px;
+    cursor: pointer;
 }
 
 a::after {
@@ -249,12 +250,13 @@ a:hover::after {
     border: 1px solid var(--form-input-border);
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Responsive Styles */
+
+/* For tablets (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
     .container {
-        width: 85vw;
-        height: auto;
-        flex-direction: column;
+        width: 80vw;
+        height: 80vh;
     }
 
     .form-container {
@@ -262,8 +264,8 @@ a:hover::after {
     }
 
     .form-container button {
-        width: 100%;
-        font-size: 18px;
+        width: 120px;
+        font-size: 20px;
     }
 
     form h1 {
@@ -271,41 +273,36 @@ a:hover::after {
     }
 
     form input {
-        font-size: 18px;
-    }
-
-    .toggle-container {
-        padding: 20px;
-        width: 100%;
-        gap: 8px;
-        padding-top: 50px;
-    }
-
-    .toggle-container h1 {
-        font-size: 28px;
-    }
-
-    .toggle-container button {
-        font-size: 20px;
+        font-size: 25px;
+        padding: 6px;
     }
 
     .logo {
-        width: 180px;
-    }
-
-    .link-container a {
-        font-size: 20px;
+        width: 300px;
+        height: 100px;
+        margin-top: 60%;
     }
 
     .link-container p {
-        font-size: 18px;
+        font-size: 20px;
+    }
+
+    a {
+        font-size: 20px;
     }
 }
 
-@media (max-width: 480px) {
+/* For mobile devices (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+        padding: 20px;
+    }
+
     .container {
-        width: 95%;
+        width: 90vw;
         height: auto;
+        flex-direction: column;
     }
 
     .form-container {
@@ -313,39 +310,75 @@ a:hover::after {
     }
 
     .form-container button {
-        font-size: 16px;
+        width: 100px;
+        font-size: 18px;
     }
 
     form h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
     }
 
     form input {
-        font-size: 16px;
+        font-size: 20px;
+        padding: 5px;
     }
 
-    .toggle-container {
-        padding: 15px;
-        padding-top: 30px;
+    .link-container p {
+        font-size: 18px;
     }
 
-    .toggle-container h1 {
-        font-size: 24px;
-    }
-
-    .toggle-container button {
+    a {
         font-size: 18px;
     }
 
     .logo {
-        width: 150px;
+        width: 250px;
+        height: 80px;
+        margin-top: 40%;
+    }
+}
+
+/* For very small devices (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    body {
+        padding: 10px;
     }
 
-    .link-container a {
+    .container {
+        width: 95vw;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .form-container {
+        padding: 10px;
+    }
+
+    .form-container button {
+        width: 80px;
         font-size: 16px;
+    }
+
+    form h1 {
+        font-size: 1.2rem;
+    }
+
+    form input {
+        font-size: 18px;
+        padding: 4px;
     }
 
     .link-container p {
         font-size: 16px;
+    }
+
+    a {
+        font-size: 16px;
+    }
+
+    .logo {
+        width: 200px;
+        height: 60px;
+        margin-top: 30%;
     }
 }
