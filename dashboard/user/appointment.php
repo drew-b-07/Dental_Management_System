@@ -1,33 +1,25 @@
 <?php
-require_once __DIR__."/../../config/settings-configuration.php";
+require_once '../main.php'; // Adjust the path if needed
 
-// if(!isset($_SESSION["userSession"])) {
-//     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-//     exit;
-// }
+$admin = new MAIN();
 
-// if (isset($_POST['btn-book-appointment'])) {
-//     // Include user class or autoload dependencies
-//     require_once __DIR__ . "/../../classes/User.php";
+if (isset($_POST['btn-book-appointment'])) {
+    $fullname = $_POST['fullname'];
+    $address = $_POST['address'];
+    $age = $_POST['age'];
+    $birthday = $_POST['birthday'];
+    $phone_number = $_POST['phone_number'];
+    $pref_appointment = $_POST['pref_appointment'];
+    $additional_info = isset($_POST['additional_info']) ? $_POST['additional_info'] : '';
 
-//     // Retrieve form data
-//     $phone = $_POST['phone'];
-//     $appointmentDate = $_POST['appointment_date'];
-//     $message = isset($_POST['message']) ? $_POST['message'] : '';
+    // Make sure data is passed in the correct order
+    $admin->addAppointment($fullname, $age, $birthday, $phone_number, $address, $pref_appointment, $additional_info);
 
-//     // Get user ID from session
-//     $userId = $_SESSION['userSession']['id'];
-
-//     // Instantiate User class
-//     $user = new User();
-
-//     // Attempt to book the appointment
-//     if ($user->bookAppointment($userId, $phone, $appointmentDate, $message)) {
-//         echo "<script>alert('Appointment booked successfully!'); window.location.href = './appointment.php';</script>";
-//     } else {
-//         echo "<script>alert('Failed to book the appointment. Please try again.');</script>";
-//     }
-//}
+    session_start();
+    $_SESSION['success_message'] = "Appointment booked successfully!";
+    header('Location: ./appointment.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,7 +60,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
 
 
     <section class="appointment-content">
-    <form class="appointment-form" action="submit_appointment.php" method="POST">
+    <form class="appointment-form" method="POST">
         
         <!-- Form Header -->
         <div class="appointment-title">
@@ -79,7 +71,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
         <!-- Form Fields -->
         <div class="form-group">
             <label>Full Name:</label>
-            <input type="text" name="last_name" required>
+            <input type="text" name="fullname" required>
         </div>
 
         <div class="form-group">
@@ -99,17 +91,17 @@ require_once __DIR__."/../../config/settings-configuration.php";
 
         <div class="form-group">
             <label for="phone">Phone Number:</label>
-            <input type="tel" id="phone" name="phone" required>
+            <input type="tel" id="phone" name="phone_number" required>
         </div>
 
         <div class="form-group">
             <label for="appointment-date">Preferred Appointment Date & Time:</label>
-            <input type="datetime-local" id="appointment-date" name="appointment_date" required>
+            <input type="datetime-local" id="appointment-date" name="pref_appointment" required>
         </div>
 
         <div class="form-group message-group">
             <label for="message">Any Additional Information:</label>
-            <textarea id="message" name="message" rows="4" placeholder="Optional"></textarea>
+            <textarea id="message" name="additional_info" rows="4" placeholder="Optional"></textarea>
         </div>
         
         <div class="btn-book">
