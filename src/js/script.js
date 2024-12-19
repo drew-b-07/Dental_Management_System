@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const sidebarLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.section');
     const links = document.querySelectorAll('a');
-    const serviceElements = document.querySelectorAll('.service');
+    const serviceElements = document.querySelectorAll('.display_container');
     const img = document.querySelector(".slogan_logo img");
 
     // Function to change active section based on the clicked sidebar link
@@ -98,6 +98,7 @@ function hideAllForms() {
     forms.forEach(id => {
         const form = document.getElementById(id);
         form.classList.remove('show');
+        form.classList.add('hide');
         form.setAttribute('aria-hidden', 'true');
     });
 }
@@ -105,6 +106,7 @@ function hideAllForms() {
 function showSignUp() {
     hideAllForms();
     const form = document.getElementById('signUpForm');
+    form.classList.remove('hide');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
 }
@@ -112,6 +114,7 @@ function showSignUp() {
 function showSignIn() {
     hideAllForms();
     const form = document.getElementById('signInForm');
+    form.classList.remove('hide');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
 }
@@ -119,11 +122,13 @@ function showSignIn() {
 function showForgotPassword() {
     hideAllForms();
     const form = document.getElementById('forgotPasswordForm');
+    form.classList.remove('hide');
     form.classList.add('show');
     form.setAttribute('aria-hidden', 'false');
 }
 
 showSignIn();
+
 
 //log out function
 function Ulogout() {

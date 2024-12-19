@@ -75,9 +75,293 @@ require_once __DIR__."/../../config/settings-configuration.php";
     </section>
 
     <section class="services">
-        <h1>VISION</h1>
-        <h1>MISSION</h1>
+        <div class="display_container">
+
+            <div class="text_container">
+                <h1>TITLE DITO MGA PRE</h1>
+                <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                            porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                            vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                            dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                            quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                            augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                            facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                            erat tortor ac arcu. Duis vitae tempor velit.</p>
+                            <div class="link_button">
+                                <a href="about.php">
+                                    <button>LEARN MORE >></button>
+                                </a>
+                            </div>
+ 
+            </div>
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+        </div>
     </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+            <div class="text_container2">
+                    <h1>TITLE DITO MGA PRE</h1>
+                    <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                                porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                                vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                                dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                                quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                                augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                                facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                                erat tortor ac arcu. Duis vitae tempor velit.</p>
+                                <div class="link_button2">
+                                    <a href="about.php">
+                                        <button><< LEARN MORE</button>
+                                    </a>
+                                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="text_container">
+                <h1>TITLE DITO MGA PRE</h1>
+                <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                            porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                            vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                            dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                            quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                            augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                            facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                            erat tortor ac arcu. Duis vitae tempor velit.</p>
+                            <div class="link_button">
+                                <a href="about.php">
+                                    <button>LEARN MORE >></button>
+                                </a>
+                            </div>
+ 
+            </div>
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="services">
+        <div class="display_container">
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+            <div class="text_container2">
+                    <h1>TITLE DITO MGA PRE</h1>
+                    <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                                porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                                vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                                dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                                quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                                augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                                facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                                erat tortor ac arcu. Duis vitae tempor velit.</p>
+                                <div class="link_button2">
+                                    <a href="about.php">
+                                        <button><< LEARN MORE</button>
+                                    </a>
+                                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="text_container">
+                <h1>TITLE DITO MGA PRE</h1>
+                <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                            porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                            vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                            dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                            quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                            augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                            facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                            erat tortor ac arcu. Duis vitae tempor velit.</p>
+                            <div class="link_button">
+                                <a href="about.php">
+                                    <button>LEARN MORE >></button>
+                                </a>
+                            </div>
+ 
+            </div>
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+            <div class="text_container2">
+                    <h1>TITLE DITO MGA PRE</h1>
+                    <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                                porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                                vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                                dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                                quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                                augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                                facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                                erat tortor ac arcu. Duis vitae tempor velit.</p>
+                                <div class="link_button2">
+                                    <a href="about.php">
+                                        <button><< LEARN MORE</button>
+                                    </a>
+                                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="text_container">
+                <h1>TITLE DITO MGA PRE</h1>
+                <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                            porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                            vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                            dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                            quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                            augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                            facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                            erat tortor ac arcu. Duis vitae tempor velit.</p>
+                            <div class="link_button">
+                                <a href="about.php">
+                                    <button>LEARN MORE >></button>
+                                </a>
+                            </div>
+ 
+            </div>
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+    
+    <section class="services">
+        <div class="display_container">
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+            <div class="text_container2">
+                    <h1>TITLE DITO MGA PRE</h1>
+                    <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                                porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                                vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                                dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                                quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                                augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                                facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                                erat tortor ac arcu. Duis vitae tempor velit.</p>
+                                <div class="link_button2">
+                                    <a href="about.php">
+                                        <button><< LEARN MORE</button>
+                                    </a>
+                                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="text_container">
+                <h1>TITLE DITO MGA PRE</h1>
+                <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                            porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                            vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                            dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                            quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                            augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                            facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                            erat tortor ac arcu. Duis vitae tempor velit.</p>
+                            <div class="link_button">
+                                <a href="about.php">
+                                    <button>LEARN MORE >></button>
+                                </a>
+                            </div>
+ 
+            </div>
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="display_container">
+
+            <div class="content_container">
+                <img src="../../src/img/img1.jpg" alt="">
+            </div>
+
+            <div class="text_container2">
+                    <h1>TITLE DITO MGA PRE</h1>
+                    <p>Integer nunc mauris, eleifend quis ultrices a, tristique vitae arcu. Donec viverra eros non ante 
+                                porta iaculis et sit amet lorem. Nam commodo neque eget egestas blandit. Mauris et mattis mi, vel
+                                vestibulum est. Curabitur tempus lacus non dui faucibus, eget ornare ligula dignissim. Lorem ipsum 
+                                dolor sit amet, consectetur adipiscing elit. Suspendisse pellentesque finibus enim, quis aliquet 
+                                quam faucibus eu. Integer tincidunt est dolor, sit amet gravida felis lacinia vitae. Ut bibendum 
+                                augue in enim ornare volutpat. Fusce accumsan nibh id massa pulvinar, a tincidunt mauris tincidunt. 
+                                Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam vulputate 
+                                facilisis suscipit. Nam pretium, nulla quis imperdiet dignissim, massa quam bibendum sem, in lacinia
+                                erat tortor ac arcu. Duis vitae tempor velit.</p>
+                                <div class="link_button2">
+                                    <a href="about.php">
+                                        <button><< LEARN MORE</button>
+                                    </a>
+                                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        
+    </footer>
 
     <script src="../../src/js/script.js"></script>
 </body>
