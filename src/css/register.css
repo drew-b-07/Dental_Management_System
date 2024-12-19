@@ -45,8 +45,8 @@ body {
     background-size: cover;
     border-radius: 20px;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.49);
-    width: 60vw;
-    height: 75vh;
+    width: 70vw;
+    height: 90vh;
     max-width: 90%;
     overflow: hidden;
     display: flex;
