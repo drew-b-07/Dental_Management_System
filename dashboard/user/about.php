@@ -73,47 +73,47 @@ require_once __DIR__."/../../config/settings-configuration.php";
             <h3>Our Team</h3>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
+                    <img src="../../src/img/.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Head Dentist: </strong>Matet</p>
+                </div>
+                <div class="team-member">
+                    <img src="../../src/img/1.jpg" alt="Dr. Johnson" class="team-image">
                     <p><strong>Main Coder </strong><br>Ryan Andrew D. Bulanadi</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist:</strong> Dr. Johnson, DDS</p>
+                    <img src="../../src/img/2.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Head Dentist: </strong>Octavio</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist:</strong> Dr. Johnson, DDS</p>
+                    <img src="../../src/img/.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Head Dentist: </strong>Montemayor</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist:</strong> Dr. Johnson, DDS</p>
-                </div>
-                <div class="team-member">
-                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                    <img src="../../src/img/5.jpeg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant: </strong>Mangiliman</p>
                 </div>
             </div>
 
             <div class="team-members">
                 <div class="team-member">
-                    <img src="../../src/img/denstist.jpeg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist:</strong> Dr. Johnson, DDS</p>
+                    <img src="../../src/img/4.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Head Dentist: </strong>Zablan</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                    <img src="../../src/img/.jpg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant: </strong>Joshua</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                    <img src="../../src/img/.jpg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant: </strong>Lapuz</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                    <img src="../../src/img/6.jpeg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant: </strong>Mendoza</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/assisstant.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant:</strong> Emily Clark</p>
+                    <img src="../../src/img/3.jpg" alt="Emily Clark" class="team-image">
+                    <p><strong>Dental Assistant: </strong>Del Rosario</p>
                 </div>
             </div>
             
