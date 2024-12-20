@@ -267,7 +267,7 @@ header nav ul li button:focus{
     transform: translateY(0);
 }
 
-.services {
+.container {
     width: auto;
     height: auto;
     display: flex;
@@ -321,8 +321,8 @@ header nav ul li button:focus{
 
 .link_button {
     height: 8vh;
-    width: 12vw;
-    margin-left: 70.5%;
+    width: 15vw;
+    margin-left: 66%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -361,7 +361,7 @@ header nav ul li button:focus{
 /*RIGHT SIDE*/
 .link_button2 {
     height: 8vh;
-    width: 12vw;
+    width: 15vw;
     margin-left: 3.7%;
     display: flex;
     justify-content: center;
@@ -412,7 +412,7 @@ header nav ul li button:focus{
     font-style: normal;
     height: 10%;
     width: 60%;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-left: 35%;
     text-align: right;
 }
@@ -429,13 +429,13 @@ header nav ul li button:focus{
     text-align: right;
 }
 
-.services .display_container {
+.container .display_container {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.services .display_container.visible {
+.container .display_container.visible {
     opacity: 1;
     transform: translateY(0);
 }
