@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const editButtons = document.querySelectorAll('.edit-btn');
-    const deleteButtons = document.querySelectorAll('.delete-btn');
+    const editButtons = document.querySelectorAll('.edit-btn1');
+    const deleteButtons = document.querySelectorAll('.delete-btn1');
     const editModal = document.getElementById('edit-patient-modal');
     const editForm = document.getElementById('edit-patient-form');
 

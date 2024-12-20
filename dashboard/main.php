@@ -36,9 +36,9 @@ class MAIN
                 ':additional_info' => $additional_info
             ]);
             
-            echo 'Record Inserted Successfully!';
-            header('Location: ./appointment.php');
+            echo "<script>alert('Appointment booked.'); window.location.href = './appointment.php' ;</script>";
             exit;
+
         } catch(PDOException $ex) {
             echo $ex->getMessage();
         }

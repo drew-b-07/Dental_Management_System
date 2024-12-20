@@ -146,7 +146,7 @@
                                 <label for="edit-user-verify-status" class="form-label">Verify Status</label>
                                 <select class="form-select" id="edit-user-verify-status" name="verify_status">
                                     <option value="verified">Verified</option>
-                                    <option value="unverified">Unverified</option>
+                                    <option value="verifying">Unverified</option>
                                 </select>
                             </div>
                             
@@ -344,8 +344,8 @@
                                             <td><?= htmlspecialchars($patient['patient_condition']) ?></td>
                                             <td><?= htmlspecialchars($patient['patient_contact']) ?></td>
                                             <td>
-                                                <button class="edit-btn" data-id="<?= $patient['id'] ?>">Edit</button>
-                                                <button class="delete-btn" data-id="<?= $patient['id'] ?>">Delete</button>
+                                                <button class="edit-btn1" data-id="<?= $patient['id'] ?>">Edit</button>
+                                                <button class="delete-btn1" data-id="<?= $patient['id'] ?>">Delete</button>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -361,7 +361,7 @@
             
             <!-- User Section -->
             <section id="settings" class="section">
-                <h1>UsersTable</h1>
+                <h1>Users Table</h1>
                     <div id="patients-table-wrapper">
                         <table id="patients-table" border="1">
                             <thead>

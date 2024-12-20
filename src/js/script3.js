@@ -277,7 +277,6 @@
                 .then(data => {
                     
                     if (data.success) {
-                        alert('User updated successfully');
                         location.reload();
                     } else {
                         alert(data.message || 'Error updating user');
@@ -285,7 +284,6 @@
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('An error occurred while updating the user');
                 })
                 .finally(() => {
                     submitButton.disabled = false;

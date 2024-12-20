@@ -320,34 +320,34 @@ class USER{
     public function userSignIn($username, $password, $csrf_token)
     {
         try {
-            // Verify CSRF Token
             if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
                 echo "<script>alert('Invalid CSRF Token.'); window.location.href = '../';</script>";
                 exit;
             }
             unset($_SESSION['csrf_token']);
-
-
-            // Hash the input password
+    
             $hashed_password = md5($password);
-
-            // Check if the user exists and the status is not_active first before signing in
-            $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password AND user_status = :user_status");
+    
+            $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND password = :password");
             $stmt->execute([
                 ':username' => $username,
-                ':password' => $hashed_password,
-                ':user_status' => 'not_active'
+                ':password' => $hashed_password
             ]);
-
+    
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
             if ($user) {
+                if ($user['verify_status'] !== 'verified') {
+                    echo "<script>alert('Your account is not verified. Please verify your email before signing in.'); window.location.href = '../';</script>";
+                    exit;
+                }
+    
                 $query = "UPDATE user SET user_status = 'active' WHERE id = :id";
                 $stmt = $this->conn->prepare($query);
                 $stmt->execute(array(":id" => $user['id']));
             
                 $_SESSION['userSession'] = $user['id'];
-                echo "<script>alert('Welcome {$user['username']}!'); window.location.href = './user/home.php' ;</script>";
+                echo "<script>alert('Welcome {$user['username']}!'); window.location.href = './user/home.php';</script>";
                 exit;
             } else {
                 $stmt = $this->runQuery("SELECT * FROM admin WHERE username = :username AND password = :password");
@@ -355,23 +355,23 @@ class USER{
                     ':username' => $username,
                     ':password' => $password
                 ]);
-
+    
                 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
                 if ($admin) {
                     $query = "UPDATE admin SET status = 'active' WHERE id = :id";
                     $stmt = $this->conn->prepare($query);
                     $stmt->execute(array(":id" => $admin['id']));
                 
                     $_SESSION['adminSession'] = $admin['id'];
-                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = './admin/index.php' ;</script>";
+                    echo "<script>alert('Welcome {$admin['username']}!'); window.location.href = './admin/index.php';</script>";
                     exit;
                 }
             }
-
-            echo "<script>alert('Invalid username or password. Please try again.'); window.location.href = '../' ;</script>";
+    
+            echo "<script>alert('Invalid username or password. Please try again.'); window.location.href = '../';</script>";
             exit;
-
+    
         } catch (PDOException $e) {
             echo "<script>alert('An error occurred during sign in. Please try again.'); window.location.href = '../';</script>";
             exit;
