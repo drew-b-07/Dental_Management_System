@@ -17,10 +17,10 @@ class Database
             $this->password = "";
         }
         else{
-            $this->host = "auth-db1825.hstgr.io";
-            $this->db_name = "otp2";
-            $this->username = "	drew";
-            $this->password = "Dr3w$100262040688110702";
+            $this->host = "localhost";
+            $this->db_name = "u175342239_dentalcare";
+            $this->username = "	u175342239_drew";
+            $this->password = "&WFJgPz3";
         }
     }
 
