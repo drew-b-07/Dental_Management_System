@@ -18,8 +18,8 @@ class Database
         }
         else{
             $this->host = "dentalcareclinic.site";
-            $this->db_name = "u175342239_dentalcare";
-            $this->username = "	u175342239_root";
+            $this->db_name = "dentalcare";
+            $this->username = "	drew";
             $this->password = "&WFJgPz3";
         }
     }
