@@ -1,25 +1,11 @@
 <?php
-require_once '../main.php'; // Adjust the path if needed
+require_once '../main.php';
+require_once '../user-class.php';
 
-$admin = new MAIN();
+$getUserDetails = new USER();
+$userDetails = $getUserDetails->getUserDetails($_SESSION["userSession"]);
+$username = $userDetails['username'];
 
-if (isset($_POST['btn-book-appointment'])) {
-    $fullname = $_POST['fullname'];
-    $address = $_POST['address'];
-    $age = $_POST['age'];
-    $birthday = $_POST['birthday'];
-    $phone_number = $_POST['phone_number'];
-    $pref_appointment = $_POST['pref_appointment'];
-    $additional_info = isset($_POST['additional_info']) ? $_POST['additional_info'] : '';
-
-    // Make sure data is passed in the correct order
-    $admin->addAppointment($fullname, $age, $birthday, $phone_number, $address, $pref_appointment, $additional_info);
-
-    session_start();
-    $_SESSION['success_message'] = "Appointment booked successfully!";
-    header('Location: ./appointment.php');
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -49,11 +35,7 @@ if (isset($_POST['btn-book-appointment'])) {
                 <li><a href="./service.php" class="haber">Service</a></li>
                 <li><a href="./about.php" class="haber">About Us</a></li>
                 <li><button onclick="Ulogout()">Logout</button></li>
-                <a href="./profile.php">
-                    <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
-                    </div>
-                </a>
+                <li><h1 class="user">User: <?php echo htmlspecialchars($username); ?></h1></li>
             </ul>
         </nav>
     </header>

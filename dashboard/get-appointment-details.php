@@ -13,7 +13,6 @@ try {
         throw new Exception('No name provided');
     }
 
-    
     $stmt = $main->runQuery("SELECT * FROM appointments WHERE fullname = :fullname AND status = 'accepted'");
     $stmt->execute([':fullname' => $fullName]);
     $appointmentDetails = $stmt->fetch(PDO::FETCH_ASSOC);

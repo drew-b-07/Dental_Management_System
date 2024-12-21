@@ -54,21 +54,6 @@ class ADMIN
         return $stmt;
     }
 
-    public function resetPassword($token, $new_password, $csrf_token)
-    {
-        if (!isset($csrf_token) || !hash_equals($_SESSION['csrf_token'], $csrf_token)) {
-            echo "<script>alert('Invalid CSRF token.'); window.location.href = '../reset-password.php?token=$token'; </script>";
-            exit;
-        }
-        unset($_SESSION['csrf_token']);
-
-        $stmt = $this->runQuery("UPDATE admin SET password = :password WHERE token = :token");
-        $stmt->execute([':password' => $new_password, ':token' => $token]);
-        
-        echo "<script>alert('Password reset successfully.'); window.location.href = '../';</script>";
-        exit;
-    }
-
     public function addAppointments($pName, $pAge, $pBday, $pGender, $pEmail, $pAddress, $pCondition, $pContact)
     {
         try {
@@ -164,9 +149,9 @@ class ADMIN
             $params[] = $data['user_id'];
     
             
-            if ($this->isEmailTaken($data['email'], $data['user_id'])) {
-                return ['success' => false, 'message' => 'Email already taken. Please try another one'];
-            }
+            // if ($this->isEmailTaken($data['email'], $data['user_id'])) {
+            //     return ['success' => false, 'message' => 'Email already taken. Please try another one'];
+            // }
     
             
             if ($this->isUsernameTaken($data['username'], $data['user_id'])) {
@@ -200,11 +185,11 @@ class ADMIN
         return ['success' => true, 'hash' => $hashed_password];
     }
     
-    private function isEmailTaken($email, $userId) {
-        $stmt = $this->conn->prepare("SELECT id FROM user WHERE email = ? AND id != ?");
-        $stmt->execute([$email, $userId]);
-        return $stmt->rowCount() > 0;
-    }
+    // private function isEmailTaken($email, $userId) {
+    //     $stmt = $this->conn->prepare("SELECT id FROM user WHERE email = ? AND id != ?");
+    //     $stmt->execute([$email, $userId]);
+    //     return $stmt->rowCount() > 0;
+    // }
     
     private function isUsernameTaken($username, $userId) {
         $stmt = $this->conn->prepare("SELECT id FROM user WHERE username = ? AND id != ?");
@@ -277,15 +262,6 @@ class ADMIN
         }
         exit;
     }
-}
-
-if (isset($_POST['btn-reset-password'])) {
-    $csrf_token = trim($_POST['csrf_token']);
-    $token = trim($_POST['token']);
-    $new_password = trim($_POST['new_password']);
-
-    $admin = new ADMIN();
-    $admin->resetPassword($token, $new_password, $csrf_token);
 }
 
 if (isset($_POST['btn-admin-addpatient'])) {

@@ -173,12 +173,12 @@
                         const userEditModal = bootstrap.Modal.getInstance(editModal);
                         userEditModal.hide();
                     } else {
-                        alert('Error updating patient: ' + data.message);
+                        alert('Error updating user: ' + data.message);
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('An error occurred while updating the patient. Please try again.');
+                    alert('An error occurred while updating the user. Please try again.');
                 });
             });
 

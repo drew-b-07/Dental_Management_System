@@ -1,12 +1,18 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
+require_once '../user-class.php';
 
 // if(!isset($_SESSION["userSession"])) {
 //     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
 //     exit;
 // }
 
+$getUserDetails = new USER();
+$userDetails = $getUserDetails->getUserDetails($_SESSION["userSession"]);
+$username = $userDetails['username'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,11 +34,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="./service.php" class="haber">Service</a></li>
                 <li><a href="#" class="active">About Us</a></li>
                 <li><button onclick="Ulogout()">Logout</button></li>
-                <a href="./profile.php">
-                    <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
-                    </div>
-                </a>
+                <li><h1 class="user">User: <?php echo htmlspecialchars($username); ?></h1></li>
             </ul>
         </nav>
     </header>
@@ -73,8 +75,8 @@ require_once __DIR__."/../../config/settings-configuration.php";
             <h3>Our Team</h3>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="../../src/img/.jpg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist: </strong>Matet</p>
+                    <img src="../../src/img/5.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Leader </strong><br>Maria Theresa Garcia</p>
                 </div>
                 <div class="team-member">
                     <img src="../../src/img/1.jpg" alt="Dr. Johnson" class="team-image">
@@ -82,11 +84,11 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 </div>
                 <div class="team-member">
                     <img src="../../src/img/2.jpg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist: </strong>Octavio</p>
+                    <p><strong>Frontend </strong><br>Franchezka Octavio</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/.jpg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist: </strong>Montemayor</p>
+                    <img src="../../src/img/7.jpg" alt="Dr. Johnson" class="team-image">
+                    <p><strong>Frontend </strong><br>Richi Montemayor</p>
                 </div>
                 <div class="team-member">
                     <img src="../../src/img/5.jpeg" alt="Emily Clark" class="team-image">
@@ -100,11 +102,11 @@ require_once __DIR__."/../../config/settings-configuration.php";
                     <p><strong>Head Dentist: </strong>Zablan</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/.jpg" alt="Emily Clark" class="team-image">
+                    <img src="../../src/img/6.jpg" alt="Emily Clark" class="team-image">
                     <p><strong>Dental Assistant: </strong>Joshua</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/.jpg" alt="Emily Clark" class="team-image">
+                    <img src="../../src/img/8.jpg" alt="Emily Clark" class="team-image">
                     <p><strong>Dental Assistant: </strong>Lapuz</p>
                 </div>
                 <div class="team-member">

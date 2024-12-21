@@ -54,6 +54,17 @@ header nav h1 {
     font-size: 1.7em;
 }
 
+header nav .user{
+    color: #fff; /* Darker text color for better contrast */
+    font-family: 'Roboto', sans-serif; /* Use a modern, clean font */
+    font-size: 1.2em; /* Slightly larger font size for emphasis */
+    font-weight: 500; /* Use medium weight for a balanced look */
+    text-transform: capitalize; /* Capitalize the first letter of each word */
+
+    border-radius: 5px; /* Slight rounding of edges for a modern look */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
 header nav ul {
     display: flex;
     align-items: center;
@@ -61,7 +72,7 @@ header nav ul {
 }
 
 header nav ul li {
-    padding: 30px;
+    padding: 15px;
 }
 
 header nav ul li a {

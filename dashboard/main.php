@@ -36,7 +36,7 @@ class MAIN
                 ':additional_info' => $additional_info
             ]);
             
-            echo "<script>alert('Appointment booked.'); window.location.href = './appointment.php' ;</script>";
+            echo "<script>alert('Appointment booked successfully.'); window.location.href = './appointment.php' ;</script>";
             exit;
 
         } catch(PDOException $ex) {
@@ -58,7 +58,6 @@ class MAIN
             return ['pendingPatients' => [], 'total' => 0];
         }
     }
-
 
     
     public function acceptAppointment($id)
@@ -90,8 +89,6 @@ class MAIN
             echo $ex->getMessage();
         }
     }
-    
-
     
     public function denyAppointment($id)
     {
@@ -149,7 +146,6 @@ class MAIN
             echo $ex->getMessage();
         }
     }
-    
     
     public function getAppointmentLogs() {
         try {
@@ -239,23 +235,35 @@ class MAIN
             return false;
         }
     }
-    
-    
 }
 
-
-if (isset($_POST['btn-admin-addpatient'])) {
-    $fullname = trim($_POST['fullname']);
-    $age = trim($_POST['age']);
-    $birthday = trim($_POST['birthday']);
-    $phone_number = trim($_POST['phone_number']);
-    $address = trim($_POST['address']);
-    $pref_appointment = trim($_POST['pref_appointment']);
-    $additional_info = trim($_POST['additional_info']);
+// if (isset($_POST['btn-admin-addpatient'])) {
+//     $fullname = trim($_POST['fullname']);
+//     $age = trim($_POST['age']);
+//     $birthday = trim($_POST['birthday']);
+//     $phone_number = trim($_POST['phone_number']);
+//     $address = trim($_POST['address']);
+//     $pref_appointment = trim($_POST['pref_appointment']);
+//     $additional_info = trim($_POST['additional_info']);
     
+//     $admin = new MAIN();
+//     $admin->addAppointment($fullname, $age, $birthday, $phone_number, $address, $pref_appointment, $additional_info);
+// }
+
+if (isset($_POST['btn-book-appointment'])) {
+    $fullname = $_POST['fullname'];
+    $address = $_POST['address'];
+    $age = $_POST['age'];
+    $birthday = $_POST['birthday'];
+    $phone_number = $_POST['phone_number'];
+    $pref_appointment = $_POST['pref_appointment'];
+    $additional_info = isset($_POST['additional_info']) ? $_POST['additional_info'] : '';
+
+    // Make sure data is passed in the correct order
     $admin = new MAIN();
     $admin->addAppointment($fullname, $age, $birthday, $phone_number, $address, $pref_appointment, $additional_info);
 }
+
 
 if (isset($_GET['action']) && isset($_GET['id'])) {
     $action = $_GET['action'];

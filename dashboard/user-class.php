@@ -37,7 +37,7 @@ class USER{
         $mail->setFrom($smtp_email, "Dental Care Clinic");
         $mail->Subject = $subject;
 
-        $logopath = __DIR__.'/../../src/img/icon.png';
+        $logopath = __DIR__.'/../src/img/icon.png';
         $mail->addEmbeddedImage($logopath,'logo');
 
         $mail->msgHTML($message);
@@ -80,15 +80,15 @@ class USER{
             echo "<script>alert('No email found.'); window.location.href = '../';</script>";
             exit;
         } else {
-            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email");
-            $stmt->execute(array (":email" => $email));
+            $stmt = $this->runQuery("SELECT * FROM user WHERE email = :email AND verify_status = :verify_status");
+            $stmt->execute(array (":email" => $email, ":verify_status" => 'verified'));
             $stmt->fetch(PDO::FETCH_ASSOC);
             if($stmt->rowCount() > 0){
                 echo "<script>alert('Email already taken. Please try another one'); window.location.href = '../';</script>";
                 exit;
             } else {
-                $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username");
-                $stmt->execute(array (":username"=> $username));
+                $stmt = $this->runQuery("SELECT * FROM user WHERE username = :username AND verify_status = :verify_status");
+                $stmt->execute(array (":username"=> $username, "verify_status" => 'verified'));
                 $stmt->fetch(PDO::FETCH_ASSOC);
                 if($stmt->rowCount() > 0){
                     echo "<script>alert('Username is already used.'); window.location.href = '../';</script>";
@@ -298,25 +298,6 @@ class USER{
         }
     }
 
-    public function getUserProfile($userId)
-    {
-    try {
-        $stmt = $this->runQuery("SELECT fullname, email, username FROM user WHERE id = :id");
-        $stmt->execute([':id' => $userId]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if ($user) {
-                return $user;
-            } else {
-                echo "<script>alert('User not found. Please log in again.'); window.location.href = '../../';</script>";
-                exit;
-            }
-        } catch (PDOException $e) {
-            echo "<script>alert('An error occurred while fetching user profile.'); window.location.href = '../../';</script>";
-            exit;
-        }
-    }
-
     public function userSignIn($username, $password, $csrf_token)
     {
         try {
@@ -467,7 +448,7 @@ class USER{
             unset($_SESSION['csrf_token']);
             
 
-            // It will change the password, gawin mong indicator yung last doon sa hash
+            // It will change the password, gawin indicator yung last doon sa hash
             $hashed_password = md5($new_password);
             
             // Change the password via resetpassword.php
@@ -486,8 +467,10 @@ class USER{
         }
     }
 
-    public function bookAppointment(){
-        
+    public function getUserDetails($userId) {
+        $stmt = $this->runQuery("SELECT username FROM user WHERE id = :id");
+        $stmt->execute([":id" => $userId]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
     public function isUserLoggedIn()
@@ -555,12 +538,6 @@ class USER{
         $user = new USER();
         $user->userSignin($username, $password, $csrf_token);
     }
-
-    if(isset($_GET['user_profile']))
-    {
-        $user = new USER();
-        $user->getUserProfile($userId);
-    }
     
     if (isset($_GET['user_signout'])) 
     {
@@ -587,11 +564,5 @@ class USER{
     
        $userVerify = new USER();
        $userVerify->verifyUser($fullname, $email, $username, $password, $otp, $csrf_token);
-    }
-
-    if (isset($_POST['btn-book-appointment']))
-    {
-        $user = new USER();
-        $user->bookAppointment();
     }
 ?>

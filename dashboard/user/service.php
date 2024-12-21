@@ -1,12 +1,18 @@
 <?php
 require_once __DIR__."/../../config/settings-configuration.php";
+require_once '../user-class.php';
 
 // if(!isset($_SESSION["userSession"])) {
 //     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
 //     exit;
 // }
 
+$getUserDetails = new USER();
+$userDetails = $getUserDetails->getUserDetails($_SESSION["userSession"]);
+$username = $userDetails['username'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +39,7 @@ require_once __DIR__."/../../config/settings-configuration.php";
                 <li><a href="#" class="active">Service</a></li>
                 <li><a href="./about.php" class="haber">About Us</a></li>
                 <li><button onclick="Ulogout()">Logout</button></li>
-                <a href="./profile.php">
-                    <div class="profile-icon-button">
-                        <img src="../../src/img/profile.jpg" alt=" " class="profile-icon">
-                    </div>
-                </a>
+                <li><h1 class="user">User: <?php echo htmlspecialchars($username); ?></h1></li>
             </ul>
         </nav>
     </header>
