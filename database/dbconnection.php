@@ -17,7 +17,7 @@ class Database
             $this->password = "";
         }
         else{
-            $this->host = "dentalcareclinic.site";
+            $this->host = "localhost";
             $this->db_name = "u175342239_dentalcare";
             $this->username = "	u175342239_drew";
             $this->password = "&WFJgPz3";
