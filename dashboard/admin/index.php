@@ -402,7 +402,7 @@
                                     <?php endforeach; ?>
                                 <?php else: ?>
                                     <tr>
-                                        <td colspan="9">No patients found.</td>
+                                        <td colspan="9">No user found.</td>
                                     </tr>
                                 <?php endif; ?>
                             </tbody>
