@@ -67,7 +67,7 @@ $username = $userDetails['username'];
             <p><strong>Phone Number:</strong> 09234534581</p>
             <h3>Location</h3>
             <p>
-                <a href="https:www.google.com.ph/maps/search/Metro+Manila+dentist/@14.5514664,120.993267,14z?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank">
+                <a href="https://www.google.com.ph/maps/search/Metro+Manila+dentist/@14.5514664,120.993267,14z?entry=ttu&g_ep=EgoyMDI0MTExOS4yIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                     Google Map
                 </a>
             </p>
