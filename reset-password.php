@@ -4,24 +4,24 @@ require_once __DIR__ ."/database/dbconnection.php";
 require_once __DIR__ . "/config/settings-configuration.php";
 
 
-//    if(isset($_SESSION["userSession"])) {
-//        echo "<script>alert('user is log in.'); window.location.href = './dashboard/user/home.php';</script>";
-//        exit;
-//    }
+   if(isset($_SESSION["userSession"])) {
+       echo "<script>alert('user is log in.'); window.location.href = './dashboard/user/home.php';</script>";
+       exit;
+   }
 
-//    if(!isset($_GET['tokencode'])){
-//        echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
-//        exit;
-//    }
-//        $db = new Database();
-//        $pdo = $db->dbConnection();
-//        $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
-//        $stmt->execute([":id" => $_GET['id']]);
+   if(!isset($_GET['tokencode'])){
+       echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
+       exit;
+   }
+       $db = new Database();
+       $pdo = $db->dbConnection();
+       $stmt = $pdo->prepare("SELECT * FROM user WHERE id = :id");
+       $stmt->execute([":id" => $_GET['id']]);
 
-//    if($stmt->rowCount() == 0) {
-//        echo "<script>alert('Invalid Link.'); window.location.href = 'index.php';</script>";
-//        exit();
-//    }
+   if($stmt->rowCount() == 0) {
+       echo "<script>alert('Invalid Link.'); window.location.href = 'index.php';</script>";
+       exit();
+   }
 
 //    $token = $_GET['tokencode'];
 

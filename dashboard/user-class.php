@@ -338,6 +338,8 @@ class USER{
                 ]);
     
                 $admin = $stmt->fetch(PDO::FETCH_ASSOC);
+
+
     
                 if ($admin) {
                     $query = "UPDATE admin SET status = 'active' WHERE id = :id";
