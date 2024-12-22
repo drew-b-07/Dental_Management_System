@@ -75,47 +75,47 @@ $username = $userDetails['username'];
             <h3>Our Team</h3>
             <div class="team-members">
                 <div class="team-member">
-                    <img src="../../src/img/5.jpg" alt="Dr. Johnson" class="team-image">
+                    <img src="../../src/img/5.jpg" alt="Image" class="team-image">
                     <p><strong>Leader </strong><br>Maria Theresa Garcia</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/1.jpg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Main Coder </strong><br>Ryan Andrew D. Bulanadi</p>
+                    <img src="../../src/img/1.jpg" alt="Image" class="team-image">
+                    <p><strong>Main Coder (Full Stack) </strong><br>Ryan Andrew Bulanadi</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/2.jpg" alt="Dr. Johnson" class="team-image">
+                    <img src="../../src/img/2.jpg" alt="Image" class="team-image">
                     <p><strong>Frontend </strong><br>Franchezka Octavio</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/7.jpg" alt="Dr. Johnson" class="team-image">
+                    <img src="../../src/img/7.jpg" alt="Image" class="team-image">
                     <p><strong>Frontend </strong><br>Richi Montemayor</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/5.jpeg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant: </strong>Mangiliman</p>
+                    <img src="../../src/img/5.jpeg" alt="Image" class="team-image">
+                    <p><strong>Authentication </strong><br>Joanna Rose Mangiliman</p>
                 </div>
             </div>
 
             <div class="team-members">
                 <div class="team-member">
-                    <img src="../../src/img/4.jpg" alt="Dr. Johnson" class="team-image">
-                    <p><strong>Head Dentist: </strong>Zablan</p>
+                    <img src="../../src/img/4.jpg" alt="Image" class="team-image">
+                    <p><strong>Authentication </strong><br>Kyle Joshua Zablan</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/6.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant: </strong>Joshua</p>
+                    <img src="../../src/img/6.jpg" alt="Image" class="team-image">
+                    <p><strong>Frontend </strong><br>Carl Aaron Joshua Lagamayo</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/8.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant: </strong>Lapuz</p>
+                    <img src="../../src/img/8.jpg" alt="Image" class="team-image">
+                    <p><strong>Frontend </strong><br>Roden Lapuz</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/6.jpeg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant: </strong>Mendoza</p>
+                    <img src="../../src/img/6.jpeg" alt="Image" class="team-image">
+                    <p><strong>ERD & DFD </strong><br>Raul Mendoza</p>
                 </div>
                 <div class="team-member">
-                    <img src="../../src/img/3.jpg" alt="Emily Clark" class="team-image">
-                    <p><strong>Dental Assistant: </strong>Del Rosario</p>
+                    <img src="../../src/img/3.jpg" alt="Image" class="team-image">
+                    <p><strong>ERD & DFD </strong><br>John Del Rosario</p>
                 </div>
             </div>
             
