@@ -129,8 +129,7 @@ $username = $userDetails['username'];
                      (the innermost part of the tooth, which contains nerves and blood vessels). Once a cavity reaches
                       these deeper layers, it can cause pain, sensitivity, and even infection, often requiring more
                        extensive dental treatments such as fillings, crowns, or even root canals to repair the damage.
-
-</p>
+                </p>
 
             </div>
 
