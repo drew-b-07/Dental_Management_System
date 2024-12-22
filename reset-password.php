@@ -4,10 +4,10 @@ require_once __DIR__ ."/database/dbconnection.php";
 require_once __DIR__ . "/config/settings-configuration.php";
 
 
-   if(isset($_SESSION["userSession"])) {
-       echo "<script>alert('user is log in.'); window.location.href = './dashboard/user/home.php';</script>";
-       exit;
-   }
+//    if(isset($_SESSION["userSession"])) {
+//        echo "<script>alert('user is log in.'); window.location.href = './dashboard/user/home.php';</script>";
+//        exit;
+//    }
 
    if(!isset($_GET['tokencode'])){
        echo "<script>alert('No token provided.'); window.location.href = 'index.php';</script>";
@@ -23,7 +23,7 @@ require_once __DIR__ . "/config/settings-configuration.php";
        exit();
    }
 
-//    $token = $_GET['tokencode'];
+   $token = $_GET['tokencode'];
 
 /* NOT USED*/
 //  $user = $stmt->fetch(PDO::FETCH_ASSOC);

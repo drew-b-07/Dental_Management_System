@@ -1,6 +1,13 @@
 <?php
     require_once '../admin-class.php';
-    require_once '../main.php'; 
+    require_once '../main.php';
+    require_once '../user-class.php';
+
+    if(!isset($_SESSION["adminSession"])) {
+        echo "<script>alert('admin is not logged in yet.'); window.location.href = '../../';</script>";
+        exit;
+    }
+
     $admin = new ADMIN();
     $main = new MAIN();
 

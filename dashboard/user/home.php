@@ -2,14 +2,15 @@
 require_once __DIR__."/../../config/settings-configuration.php";
 require_once '../user-class.php';
 
- if(!isset($_SESSION["userSession"])) {
-     echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
-     exit;
- }
+if(!isset($_SESSION["userSession"])) {
+    echo "<script>alert('user is not logged in yet.'); window.location.href = '../../';</script>";
+    exit;
+}
 
 $getUserDetails = new USER();
 $userDetails = $getUserDetails->getUserDetails($_SESSION["userSession"]);
 $username = $userDetails['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +19,7 @@ $username = $userDetails['username'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dental Care | Home</title>
-    <link rel="stylesheet" href="../../src/css/mainPage.css">
+    <link rel="stylesheet" href="../../src/css/home.css">
     <link rel="icon" type="image/png" href="../../src/img/icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
