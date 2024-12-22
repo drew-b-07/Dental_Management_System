@@ -424,7 +424,7 @@ class USER{
                 ":email" => $email
             ));
     
-            $resetLink = "http://localhost/dentalcareclinic.site/reset-password.php?id=$user_id&tokencode=$token";
+            $resetLink = "http://www.dentalcareclinic.site/reset-password.php?id=$user_id&tokencode=$token";
             
             $subject = "Password Reset Request";
             $message = "<html><body><p>Password reset link: <a href='$resetLink'>Reset Password</a></p></body></html>";
