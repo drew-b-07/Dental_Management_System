@@ -1,13 +1,25 @@
 <?php 
 require_once __DIR__.'/../database/dbconnection.php';
 require_once __DIR__.'/../config/settings-configuration.php';
+require_once __DIR__.'/../src/vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\SMTP;
 
 class MAIN
 {
     private $conn;
+    private $settings;
+    private $smtp_email;
+    private $smtp_password;
 
     public function __construct()
     {
+        $this->settings = new SystemConfig();
+        $this->smtp_email = $this->settings->getSmtpEmail();
+        $this->smtp_password = $this->settings->getSmtpPassword();
+
         $database = new Database();
         $this->conn = $database->dbConnection();
     }
@@ -18,6 +30,26 @@ class MAIN
         return $stmt;
     }
 
+    function send_email($email, $message, $subject, $smtp_email, $smtp_password){
+        $mail = new PHPMailer();
+        $mail->isSMTP();
+        $mail->SMTPDebug = 0;
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = "tls";
+        $mail->Host ="smtp.gmail.com";
+        $mail->Port = 587;
+        $mail->addAddress($email);
+        $mail->Username = $smtp_email;
+        $mail->Password = $smtp_password;
+        $mail->setFrom($smtp_email, "Dental Care Clinic");
+        $mail->Subject = $subject;
+
+        $logopath = __DIR__.'/../src/img/icon.png';
+        $mail->addEmbeddedImage($logopath,'logo');
+
+        $mail->msgHTML($message);
+        $mail->Send();
+    }
     
     public function addAppointment($fullname, $age, $birthday, $phone_number, $address, $pref_appointment, $additional_info)
     {
@@ -84,6 +116,24 @@ class MAIN
                 
                 $updateStmt = $this->runQuery("UPDATE patients SET status = 'accepted' WHERE id = :id");
                 $updateStmt->execute([':id' => $id]);
+
+                // $email = $patient['email'];
+                // $subject = "Appointment Accepted - Dental Care Clinic";
+                // $message = "
+                //     <h1>Appointment Confirmation</h1>
+                //     <p>Dear {$patient['fullname']},</p>
+                //     <p>We are pleased to inform you that your appointment request has been accepted.</p>
+                //     <p><strong>Details:</strong></p>
+                //     <ul>
+                //         <li><strong>Preferred Appointment Date:</strong> {$patient['pref_appointment']}</li>
+                //         <li><strong>Additional Information:</strong> {$patient['additional_info']}</li>
+                //     </ul>
+                //     <p>We look forward to serving you.</p>
+                //     <p>Regards,<br>Dental Care Clinic</p>
+                //     <img src='cid:logo' alt='Dental Care Clinic' style='width:100px;'>
+                // ";
+
+                // $this->send_email($email, $message, $subject, $this->smtp_email, $this->smtp_password);
             }
         } catch (PDOException $ex) {
             echo $ex->getMessage();

@@ -23,6 +23,9 @@
     $acceptedAppointments = $appointmentData['acceptedAppointments'];
     $totalAcceptedAppointments = $appointmentData['total'];
 
+    // $notifyAP = $main->acceptAppointment($id);
+    // $mailerAppointment = $notifyAP['pref_appointment'];
+    
     $logsData = $main->getAppointmentLogs();
     $logs = $logsData['logs'];
     $totalLogs = $logsData['total'];

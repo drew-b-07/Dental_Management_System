@@ -65,8 +65,6 @@ class USER{
                 'password' => $password,
                 'otp' => $otp
             ];
-
-            $_SESSION['userSession'] = true;
     
         } catch (PDOException $e) {
             echo "<script>alert('An error occurred during sign up. Please try again.'); window.location.href = '../';</script>";

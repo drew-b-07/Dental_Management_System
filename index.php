@@ -2,6 +2,9 @@
 require_once __DIR__ ."/config/settings-configuration.php";
 require_once 'dashboard/user-class.php';
 
+unset($_SESSION['userSession']);
+// unset($_SESSION['adminSession']);
+
     if(isset($_SESSION["userSession"])) {
         echo "<script>alert('user is logged in.'); window.location.href = './dashboard/user/home.php';</script>";
         exit;
@@ -12,8 +15,8 @@ require_once 'dashboard/user-class.php';
         exit;
     }
 
-    unset($_SESSION['userSession']);
-    unset($_SESSION['adminSession']);
+unset($_SESSION['userSession']);
+unset($_SESSION['adminSession']);
 ?>
 
 <!DOCTYPE html>

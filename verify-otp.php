@@ -6,7 +6,7 @@ if (!isset($_SESSION['userSession'])) {
     exit();
 }
 
-unset($_SESSION['userSession']);
+// unset($_SESSION['userSession']);
 ?>
 
 <!DOCTYPE html>
